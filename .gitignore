@@ -1,0 +1,16 @@
+logs
+project/project
+project/target
+target
+tmp
+.history
+dist
+bin/
+data/
+dist/
+logs/
+test-result/
+tmp/
+.target
+.classpath
+.settings

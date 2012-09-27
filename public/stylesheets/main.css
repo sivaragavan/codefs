@@ -1,0 +1,203 @@
+/* header */
+
+/*#header {
+ margin: 0 auto;
+ width: 100%;
+ background: #222222;
+ }
+ #header img {
+ height: 40px;
+ padding-top: 5px;
+ }*/
+
+/* library */
+
+#library {
+	margin: 0px auto;
+	width: 100%;
+	height: 0px;
+	background: #222222;
+}
+#library img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin: 0px auto;
+}
+
+/* info */
+
+#info {
+	width: 100%;
+	height: 50px;
+	display: block;
+	background-color: #444;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+#newslogo {
+	width: 30px;
+	margin: 10px;
+	float: left;
+}
+#newsheadline {
+	padding: 15px;
+}
+#estTime {
+	padding: 10px;
+	float: right;
+	font-size: small;
+}
+
+/* content */
+
+#content {
+	width: 100%;
+	height: 150px;
+	margin: 0 auto;
+	display: none;
+}
+
+#images {
+	height: 150px;
+	width: 150px;
+	float: left;
+}
+
+#images img {
+	height: 100%;
+	width: 100%;
+}
+
+#details {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: medium;
+	color: #666666;
+	height: 150px;
+	padding: 10px;
+	width: auto;
+	overflow: scroll;
+}
+
+*html #details {
+	float: left;
+}
+/* comment */
+
+#comment {
+	width: 100%;
+	height: 20px;
+	display: block;
+	color: #fff;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: smaller;
+	background-color: #444;
+}
+#commentHead {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+	height: 100%;
+	background-color: #222222;
+}
+#commentAlert {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 5px;
+	height: 100%;
+	background-color: #237abf;
+	color: #222;
+}
+
+/* footer */
+
+#footer {
+	margin: 0 auto;
+	width: 100%;
+	height: 40px;
+	background: #444444;
+}
+.play {
+	width: 40px;
+	height: 40px;
+	float: left;
+	display: block;
+	background-color: #222;
+	cursor: pointer;
+}
+.play img {
+	margin: 5px;
+	width: 30px;
+}
+.transcript {
+	width: 40px;
+	height: 40px;
+	float: right;
+	display: block;
+	background-color: #222;
+	cursor: pointer;
+}
+.transcript img {
+	margin: 5px;
+	width: 30px;
+}
+#progressArea {
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 40px 0 40px;
+	cursor: pointer;
+	background-color: #333;
+}
+#prog {
+	width: 10px;
+	height: 20px;
+	left: 50px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: absolute;
+	bottom: 0px;
+	display: none;
+	background-color: #ddd;
+}
+.ui-progressbar {
+	margin: 0 auto;
+	background: #222222;
+	height: 10px;
+	border: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-khtml-border-radius: 0px;
+	border-radius: 0px;
+}
+.ui-progressbar-value {
+	background: #237abf;
+	width: 0%;
+	margin: 0 auto;
+	height: 5px;
+	border: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-khtml-border-radius: 0px;
+	border-radius: 0px;
+}
+
+/* Hidden divs */
+#players {
+	display: none;
+}
+#comet-container {
+	display: none;
+}
+
+/* global */
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body {
+	height: 100%;
+	overflow: hidden;
+}

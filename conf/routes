@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /user/login                 controllers.Application.login(email: String)
+GET     /user/post                 	controllers.Application.post(userId: String)
+GET     /user/follow                controllers.Application.follow(followerId : String, followeeId : String)
+GET     /user/list                	controllers.Application.list()
+GET     /user/feed                	controllers.Application.feed(userId: String, page: Integer)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
