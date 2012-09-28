@@ -10,6 +10,11 @@ import com.mongodb.DBObject;
 
 public class Application extends Controller {
 
+	public static Result index() throws Exception {
+
+		return ok("Testing");
+	}
+	
 	public static Result login(String email) throws Exception {
 
 		DBObject user = User.getUserByEmail(email);

@@ -2,12 +2,16 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Home page
-GET     /user/login                 controllers.Application.login(email: String)
-GET     /user/post                 	controllers.Application.post(userId: String)
-GET     /user/follow                controllers.Application.follow(followerId : String, followeeId : String)
-GET     /user/list                	controllers.Application.list()
-GET     /user/feed                	controllers.Application.feed(userId: String, page: Integer)
+# Web Pages
+GET     /                 				controllers.Application.index()
+#GET     /dashboard                 		controllers.Application.dashboard(projectId: String)
+
+# APIs
+#GET     /project/create                 controllers.Application.create(projectName : String, emailId : String)
+#GET     /project/users                  controllers.Application.userList(projectId : String)
+#POST    /project/users                  controllers.Application.userAdd(projectId : String, emailId : String, message : String)
+#GET     /project/artifacts				 controllers.Application.artiList(projectId : String)
+#POST    /project/artifacts              controllers.Application.artiAdd(projectId : String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
