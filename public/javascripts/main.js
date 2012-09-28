@@ -1,3 +1,16 @@
+function onLoad() {
+
+	$("#createProject").click(function() {
+		$.ajax({
+			url : "/project/create?projectName=" + $('#projectName').val() + "&emailId=" + $('#emailId').val()
+		}).done(function (data) {
+			console.log("Create Response", data);
+			var Json = eval("(" + data + ")");
+			window.location.href = "/dashboard?projectId=" + Json.id;
+		});
+	});
+}
+
 myPlayerArray = {};
 myTextArray = {};
 stopped = true;
@@ -15,73 +28,16 @@ function pageSetup() {
 	}
 }
 
-function onLoad() {
-	$("#jquery_jplayer_intro").jPlayer({
-		ready : function(event) {
-			$(this).jPlayer("setMedia", {
-				wav : "/assets/images/intro.wav"
-			});
-			$(this).jPlayer("play");
-		},
-		swfPath : "http://www.jplayer.org/2.1.0/js",
-		solution : 'html, flash',
-		supplied : "wav"
-	});
-
-	$("#comet-container").html('<iframe id="comet" src="/article/parse?url=' + window.location.hash.substring(1) + '"></iframe>');
-
-	$("#play").click(function() {
-		if (!paused) {
-			pause();
-		} else {
-			play(current);
-		}
-	});
-
-	$("#transcript").click(function() {
-		if (!transcript) {
-			transcript = true;
-			$('#content').show();
-			pageSetup();
-		} else {
-			transcript = false;
-			$('#content').hide();
-			pageSetup();
-		}
-	});
-
-	$("#progressBar").click(function(e) {
-		var maxWidth = $(this).css("width").slice(0, -2);
-		var clickPos = e.pageX - this.offsetLeft;
-		var pos = Math.floor(clickPos / progSize);
-		if (pos != current) {
-			pause();
-			play(pos);
-		}
-	});
-
-	$("#progressBar").mousemove(function(e) {
-		var maxWidth = $(this).css("width").slice(0, -2);
-		var clickPos = e.pageX - this.offsetLeft;
-		var pos = Math.floor(clickPos / progSize);
-		if (pos != current) {
-			comment = true;
-			$('#comment').html('<span id="commentAlert">Read from</span>' + myPlayerArray["text_" + pos]);
-		} else {
-			clearComment();
-		}
-	}).mouseout(function() {
-		clearComment();
-	});
-
-}
-
 function clearComment() {
 	comment = false;
 	if (!paused) {
-		$('#comment').html('<span id="commentHead">Reading</span>' + myPlayerArray["text_" + current]);
+		$('#comment').html(
+				'<span id="commentHead">Reading</span>'
+						+ myPlayerArray["text_" + current]);
 	} else {
-		$('#comment').html('<span id="commentHead">Paused</span>' + myPlayerArray["text_" + current]);
+		$('#comment').html(
+				'<span id="commentHead">Paused</span>'
+						+ myPlayerArray["text_" + current]);
 	}
 }
 
@@ -91,29 +47,30 @@ var onEvent = function(event) {
 
 	switch (eventJson.event_name) {
 
-		case "parse_result":
-			initPlayer(eventJson);
-			break;
+	case "parse_result":
+		initPlayer(eventJson);
+		break;
 
-		case "parse_complete":
-			initPlayer(eventJson);
-			// for (var i = 0; i < eventJson.totalLength; i++) {
-			// insertAudio(i, eventJson.id);
-			// }
-			// play(0);
-			break;
+	case "parse_complete":
+		initPlayer(eventJson);
+		// for (var i = 0; i < eventJson.totalLength; i++) {
+		// insertAudio(i, eventJson.id);
+		// }
+		// play(0);
+		break;
 
-		case "audio_ready":
-			insertAudio(eventJson.index, eventJson.id, eventJson.text);
-			if (stopped && !paused) {
-				play(eventJson.index);
-			}
-			break;
+	case "audio_ready":
+		insertAudio(eventJson.index, eventJson.id, eventJson.text);
+		if (stopped && !paused) {
+			play(eventJson.index);
+		}
+		break;
 	}
 }
 function insertAudio(i, id, text) {
 
-	$("#players").append('<div id="jquery_jplayer_' + i + '" class="jp-jplayer"></div>');
+	$("#players").append(
+			'<div id="jquery_jplayer_' + i + '" class="jp-jplayer"></div>');
 
 	$("#jquery_jplayer_" + i).jPlayer({
 		swfPath : "http://www.jplayer.org/2.1.0/js",
@@ -129,13 +86,17 @@ function insertAudio(i, id, text) {
 
 	myPlayerArray["jquery_jplayer_" + i] = i;
 
-	$("#jquery_jplayer_" + i).bind($.jPlayer.event.ended, function(event) {
-		if ($("#jquery_jplayer_" + (myPlayerArray[$(this).attr('id')] + 1)).length > 0 && !paused) {
-			play(myPlayerArray[$(this).attr('id')] + 1);
-		} else {
-			stop();
-		}
-	});
+	$("#jquery_jplayer_" + i).bind(
+			$.jPlayer.event.ended,
+			function(event) {
+				if ($("#jquery_jplayer_"
+						+ (myPlayerArray[$(this).attr('id')] + 1)).length > 0
+						&& !paused) {
+					play(myPlayerArray[$(this).attr('id')] + 1);
+				} else {
+					stop();
+				}
+			});
 
 	$("#progressBar").progressbar("value", i + 1);
 }
@@ -152,8 +113,8 @@ function initPlayer(eventJson) {
 	playLength = eventJson.totalLength;
 	progSize = ($(window).width() - 110) / playLength;
 
-	for (var i = 0; i < eventJson.media.length; ++i) {
-		if(eventJson.media[i].hasOwnProperty('primary')) {
+	for ( var i = 0; i < eventJson.media.length; ++i) {
+		if (eventJson.media[i].hasOwnProperty('primary')) {
 			$("#images").html('<img src="' + eventJson.media[i].link + '">');
 		}
 	}

@@ -4,10 +4,10 @@
 
 # Web Pages
 GET     /                 				controllers.Application.index()
-#GET     /dashboard                 		controllers.Application.dashboard(projectId: String)
+GET     /dashboard                 		controllers.Application.dashboard(projectId: String)
 
 # APIs
-#GET     /project/create                 controllers.Application.create(projectName : String, emailId : String)
+GET     /project/create                 controllers.Application.create(projectName : String, emailId : String)
 #GET     /project/users                  controllers.Application.userList(projectId : String)
 #POST    /project/users                  controllers.Application.userAdd(projectId : String, emailId : String, message : String)
 #GET     /project/artifacts				 controllers.Application.artiList(projectId : String)

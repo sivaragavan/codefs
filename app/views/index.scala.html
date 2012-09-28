@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>CodeFS - {code}FS</title>
+
+		<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/jquery-ui-1.8.22.custom.css")">
+		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
+
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="@routes.Assets.at("javascripts/jquery-ui-1.8.22.custom.min.js")"></script>
+		<script src="@routes.Assets.at("javascripts/main.js")"></script>
+
+		<script>
+			$(document).ready(function() {
+				onLoad();
+			});
+		</script>
+	</head>
+	<body>
+
+		<div id="header">
+			<img id="logo" src="@routes.Assets.at("images/logo_web.png")">
+		</div>
+
+		Project Name :
+		<input type="text" id="projectName"/>
+		<br>
+		Email :
+		<input type="text" id="emailId"/>
+		<br>
+		<input type="button" id="createProject" value="Create Project &rarr;"/>
+
+	</body>
+</html>
