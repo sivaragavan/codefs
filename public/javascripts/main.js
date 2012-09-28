@@ -122,7 +122,7 @@ function insertAudio(i, id, text) {
 	});
 
 	$("#jquery_jplayer_" + i).jPlayer("setMedia", {
-		wav : "https://s3.amazonaws.com/com.pocktalk/" + id + "/" + i + ".wav"
+		wav : "https://s3.amazonaws.com/com.codefs/" + id + "/" + i + ".wav"
 	});
 
 	myPlayerArray["text_" + i] = text;
