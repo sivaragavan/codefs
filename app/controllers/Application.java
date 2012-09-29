@@ -28,7 +28,9 @@ import plugins.S3Plugin;
 import views.html.upload;
 
 import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
 
 public class Application extends Controller {
 
@@ -107,10 +109,37 @@ public class Application extends Controller {
 		project.artifacts.add(a);
 		MongoPlugin.ds.save(project);
 
-		try {
-			File f2 = new File(a.id.toString() + "-" + a.artifactName);
+		if (S3Plugin.amazonS3 == null) {
+			Logger.error("Could not save because amazonS3 was null");
+			throw new RuntimeException("Could not save");
+		} else {
+			PutObjectRequest putObjectRequest = new PutObjectRequest(
+					S3Plugin.s3Bucket, a.id.toString() + "/" + a.artifactName,
+					fileFromWeb);
+			putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead);
+			S3Plugin.amazonS3.putObject(putObjectRequest);
+		}
 
-			InputStream in = new FileInputStream(fileFromWeb);
+		JSONObject response = new JSONObject();
+		response.put("artifacts", new JSONArray(project.artifacts.toString()));
+
+		return ok(upload.render());
+	}
+
+	public static Result analyze(String artifactId) throws Exception {
+
+		Artifact a = MongoPlugin.ds.find(Artifact.class).field("_id")
+				.equal(new ObjectId(artifactId)).get();
+
+		try {
+
+			GetObjectRequest rangeObjectRequest = new GetObjectRequest(
+					S3Plugin.s3Bucket, a.id.toString() + "/" + a.artifactName);
+			S3Object s3Object = S3Plugin.amazonS3.getObject(rangeObjectRequest);
+
+			InputStream in = s3Object.getObjectContent();
+
+			File f2 = new File(a.id.toString() + "-" + a.artifactName);
 			OutputStream out = new FileOutputStream(f2);
 
 			byte[] buf = new byte[1024];
@@ -132,10 +161,19 @@ public class Application extends Controller {
 		}
 
 		try {
+
+			String commandName = "findbugs.bat";
+
+			String os = System.getProperty("os.name").toLowerCase();
+			if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0) {
+				commandName = "findbugs";
+			}
+
 			Process p = Runtime.getRuntime().exec(
-					"./findbugs-2.0.1/exec/findbugs -textui -html:plain.xsl "
-							+ a.id.toString() + "-" + a.artifactName + " > "
-							+ a.id.toString() + "-" + a.artifactName + ".html");
+					"./findbugs-2.0.1/exec/" + commandName
+							+ " -textui -html:plain.xsl " + a.id.toString()
+							+ "-" + a.artifactName + " > " + a.id.toString()
+							+ "-" + a.artifactName + ".html");
 			p.waitFor();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					p.getInputStream()));
@@ -163,10 +201,7 @@ public class Application extends Controller {
 			S3Plugin.amazonS3.putObject(putObjectRequest);
 		}
 
-		JSONObject response = new JSONObject();
-		response.put("artifacts", new JSONArray(project.artifacts.toString()));
-
-		return ok(upload.render());
+		return ok();
 	}
 
 	public static Project createProject(String projectName, String email) {
