@@ -133,7 +133,7 @@ public class Application extends Controller {
 
 		try {
 			Process p = Runtime.getRuntime().exec(
-					"./findbugs-2.0.1/exec/findbugs.bat -textui -html:plain.xsl "
+					"./findbugs-2.0.1/exec/findbugs.sh -textui -html:plain.xsl "
 							+ a.id.toString() + "-" + a.artifactName + " > "
 							+ a.id.toString() + "-" + a.artifactName + ".html");
 			p.waitFor();
