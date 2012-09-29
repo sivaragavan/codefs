@@ -8,10 +8,10 @@ GET     /dashboard                 		controllers.Application.dashboard(projectId
 
 # APIs
 GET     /project/create                 controllers.Application.create(projectName : String, emailId : String)
-#GET     /project/users                  controllers.Application.userList(projectId : String)
-#POST    /project/users                  controllers.Application.userAdd(projectId : String, emailId : String, message : String)
-#GET     /project/artifacts				 controllers.Application.artiList(projectId : String)
-#POST    /project/artifacts              controllers.Application.artiAdd(projectId : String)
+GET     /project/users                  controllers.Application.userList(projectId : String)
+GET    /project/users/add                  controllers.Application.userAdd(projectId : String, emailId : String, message : String)
+GET     /project/artifacts				 controllers.Application.artifactList(projectId : String)
+POST    /project/:projectId/artifacts/add              controllers.Application.artifactAdd(projectId : String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -15,11 +15,13 @@ import com.google.code.morphia.annotations.Reference;
 public class Project {
 
 	@Id
-	private ObjectId id;
+	public ObjectId id;
 	public String projectName;
 	@Reference
-	private List<User> users = new ArrayList<User>();
-	private long timestamp;
+	public List<User> users = new ArrayList<User>();
+	@Reference
+	public List<Artifact> artifacts = new ArrayList<Artifact>();
+	public long timestamp;
 
 	public Project() {
 	}
@@ -36,7 +38,6 @@ public class Project {
 			response.put("id", id);
 			response.put("projectName", projectName);
 			response.put("timestamp", timestamp);
-			response.put("users", users);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

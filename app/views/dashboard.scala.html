@@ -14,16 +14,35 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="@routes.Assets.at("javascripts/jquery-ui-1.8.22.custom.min.js")"></script>
-		<script src="@routes.Assets.at("javascripts/main.js")"></script>
+		<script src="@routes.Assets.at("javascripts/dashboard.js")"></script>
 
 		<script>
+			projectId = "@project.id";
 			$(document).ready(function() {
-				//onLoad();
+				onLoad();
 			});
 		</script>
 	</head>
 	<body>
-
+		<h2>@project.projectName</h2>
 		
+		<h3>People</h3>
+		<div id="peopleList"></div>
+		<br>
+		<input type="text" id="emailId"/>
+		<br>
+		<input type="button" id="addUser" value="Add People"/>
+		
+		<h3>Artifacts</h3>
+		<div id="artifactList"></div>
+		<br>
+		<form action="/project/@project.id/artifacts/add" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
+		<input type="file" name="file">
+		<br>
+		<input type="submit" value="Add Artifact"/>
+		</form>
+		<p id="f1_upload_process">Uploading File...</p>
+		<iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>                 
+
 	</body>
 </html>

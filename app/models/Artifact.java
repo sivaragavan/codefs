@@ -6,33 +6,26 @@ import org.json.JSONObject;
 
 import com.google.code.morphia.annotations.Entity;
 import com.google.code.morphia.annotations.Id;
-import com.google.code.morphia.annotations.Reference;
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.WriteConcern;
 
-@Entity("users")
-public class User {
+@Entity("artifacts")
+public class Artifact {
 
 	@Id
 	public ObjectId id;
-	public String emailId;
+	public String artifactName;
 
-	public User() {
-
+	public Artifact() {
 	}
-
-	public User(String emailId) {
-		this.emailId = emailId;
+	
+	public Artifact(String artifactName) {
+		this.artifactName = artifactName;
 	}
 
 	public String toString() {
 		JSONObject response = new JSONObject();
 		try {
 			response.put("id", id);
-			response.put("emailId", emailId);
+			response.put("artifactName", artifactName);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

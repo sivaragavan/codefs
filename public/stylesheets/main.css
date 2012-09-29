@@ -9,6 +9,10 @@ html, body {
 	overflow: hidden;
 }
 
+#f1_upload_process{
+   visibility:hidden;
+}
+
 /* header */
 
 /*#header {

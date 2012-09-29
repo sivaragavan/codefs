@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FindBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+		</style>
+</head>
+<body>
+<h1>FindBugs Report</h1>
+<p>Produced using <a href="http://findbugs.sourceforge.net">FindBugs</a>2.0.1.</p>
+<p>Project: 
+			</p>
+<h2>Metrics</h2>
+<p>1384 lines of code analyzed,
+	in 13 classes, 
+	in 1 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right"/>
+<td align="right">NaN</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">3</td>
+<td align="right">2.17</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>3</b>
+</td>
+<td align="right">
+<b>2.17</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Summary</h2>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</td>
+<td align="right">1</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</td>
+<td align="right">2</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>3</b>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h1>Warnings</h1>
+<p>Click on each warning link to see a full description of the issue, and
+	    details of how to resolve it.</p>
+<h2>
+<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#IT_NO_SUCH_ELEMENT">Iterator next() method can't throw NoSuchElementException</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>org.objectweb.asm.tree.analysis.SmallSet.next() can't throw NoSuchElementException<br/>
+<br/>
+<br/>In file ,
+					
+						lines 
+						    to <br/>In class org.objectweb.asm.tree.analysis.SmallSet<br/>In method org.objectweb.asm.tree.analysis.SmallSet.next()<br/>In &lt;Unknown&gt;</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="Warnings_MALICIOUS_CODE">Malicious code vulnerability Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#EI_EXPOSE_REP">May expose internal representation by returning reference to mutable object</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>org.objectweb.asm.tree.analysis.Analyzer.analyze(String, MethodNode) may expose internal representation by returning Analyzer.frames<br/>
+<br/>
+<br/>In file ,
+					
+						lines 
+						    to <br/>In class org.objectweb.asm.tree.analysis.Analyzer<br/>In method org.objectweb.asm.tree.analysis.Analyzer.analyze(String, MethodNode)<br/>Field org.objectweb.asm.tree.analysis.Analyzer.frames<br/>In &lt;Unknown&gt;</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#EI_EXPOSE_REP">May expose internal representation by returning reference to mutable object</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>org.objectweb.asm.tree.analysis.Analyzer.getFrames() may expose internal representation by returning Analyzer.frames<br/>
+<br/>
+<br/>In file ,
+					
+						lines 
+						    to <br/>In class org.objectweb.asm.tree.analysis.Analyzer<br/>In method org.objectweb.asm.tree.analysis.Analyzer.getFrames()<br/>Field org.objectweb.asm.tree.analysis.Analyzer.frames<br/>In &lt;Unknown&gt;</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h1>
+<a name="Details">Warning Types</a>
+</h1>
+<h2>
+<a name="EI_EXPOSE_REP">May expose internal representation by returning reference to mutable object</a>
+</h2>
+
+  <p> Returning a reference to a mutable object value stored in one of the object's fields
+  exposes the internal representation of the object.&nbsp;
+   If instances
+   are accessed by untrusted code, and unchecked changes to
+   the mutable object would compromise security or other
+   important properties, you will need to do something different.
+  Returning a new copy of the object is better approach in many situations.</p>
+
+    
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="IT_NO_SUCH_ELEMENT">Iterator next() method can't throw NoSuchElementException</a>
+</h2>
+
+  <p> This class implements the <code>java.util.Iterator</code> interface.&nbsp;
+  However, its <code>next()</code> method is not capable of throwing
+  <code>java.util.NoSuchElementException</code>.&nbsp; The <code>next()</code>
+  method should be changed so it throws <code>NoSuchElementException</code>
+  if is called when there are no more elements to return.</p>
+
+    
+<p>
+<br/>
+<br/>
+</p>
+</body>
+</html>
