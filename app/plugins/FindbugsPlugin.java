@@ -1,5 +1,7 @@
 package plugins;
 
+import io.iron.ironmq.Message;
+
 import java.io.IOException;
 
 import models.Artifact;
@@ -32,6 +34,14 @@ public class FindbugsPlugin extends Plugin {
 	public static void put(Artifact a) {
 		try {
 			IronMQPlugin.getFindbugsQueue().push(a.id.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void delete(Message m) {
+		try {
+			IronMQPlugin.getFindbugsQueue().deleteMessage(m);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

@@ -137,6 +137,8 @@ public class FindbugsThread implements Runnable {
 					MongoPlugin.ds.save(a);
 				}
 
+				FindbugsPlugin.delete(m);
+
 				System.out.println("Analyzing Complete : " + a.id);
 
 			} else {
