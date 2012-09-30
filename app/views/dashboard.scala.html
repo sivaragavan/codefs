@@ -27,21 +27,21 @@
 		<h2>@project.projectName</h2>
 		
 		<h3>People</h3>
+		<input type="text" id="emailId"/>
+		<input type="button" id="addUser" value="Add People"/>
 		<div id="peopleList"></div>
 		<br>
-		<input type="text" id="emailId"/>
-		<br>
-		<input type="button" id="addUser" value="Add People"/>
 		
 		<h3>Artifacts</h3>
-		<div id="artifactList"></div>
-		<br>
 		<form action="/project/@project.id/artifacts/add" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
+		Only .jar/.class files allowed.<br>
 		<input type="file" name="file">
-		<br>
 		<input type="submit" value="Add Artifact"/>
 		</form>
 		<p id="f1_upload_process">Uploading File...</p>
+		<div id="artifactList"></div>
+		<br>
+
 		<iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>                 
 
 	</body>
