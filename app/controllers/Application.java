@@ -2,7 +2,6 @@ package controllers;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,10 +18,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import play.Logger;
+import play.Play;
 import play.mvc.Controller;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
 import play.mvc.Result;
+import plugins.FindbugsPlugin;
 import plugins.MongoPlugin;
 import plugins.S3Plugin;
 import views.html.upload;
@@ -94,11 +95,13 @@ public class Application extends Controller {
 	}
 
 	public static Result artifactAdd(String projectId) throws Exception {
+
 		MultipartFormData body = request().body().asMultipartFormData();
 		FilePart filePart = body.getFile("file");
 		String fileName = filePart.getFilename();
 		File fileFromWeb = filePart.getFile();
-		System.out.println(fileName);
+
+		System.out.println("Received File : " + fileName);
 
 		Artifact a = new Artifact(fileName);
 		MongoPlugin.ds.save(a);
@@ -108,6 +111,8 @@ public class Application extends Controller {
 
 		project.artifacts.add(a);
 		MongoPlugin.ds.save(project);
+
+		System.out.println("Uploading to S3 : " + a.id);
 
 		if (S3Plugin.amazonS3 == null) {
 			Logger.error("Could not save because amazonS3 was null");
@@ -120,88 +125,13 @@ public class Application extends Controller {
 			S3Plugin.amazonS3.putObject(putObjectRequest);
 		}
 
-		JSONObject response = new JSONObject();
-		response.put("artifacts", new JSONArray(project.artifacts.toString()));
+		System.out.println("FindBugs analyze start : " + a.id);
+
+		FindbugsPlugin.put(a);
+
+		System.out.println("Responding to Add Artifact : " + a.id);
 
 		return ok(upload.render());
-	}
-
-	public static Result analyze(String artifactId) throws Exception {
-
-		Artifact a = MongoPlugin.ds.find(Artifact.class).field("_id")
-				.equal(new ObjectId(artifactId)).get();
-
-		try {
-
-			GetObjectRequest rangeObjectRequest = new GetObjectRequest(
-					S3Plugin.s3Bucket, a.id.toString() + "/" + a.artifactName);
-			S3Object s3Object = S3Plugin.amazonS3.getObject(rangeObjectRequest);
-
-			InputStream in = s3Object.getObjectContent();
-
-			File f2 = new File(a.id.toString() + "-" + a.artifactName);
-			OutputStream out = new FileOutputStream(f2);
-
-			byte[] buf = new byte[1024];
-			int len;
-
-			while ((len = in.read(buf)) > 0) {
-				out.write(buf, 0, len);
-			}
-
-			System.out.println(f2.getAbsolutePath());
-
-			in.close();
-			out.close();
-		} catch (FileNotFoundException ex) {
-			System.out
-					.println(ex.getMessage() + " in the specified directory.");
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-
-		try {
-
-			String commandName = "findbugs.bat";
-
-			String os = System.getProperty("os.name").toLowerCase();
-			if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0) {
-				commandName = "findbugs";
-			}
-
-			Process p = Runtime.getRuntime().exec(
-					"./findbugs-2.0.1/exec/" + commandName
-							+ " -textui -html:plain.xsl " + a.id.toString()
-							+ "-" + a.artifactName + " > " + a.id.toString()
-							+ "-" + a.artifactName + ".html");
-			p.waitFor();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					p.getInputStream()));
-			String line = reader.readLine();
-			while (line != null) {
-				System.out.println(line);
-				line = reader.readLine();
-			}
-
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (InterruptedException e2) {
-			e2.printStackTrace();
-		}
-
-		if (S3Plugin.amazonS3 == null) {
-			Logger.error("Could not save because amazonS3 was null");
-			throw new RuntimeException("Could not save");
-		} else {
-			File f3 = new File(a.id.toString() + "-" + a.artifactName + ".html");
-			PutObjectRequest putObjectRequest = new PutObjectRequest(
-					S3Plugin.s3Bucket, a.id.toString() + "/" + a.artifactName
-							+ ".html", f3);
-			putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead);
-			S3Plugin.amazonS3.putObject(putObjectRequest);
-		}
-
-		return ok();
 	}
 
 	public static Project createProject(String projectName, String email) {

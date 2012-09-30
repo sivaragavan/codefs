@@ -59,7 +59,7 @@ function stopUpload(data){
 			document.getElementById('f1_upload_process').style.visibility = 'hidden';
     		var Json = eval("(" + data + ")");
 			jQuery.each(Json.artifacts, function() {
-				$('#artifactList').append('<p>' + this.artifactName + "</p>");	
+				$('#artifactList').append('<p><a href="' + this.findBugsReport + '">' + this.artifactName + "</a></p>");	
 			});
 		});
     			

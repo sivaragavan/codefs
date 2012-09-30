@@ -13,10 +13,11 @@ public class Artifact {
 	@Id
 	public ObjectId id;
 	public String artifactName;
+	public String findBugsReport;
 
 	public Artifact() {
 	}
-	
+
 	public Artifact(String artifactName) {
 		this.artifactName = artifactName;
 	}
@@ -26,6 +27,7 @@ public class Artifact {
 		try {
 			response.put("id", id);
 			response.put("artifactName", artifactName);
+			response.put("findBugsReport", findBugsReport);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
