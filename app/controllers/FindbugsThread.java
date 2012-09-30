@@ -132,7 +132,7 @@ public class FindbugsThread implements Runnable {
 					S3Plugin.amazonS3.putObject(putObjectRequest);
 
 					a.findBugsReport = "https://s3.amazonaws.com/"
-							+ S3Plugin.s3Bucket + "/" + a.id.toString() + "-"
+							+ S3Plugin.s3Bucket + "/" + a.id.toString() + "/"
 							+ a.artifactName + ".html";
 					MongoPlugin.ds.save(a);
 				}

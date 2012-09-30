@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>FindBugs Report</title>
+<style type="text/css">
+		.tablerow0 {
+			background: #EEEEEE;
+		}
+
+		.tablerow1 {
+			background: white;
+		}
+
+		.detailrow0 {
+			background: #EEEEEE;
+		}
+
+		.detailrow1 {
+			background: white;
+		}
+
+		.tableheader {
+			background: #b9b9fe;
+			font-size: larger;
+		}
+		</style>
+</head>
+<body>
+<h1>FindBugs Report</h1>
+<p>Produced using <a href="http://findbugs.sourceforge.net">FindBugs</a>2.0.1.</p>
+<p>Project: 
+			</p>
+<h2>Metrics</h2>
+<p>613 lines of code analyzed,
+	in 12 classes, 
+	in 1 packages.</p>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Metric</th>
+<th align="right">Total</th>
+<th align="right">Density*</th>
+</tr>
+<tr class="tablerow0">
+<td>High Priority Warnings</td>
+<td align="right">13</td>
+<td align="right">21.21</td>
+</tr>
+<tr class="tablerow1">
+<td>Medium Priority Warnings</td>
+<td align="right">3</td>
+<td align="right">4.89</td>
+</tr>
+<tr class="$totalClass">
+<td>
+<b>Total Warnings</b>
+</td>
+<td align="right">
+<b>16</b>
+</td>
+<td align="right">
+<b>26.10</b>
+</td>
+</tr>
+</table>
+<p>
+<i>(* Defects per Thousand lines of non-commenting source statements)</i>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h2>Summary</h2>
+<table width="500" cellpadding="5" cellspacing="2">
+<tr class="tableheader">
+<th align="left">Warning Type</th>
+<th align="right">Number</th>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</td>
+<td align="right">3</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<a href="#Warnings_CORRECTNESS">Correctness Warnings</a>
+</td>
+<td align="right">10</td>
+</tr>
+<tr class="tablerow0">
+<td>
+<a href="#Warnings_STYLE">Dodgy code Warnings</a>
+</td>
+<td align="right">3</td>
+</tr>
+<tr class="tablerow1">
+<td>
+<b>Total</b>
+</td>
+<td align="right">
+<b>16</b>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h1>Warnings</h1>
+<p>Click on each warning link to see a full description of the issue, and
+	    details of how to resolve it.</p>
+<h2>
+<a name="Warnings_BAD_PRACTICE">Bad practice Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_USES_NEWLINE">Format string should use %n rather than \n</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>Format string should use %n rather than \n in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 20<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>Called method String.format(String, Object[])<br/>Format string "%d\n"<br/>At FormatterRuntimeTest.java:[line 20]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_USES_NEWLINE">Format string should use %n rather than \n</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>Format string should use %n rather than \n in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 21<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>Called method String.format(String, Object[])<br/>Format string "%f\n"<br/>At FormatterRuntimeTest.java:[line 21]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_USES_NEWLINE">Format string should use %n rather than \n</a>
+</td>
+<td width="10%" valign="top">Medium</td>
+<td width="70%">
+<p>Format string should use %n rather than \n in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testDateMismatch()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 76<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testDateMismatch()<br/>Called method java.io.PrintStream.printf(String, Object[])<br/>Format string "%tY\n"<br/>At FormatterRuntimeTest.java:[line 76]</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="Warnings_CORRECTNESS">Correctness Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_BAD_CONVERSION">The type of a supplied argument doesn't match format specifier</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Argument of type String can't be handled by format specifier %d in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.stringWhereIntegerExpected()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 27<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.stringWhereIntegerExpected()<br/>Called method String.format(String, Object[])<br/>Actual type String<br/>Format specifier "%d"<br/>Format string "%d"<br/>String constant "test"<br/>At FormatterRuntimeTest.java:[line 27]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_BAD_CONVERSION">The type of a supplied argument doesn't match format specifier</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Argument of type String can't be handled by format specifier %tY in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testDateMismatch()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 76<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testDateMismatch()<br/>Called method java.io.PrintStream.printf(String, Object[])<br/>Actual type String<br/>Format specifier "%tY"<br/>Format string "%tY\n"<br/>String constant "2008"<br/>At FormatterRuntimeTest.java:[line 76]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_ILLEGAL">Illegal format string</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Illegal format string "%Y" in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.formatDateWithY()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 45<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.formatDateWithY()<br/>Called method String.format(String, Object[])<br/>Format string "%Y"<br/>At FormatterRuntimeTest.java:[line 45]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_MISSING_ARGUMENT">Format string references missing argument</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>format string "%s" needs argument 2 but only 1 are provided in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.notEnoughParameters()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 32<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.notEnoughParameters()<br/>Called method String.format(String, Object[])<br/>Format specifier "%s"<br/>Format string "%s%s"<br/>Expected 2 arguments<br/>Found 1 arguments<br/>At FormatterRuntimeTest.java:[line 32]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_NO_PREVIOUS_ARGUMENT">No previous argument for format string</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>No previous argument for format string argument to String.format(String, Object[]) in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testBug1874856TruePositive()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 68<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.testBug1874856TruePositive()<br/>Called method String.format(String, Object[])<br/>Format specifier "%&lt;te"<br/>Format string "s5 Duke's Birthday: %&lt;te, %te %&lt;tY %te %12$tm "<br/>At FormatterRuntimeTest.java:[line 68]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#RV_RETURN_VALUE_IGNORED">Method ignores return value</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>return value of String.format(String, Object[]) ignored in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.formatDateWithY()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 45<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.formatDateWithY()<br/>Called method String.format(String, Object[])<br/>At FormatterRuntimeTest.java:[line 45]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#RV_RETURN_VALUE_IGNORED">Method ignores return value</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>return value of String.format(String, Object[]) ignored in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.notEnoughParameters()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 32<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.notEnoughParameters()<br/>Called method String.format(String, Object[])<br/>At FormatterRuntimeTest.java:[line 32]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#RV_RETURN_VALUE_IGNORED">Method ignores return value</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>return value of String.format(String, Object[]) ignored in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 18<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.shouldWork()<br/>Called method String.format(String, Object[])<br/>At FormatterRuntimeTest.java:[line 18]<br/>Another occurrence at FormatterRuntimeTest.java:[line 20]<br/>Another occurrence at FormatterRuntimeTest.java:[line 21]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#RV_RETURN_VALUE_IGNORED">Method ignores return value</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>return value of String.format(String, Object[]) ignored in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.stringWhereIntegerExpected()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 27<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.stringWhereIntegerExpected()<br/>Called method String.format(String, Object[])<br/>At FormatterRuntimeTest.java:[line 27]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_BAD_CONVERSION_FROM_ARRAY">Array formatted in useless way using format string</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Argument of type int[] formatted in useless way in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.passingAnArray()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 36<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.passingAnArray()<br/>Called method java.io.PrintStream.printf(String, Object[])<br/>Actual type int[]<br/>Format specifier "%s"<br/>Format string "%s"<br/>At FormatterRuntimeTest.java:[line 36]</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="Warnings_STYLE">Dodgy code Warnings</a>
+</h2>
+<table class="warningtable" width="100%" cellspacing="2" cellpadding="5">
+<tr class="tableheader">
+<th align="left">Warning</th>
+<th align="left">Priority</th>
+<th align="left">Details</th>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#DLS_DEAD_LOCAL_STORE">Dead store to local variable</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Dead store to c in edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest.testBug1874856FalsePositive()<br/>
+<br/>
+<br/>In file FormatterCompileTimeTest.java,
+					
+						line 56<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest.testBug1874856FalsePositive()<br/>Local variable named c<br/>At FormatterCompileTimeTest.java:[line 56]</p>
+</td>
+</tr>
+<tr class="tablerow0">
+<td width="20%" valign="top">
+<a href="#DLS_DEAD_LOCAL_STORE">Dead store to local variable</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Dead store to c in edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest.testBug1874856TruePositive()<br/>
+<br/>
+<br/>In file FormatterCompileTimeTest.java,
+					
+						line 67<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterCompileTimeTest.testBug1874856TruePositive()<br/>Local variable named c<br/>At FormatterCompileTimeTest.java:[line 67]</p>
+</td>
+</tr>
+<tr class="tablerow1">
+<td width="20%" valign="top">
+<a href="#VA_FORMAT_STRING_BAD_CONVERSION_TO_BOOLEAN">Non-Boolean argument formatted using %b format specifier</a>
+</td>
+<td width="10%" valign="top">High</td>
+<td width="70%">
+<p>Non-Boolean argument formatted using %b format specifier in edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.passingAnIntToABoolean()<br/>
+<br/>
+<br/>In file FormatterRuntimeTest.java,
+					
+						line 40<br/>In class edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest<br/>In method edu.umd.cs.findbugs.formatStringChecker.FormatterRuntimeTest.passingAnIntToABoolean()<br/>Called method java.io.PrintStream.printf(String, Object[])<br/>Actual type Integer<br/>Format specifier "%b"<br/>Format string "%b"<br/>Return value of Integer.valueOf(int)<br/>At FormatterRuntimeTest.java:[line 40]</p>
+</td>
+</tr>
+</table>
+<p>
+<br/>
+<br/>
+</p>
+<p>
+<br/>
+<br/>
+</p>
+<h1>
+<a name="Details">Warning Types</a>
+</h1>
+<h2>
+<a name="DLS_DEAD_LOCAL_STORE">Dead store to local variable</a>
+</h2>
+
+<p>
+This instruction assigns a value to a local variable,
+but the value is not read or used in any subsequent instruction.
+Often, this indicates an error, because the value computed is never
+used.
+</p>
+<p>
+Note that Sun's javac compiler often generates dead stores for
+final local variables.  Because FindBugs is a bytecode-based tool,
+there is no easy way to eliminate these false positives.
+</p>
+
+    
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_MISSING_ARGUMENT">Format string references missing argument</a>
+</h2>
+
+<p>
+Not enough arguments are passed to satisfy a placeholder in the format string.
+A runtime exception will occur when
+this statement is executed.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_USES_NEWLINE">Format string should use %n rather than \n</a>
+</h2>
+
+<p>
+This format string include a newline character (\n). In format strings, it is generally
+ preferable better to use %n, which will produce the platform-specific line separator.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_ILLEGAL">Illegal format string</a>
+</h2>
+
+<p>
+The format string is syntactically invalid,
+and a runtime exception will occur when
+this statement is executed.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_BAD_CONVERSION_TO_BOOLEAN">Non-Boolean argument formatted using %b format specifier</a>
+</h2>
+
+<p>
+An argument not of type Boolean is being formatted with a %b format specifier. This won't throw an
+exception; instead, it will print true for any nonnull value, and false for null.
+This feature of format strings is strange, and may not be what you intended.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_NO_PREVIOUS_ARGUMENT">No previous argument for format string</a>
+</h2>
+
+<p>
+The format string specifies a relative index to request that the argument for the previous format specifier
+be reused. However, there is no previous argument.
+For example,
+</p>
+<p><code>formatter.format("%&lt;s %s", "a", "b")</code>
+</p>
+<p>would throw a MissingFormatArgumentException when executed.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_BAD_CONVERSION">The type of a supplied argument doesn't match format specifier</a>
+</h2>
+
+<p>
+One of the arguments is uncompatible with the corresponding format string specifier.
+As a result, this will generate a runtime exception when executed.
+For example, <code>String.format("%d", "1")</code> will generate an exception, since
+the String "1" is incompatible with the format specifier %d.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="RV_RETURN_VALUE_IGNORED">Method ignores return value</a>
+</h2>
+
+   <p> The return value of this method should be checked. One common
+cause of this warning is to invoke a method on an immutable object,
+thinking that it updates the object. For example, in the following code
+fragment,</p>
+<blockquote>
+<pre>
+String dateString = getHeaderField(name);
+dateString.trim();
+</pre>
+</blockquote>
+<p>the programmer seems to be thinking that the trim() method will update
+the String referenced by dateString. But since Strings are immutable, the trim()
+function returns a new String value, which is being ignored here. The code
+should be corrected to: </p>
+<blockquote>
+<pre>
+String dateString = getHeaderField(name);
+dateString = dateString.trim();
+</pre>
+</blockquote>
+
+    
+<p>
+<br/>
+<br/>
+</p>
+<h2>
+<a name="VA_FORMAT_STRING_BAD_CONVERSION_FROM_ARRAY">Array formatted in useless way using format string</a>
+</h2>
+
+<p>
+One of the arguments being formatted with a format string is an array. This will be formatted
+using a fairly useless format, such as [I@304282, which doesn't actually show the contents
+of the array.
+Consider wrapping the array using <code>Arrays.asList(...)</code> before handling it off to a formatted.
+</p>
+
+     
+<p>
+<br/>
+<br/>
+</p>
+</body>
+</html>

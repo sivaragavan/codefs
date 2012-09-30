@@ -16,7 +16,18 @@ function onLoad() {
 			console.log("Artifacts List Response", data);
 			var Json = eval("(" + data + ")");
 			jQuery.each(Json.artifacts, function() {
-				$('#artifactList').append('<p><a href="https://s3.amazonaws.com/com.codefs/' + this.id + '/' + this.artifactName + '.html">' + this.artifactName + "</a></p>");	
+				if(this.findBugsReport)
+				{
+					$('#artifactList').append('<p>'
+											+ this.artifactName
+											+ ' <a href="' + this.findBugsReport + '">' + 'Findbugs Report</a>' 
+											+ '</p>');
+				} else {
+					$('#artifactList').append('<p>'
+											+ this.artifactName
+											+ ' <i>Generating Findbugs Report</i>' 
+											+ '</p>');
+				}	
 			});
 		});
 		
@@ -59,7 +70,18 @@ function stopUpload(data){
 			document.getElementById('f1_upload_process').style.visibility = 'hidden';
     		var Json = eval("(" + data + ")");
 			jQuery.each(Json.artifacts, function() {
-				$('#artifactList').append('<p><a href="' + this.findBugsReport + '">' + this.artifactName + "</a></p>");	
+				if(this.findBugsReport)
+				{
+					$('#artifactList').append('<p>'
+											+ this.artifactName
+											+ ' <a href="' + this.findBugsReport + '">' + 'Findbugs Report</a>' 
+											+ '</p>');
+				} else {
+					$('#artifactList').append('<p>'
+											+ this.artifactName
+											+ ' <i>Generating Findbugs Report</i>' 
+											+ '</p>');
+				}	
 			});
 		});
     			
