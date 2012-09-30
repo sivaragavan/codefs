@@ -96,7 +96,7 @@ public class FindbugsThread implements Runnable {
 
 					Process p = Runtime.getRuntime().exec(
 							"./findbugs-2.0.1/exec/" + commandName
-									+ " -textui -html:plain.xsl " + " -output "
+									+ " -textui -html:fancy-hist.xsl " + " -output "
 									+ a.id.toString() + "-" + a.artifactName
 									+ ".html " + a.id.toString() + "-"
 									+ a.artifactName);
