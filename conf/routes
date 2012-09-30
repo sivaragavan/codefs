@@ -12,7 +12,6 @@ GET     /project/users                  controllers.Application.userList(project
 GET    /project/users/add                  controllers.Application.userAdd(projectId : String, emailId : String, message : String)
 GET     /project/artifacts				 controllers.Application.artifactList(projectId : String)
 POST    /project/:projectId/artifacts/add              controllers.Application.artifactAdd(projectId : String)
-GET     /analyze                 		controllers.Application.analyze(artifactId: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
