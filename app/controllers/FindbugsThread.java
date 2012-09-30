@@ -17,6 +17,7 @@ import org.bson.types.ObjectId;
 
 import play.Logger;
 import plugins.FindbugsPlugin;
+import plugins.IronMQPlugin;
 import plugins.MongoPlugin;
 import plugins.S3Plugin;
 
@@ -35,7 +36,7 @@ public class FindbugsThread implements Runnable {
 
 			Message m = null;
 			try {
-				m = FindbugsPlugin.queue.get();
+				m = IronMQPlugin.getFindbugsQueue().get();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
