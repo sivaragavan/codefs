@@ -1,3 +1,4 @@
 1500:plugins.S3Plugin
 1500:plugins.MongoPlugin
+1500:plugins.IronMQPlugin
 1500:plugins.FindbugsPlugin
