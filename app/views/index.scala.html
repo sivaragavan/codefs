@@ -9,6 +9,10 @@
 		<link rel="stylesheet" href="@routes.Assets.at("stylesheets/main.css")">
 
 		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Scada' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Orienta' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Nova+Square' rel='stylesheet' type='text/css'>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="@routes.Assets.at("javascripts/jquery-ui-1.8.22.custom.min.js")"></script>
@@ -22,25 +26,32 @@
 	</head>
 	<body>
 
-<!--
+		<!--
 		<div id="header">
-			<img id="logo" src="@routes.Assets.at("images/logo_web.png")">
+		<img id="logo" src="@routes.Assets.at("images/logo_web.png")">
 		</div>
--->
+		-->
 
-		<h2 style="color: #0010FF">{code}FS</h2><br><br>
-		<h3>"Anything that can go wrong will go wrong" - Murphy's Law.</h3><br>
-		Why take chance when you can review and analyze your code with CodeFS.<br><br>
-		Code Reviews can avoid 90% of bugs, performance issues.<br><br>
-		
-		Start Here<br>
-		Project Name :
-		<input type="text" id="projectName"/>
+		<h1 style="font-family: 'Source Sans Pro', sans-serif;color: #000033">{<span style="font-family: 'Source Code Pro', sans-serif;color: #00BB33">code</span>}<i>fs</i></h1>
 		<br>
-		Email :
-		<input type="text" id="emailId"/>
 		<br>
-		<input type="button" id="createProject" value="Create Project &rarr;"/>
+		<div align="center">
+			<h2 style="font-family: 'Nova Square', sans-serif;color: #009900">"Anything that can go wrong will go wrong" - Murphy's law.</h2>
+			<br>
+			Why take chance when you can review and analyze your code with CodeFS.
+			<br>
+			<br>
+			Code Reviews can avoid 90% of bugs, performance issues.
+			<br>
+			<br>
 
+			<h3>Start Here</h3>
+			<br>
+			Project Name :
+			<input type="text" id="projectName"/>
+			Email :
+			<input type="text" id="emailId"/>
+			<input type="button" id="createProject" value="Create Project &rarr;"/>
+		</div>
 	</body>
 </html>
