@@ -1,13 +1,7 @@
 package controllers;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.util.List;
 
 import models.Artifact;
 import models.Project;
@@ -18,7 +12,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import play.Logger;
-import play.Play;
 import play.mvc.Controller;
 import play.mvc.Http.MultipartFormData;
 import play.mvc.Http.MultipartFormData.FilePart;
@@ -26,12 +19,13 @@ import play.mvc.Result;
 import plugins.FindbugsPlugin;
 import plugins.MongoPlugin;
 import plugins.S3Plugin;
+import utils.CodeFSConstants;
 import views.html.upload;
 
 import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.S3Object;
+import com.typesafe.plugin.MailerAPI;
+import com.typesafe.plugin.MailerPlugin;
 
 public class Application extends Controller {
 
@@ -145,6 +139,24 @@ public class Application extends Controller {
 		Project project = new Project(projectName, u);
 		MongoPlugin.ds.save(project);
 
+		sendMail(CodeFSConstants.project_created, "<html>asdasd</html>", "text",
+				project.users);
+
 		return project;
+	}
+
+	public static void sendMail(String subject, String html, String text,
+			List<User> users) {
+		MailerAPI mail = play.Play.application().plugin(MailerPlugin.class)
+				.email();
+		mail.setSubject(subject);
+		java.util.Iterator<User> it = users.iterator();
+
+		while (it.hasNext()) {
+			mail.addRecipient(it.next().emailId);
+		}
+
+		mail.addFrom("CodeFS Notification <codefs.noreply@gmail.com>");
+		mail.send(text, html);
 	}
 }

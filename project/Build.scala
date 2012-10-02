@@ -12,7 +12,8 @@ object ApplicationBuild extends Build {
     	"postgresql" % "postgresql" % "9.1-901-1.jdbc4",
     	"org.mongodb" % "mongo-java-driver" % "2.7.3",
     	"com.google.code.morphia" % "morphia" % "0.99",    	
-    	"com.google.code.morphia" % "morphia-logging-slf4j" % "0.99"
+    	"com.google.code.morphia" % "morphia-logging-slf4j" % "0.99",
+    	"com.typesafe" %% "play-plugins-mailer" % "2.0.4"
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = JAVA).settings(
