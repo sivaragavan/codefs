@@ -4,7 +4,10 @@ import io.iron.ironmq.Message;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
+
 import models.Artifact;
+import models.Project;
 import play.Application;
 import play.Logger;
 import play.Plugin;
@@ -31,10 +34,13 @@ public class FindbugsPlugin extends Plugin {
 		return (application.configuration().getBoolean(FINDBUGS_ENABLE));
 	}
 
-	public static void put(Artifact a) {
+	public static void put(Artifact a, Project p) {
 		try {
-			IronMQPlugin.getFindbugsQueue().push(a.id.toString());
-		} catch (IOException e) {
+			JSONObject request = new JSONObject();
+			request.put("projectId", p.id.toString());
+			request.put("artifactId", a.id.toString());
+			IronMQPlugin.getFindbugsQueue().push(request.toString());
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

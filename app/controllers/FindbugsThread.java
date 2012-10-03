@@ -1,5 +1,6 @@
 package controllers;
 
+import io.iron.ironmq.EmptyQueueException;
 import io.iron.ironmq.Message;
 
 import java.io.BufferedReader;
@@ -12,14 +13,20 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 
 import models.Artifact;
+import models.Project;
 
 import org.bson.types.ObjectId;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import play.Logger;
 import plugins.FindbugsPlugin;
 import plugins.IronMQPlugin;
 import plugins.MongoPlugin;
 import plugins.S3Plugin;
+import utils.CodeFSConstants;
+import utils.Mailer;
+import views.html.emails.artifactfbcompleted;
 
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.GetObjectRequest;
@@ -37,14 +44,29 @@ public class FindbugsThread implements Runnable {
 			Message m = null;
 			try {
 				m = IronMQPlugin.getFindbugsQueue().get();
+			} catch (EmptyQueueException e1) {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 			if (m != null) {
-				String artifactId = m.getBody();
+				String jsonString = m.getBody();
+				String artifactId = null;
+				String projectId = null;
+				try {
+					JSONObject json = new JSONObject(jsonString);
+					artifactId = json.getString("artifactId");
+					projectId = json.getString("projectId");
+				} catch (JSONException e3) {
+					e3.printStackTrace();
+				}
 
 				System.out.println("Analyzing : " + artifactId);
+
+				System.out.println(projectId);
+
+				Project project = MongoPlugin.ds.find(Project.class)
+						.field("_id").equal(new ObjectId(projectId)).get();
 
 				Artifact a = MongoPlugin.ds.find(Artifact.class).field("_id")
 						.equal(new ObjectId(artifactId)).get();
@@ -90,7 +112,11 @@ public class FindbugsThread implements Runnable {
 					String commandName = "findbugs.bat";
 
 					String os = System.getProperty("os.name").toLowerCase();
-					if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0) {
+
+					System.out.println(os);
+
+					if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0
+							|| os.indexOf("mac") >= 0) {
 						commandName = "findbugs";
 					}
 
@@ -138,6 +164,12 @@ public class FindbugsThread implements Runnable {
 				}
 
 				FindbugsPlugin.delete(m);
+
+				System.out.println(project.users);
+
+				Mailer.sendMail(CodeFSConstants.artifact_findbugs_completed,
+						artifactfbcompleted.render(project, a).toString(),
+						"Project Created", project.users);
 
 				System.out.println("Analyzing Complete : " + a.id);
 

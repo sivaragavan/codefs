@@ -20,7 +20,11 @@ import plugins.FindbugsPlugin;
 import plugins.MongoPlugin;
 import plugins.S3Plugin;
 import utils.CodeFSConstants;
+import utils.Mailer;
 import views.html.upload;
+import views.html.emails.artifactadded;
+import views.html.emails.projectcreated;
+import views.html.emails.useradded;
 
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -28,6 +32,8 @@ import com.typesafe.plugin.MailerAPI;
 import com.typesafe.plugin.MailerPlugin;
 
 public class Application extends Controller {
+
+	// Views
 
 	public static Result index() throws Exception {
 		return ok(views.html.index.render());
@@ -40,9 +46,25 @@ public class Application extends Controller {
 		return ok(views.html.dashboard.render(project));
 	}
 
+	// APIs
+
 	public static Result create(String projectName, String email)
 			throws Exception {
-		Project project = createProject(projectName, email);
+
+		User u = MongoPlugin.ds.find(User.class).field("emailId").equal(email)
+				.get();
+		if (u == null) {
+			u = new User(email);
+			MongoPlugin.ds.save(u);
+		}
+
+		Project project = new Project(projectName, u);
+		MongoPlugin.ds.save(project);
+
+		Mailer.sendMail(CodeFSConstants.project_created,
+				projectcreated.render(project).toString(), "Project Created",
+				project.users);
+
 		return ok(project.toString());
 	}
 
@@ -71,6 +93,9 @@ public class Application extends Controller {
 
 		project.users.add(u);
 		MongoPlugin.ds.save(project);
+
+		Mailer.sendMail(CodeFSConstants.user_added, useradded
+				.render(project, u).toString(), "User Added", project.users);
 
 		JSONObject response = new JSONObject();
 		response.put("users", new JSONArray(project.users.toString()));
@@ -121,42 +146,15 @@ public class Application extends Controller {
 
 		System.out.println("FindBugs analyze start : " + a.id);
 
-		FindbugsPlugin.put(a);
+		FindbugsPlugin.put(a, project);
 
 		System.out.println("Responding to Add Artifact : " + a.id);
+
+		Mailer.sendMail(CodeFSConstants.artifact_added,
+				artifactadded.render(project, a).toString(), "Project Created",
+				project.users);
 
 		return ok(upload.render());
 	}
 
-	public static Project createProject(String projectName, String email) {
-		User u = MongoPlugin.ds.find(User.class).field("emailId").equal(email)
-				.get();
-		if (u == null) {
-			u = new User(email);
-			MongoPlugin.ds.save(u);
-		}
-
-		Project project = new Project(projectName, u);
-		MongoPlugin.ds.save(project);
-
-		sendMail(CodeFSConstants.project_created, "<html>asdasd</html>", "text",
-				project.users);
-
-		return project;
-	}
-
-	public static void sendMail(String subject, String html, String text,
-			List<User> users) {
-		MailerAPI mail = play.Play.application().plugin(MailerPlugin.class)
-				.email();
-		mail.setSubject(subject);
-		java.util.Iterator<User> it = users.iterator();
-
-		while (it.hasNext()) {
-			mail.addRecipient(it.next().emailId);
-		}
-
-		mail.addFrom("CodeFS Notification <codefs.noreply@gmail.com>");
-		mail.send(text, html);
-	}
 }
