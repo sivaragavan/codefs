@@ -1,0 +1,1109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.1" sequence="0" timestamp="1349331089000" analysisTimestamp="1349331090673" release="">
+  <Project projectName="">
+    <Jar>506d28805201cd2699b9d3d0-commons-net-3.0.1.jar</Jar>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.PrintCommandListener">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="200" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.PrintCommandListener" name="&lt;init&gt;" signature="(Ljava/io/PrintStream;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="51" startBytecode="0" endBytecode="68" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="93" end="94" startBytecode="0" endBytecode="34" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="50" startBytecode="6" endBytecode="6" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.PrintCommandListener">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="200" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.PrintCommandListener" name="&lt;init&gt;" signature="(Ljava/io/PrintStream;Z)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="63" end="64" startBytecode="0" endBytecode="79" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="93" end="94" startBytecode="0" endBytecode="34" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="63" end="63" startBytecode="6" endBytecode="6" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.PrintCommandListener">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="200" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.PrintCommandListener" name="&lt;init&gt;" signature="(Ljava/io/PrintStream;ZC)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="77" end="78" startBytecode="0" endBytecode="90" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="93" end="94" startBytecode="0" endBytecode="34" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="77" end="77" startBytecode="6" endBytecode="6" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.PrintCommandListener">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="50" end="200" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.PrintCommandListener" name="&lt;init&gt;" signature="(Ljava/io/PrintStream;ZCZ)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="92" end="93" startBytecode="0" endBytecode="102" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="93" end="94" startBytecode="0" endBytecode="34" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.PrintCommandListener" start="92" end="92" startBytecode="6" endBytecode="6" sourcefile="PrintCommandListener.java" sourcepath="org/apache/commons/net/PrintCommandListener.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.bsd.RCommandClient">
+      <SourceLine classname="org.apache.commons.net.bsd.RCommandClient" start="117" end="400" sourcefile="RCommandClient.java" sourcepath="org/apache/commons/net/bsd/RCommandClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.bsd.RCommandClient" name="_createErrorStream" signature="()Ljava/io/InputStream;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.bsd.RCommandClient" start="117" end="153" startBytecode="0" endBytecode="326" sourcefile="RCommandClient.java" sourcepath="org/apache/commons/net/bsd/RCommandClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.bsd.RCommandClient" start="138" end="138" startBytecode="70" endBytecode="70" sourcefile="RCommandClient.java" sourcepath="org/apache/commons/net/bsd/RCommandClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.bsd.RExecClient">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="90" end="287" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.bsd.RExecClient" name="_createErrorStream" signature="()Ljava/io/InputStream;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="90" end="107" startBytecode="0" endBytecode="217" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="92" end="92" startBytecode="25" endBytecode="25" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.bsd.RExecClient">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="90" end="287" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.bsd.RExecClient" name="rexec" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="204" end="235" startBytecode="0" endBytecode="346" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="213" end="213" startBytecode="29" endBytecode="29" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.bsd.RExecClient">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="90" end="287" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.bsd.RExecClient" name="rexec" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="204" end="235" startBytecode="0" endBytecode="346" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="215" end="215" startBytecode="48" endBytecode="48" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.bsd.RExecClient">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="90" end="287" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.bsd.RExecClient" name="rexec" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="204" end="235" startBytecode="0" endBytecode="346" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.bsd.RExecClient" start="217" end="217" startBytecode="67" endBytecode="67" sourcefile="RExecClient.java" sourcepath="org/apache/commons/net/bsd/RExecClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.daytime.DaytimeTCPClient">
+      <SourceLine classname="org.apache.commons.net.daytime.DaytimeTCPClient" start="47" end="87" sourcefile="DaytimeTCPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeTCPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.daytime.DaytimeTCPClient" name="getTime" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.daytime.DaytimeTCPClient" start="74" end="87" startBytecode="0" endBytecode="168" sourcefile="DaytimeTCPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeTCPClient.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.daytime.DaytimeTCPClient" start="77" end="77" startBytecode="25" endBytecode="25" sourcefile="DaytimeTCPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeTCPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.daytime.DaytimeUDPClient">
+      <SourceLine classname="org.apache.commons.net.daytime.DaytimeUDPClient" start="44" end="79" sourcefile="DaytimeUDPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeUDPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.daytime.DaytimeUDPClient" name="getTime" signature="(Ljava/net/InetAddress;I)Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.daytime.DaytimeUDPClient" start="66" end="73" startBytecode="0" endBytecode="170" sourcefile="DaytimeUDPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeUDPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([BII)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="568" end="574" startBytecode="0" endBytecode="84" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.daytime.DaytimeUDPClient" start="73" end="73" startBytecode="69" endBytecode="69" sourcefile="DaytimeUDPClient.java" sourcepath="org/apache/commons/net/daytime/DaytimeUDPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.finger.FingerClient">
+      <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="62" end="193" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.finger.FingerClient" name="getInputStream" signature="(ZLjava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="162" end="175" startBytecode="0" endBytecode="245" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="168" end="168" startBytecode="47" endBytecode="47" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.finger.FingerClient">
+      <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="62" end="193" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.finger.FingerClient" name="query" signature="(ZLjava/lang/String;)Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="87" end="106" startBytecode="0" endBytecode="241" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.finger.FingerClient" start="90" end="90" startBytecode="28" endBytecode="28" sourcefile="FingerClient.java" sourcepath="org/apache/commons/net/finger/FingerClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPHTTPClient">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPHTTPClient" start="48" end="145" sourcefile="FTPHTTPClient.java" sourcepath="org/apache/commons/net/ftp/FTPHTTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPHTTPClient" name="tunnelHandshake" signature="(Ljava/lang/String;ILjava/io/InputStream;Ljava/io/OutputStream;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPHTTPClient" start="101" end="145" startBytecode="0" endBytecode="757" sourcefile="FTPHTTPClient.java" sourcepath="org/apache/commons/net/ftp/FTPHTTPClient.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPHTTPClient" start="113" end="113" startBytecode="183" endBytecode="183" sourcefile="FTPHTTPClient.java" sourcepath="org/apache/commons/net/ftp/FTPHTTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPListParseEngine">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPListParseEngine" start="77" end="305" sourcefile="FTPListParseEngine.java" sourcepath="org/apache/commons/net/ftp/FTPListParseEngine.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPListParseEngine" name="readStream" signature="(Ljava/io/InputStream;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPListParseEngine" start="123" end="140" startBytecode="0" endBytecode="212" sourcefile="FTPListParseEngine.java" sourcepath="org/apache/commons/net/ftp/FTPListParseEngine.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPListParseEngine" start="125" end="125" startBytecode="13" endBytecode="13" sourcefile="FTPListParseEngine.java" sourcepath="org/apache/commons/net/ftp/FTPListParseEngine.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPSClient">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="57" end="756" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSClient" name="execADAT" signature="([B)I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="634" end="640" startBytecode="0" endBytecode="88" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="636" end="636" startBytecode="15" endBytecode="15" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPSClient">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="57" end="756" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSClient" name="execCONF" signature="([B)I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="700" end="706" startBytecode="0" endBytecode="90" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="702" end="702" startBytecode="15" endBytecode="15" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPSClient">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="57" end="756" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSClient" name="execENC" signature="([B)I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="720" end="726" startBytecode="0" endBytecode="90" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="722" end="722" startBytecode="15" endBytecode="15" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.ftp.FTPSClient">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="57" end="756" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSClient" name="execMIC" signature="([B)I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="680" end="686" startBytecode="0" endBytecode="90" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSClient" start="682" end="682" startBytecode="15" endBytecode="15" sourcefile="FTPSClient.java" sourcepath="org/apache/commons/net/ftp/FTPSClient.java"/>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.net.ftp.FTPSServerSocketFactory">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSServerSocketFactory" start="37" end="71" sourcefile="FTPSServerSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSServerSocketFactory.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSServerSocketFactory" name="init" signature="(Ljava/net/ServerSocket;)Ljava/net/ServerSocket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSServerSocketFactory" start="70" end="71" startBytecode="0" endBytecode="5" sourcefile="FTPSServerSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSServerSocketFactory.java"/>
+    </Method>
+    <Type descriptor="Ljava/net/ServerSocket;" role="TYPE_FOUND">
+      <SourceLine classname="java.net.ServerSocket" start="35" end="815" sourcefile="ServerSocket.java" sourcepath="java/net/ServerSocket.java"/>
+    </Type>
+    <Type descriptor="Ljavax/net/ssl/SSLServerSocket;" role="TYPE_EXPECTED">
+      <SourceLine classname="javax.net.ssl.SSLServerSocket" start="52" end="106" sourcefile="SSLServerSocket.java" sourcepath="javax/net/ssl/SSLServerSocket.java"/>
+    </Type>
+    <LocalVariable name="socket" register="1" pc="0" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSServerSocketFactory" start="70" end="70" startBytecode="1" endBytecode="1" sourcefile="FTPSServerSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSServerSocketFactory.java"/>
+  </BugInstance>
+  <BugInstance type="BC_UNCONFIRMED_CAST" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.net.ftp.FTPSSocketFactory">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSSocketFactory" start="38" end="94" sourcefile="FTPSSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSSocketFactory.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.FTPSSocketFactory" name="init" signature="(Ljava/net/ServerSocket;)Ljava/net/ServerSocket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.FTPSSocketFactory" start="93" end="94" startBytecode="0" endBytecode="5" sourcefile="FTPSSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSSocketFactory.java"/>
+    </Method>
+    <Type descriptor="Ljava/net/ServerSocket;" role="TYPE_FOUND">
+      <SourceLine classname="java.net.ServerSocket" start="35" end="815" sourcefile="ServerSocket.java" sourcepath="java/net/ServerSocket.java"/>
+    </Type>
+    <Type descriptor="Ljavax/net/ssl/SSLServerSocket;" role="TYPE_EXPECTED">
+      <SourceLine classname="javax.net.ssl.SSLServerSocket" start="52" end="106" sourcefile="SSLServerSocket.java" sourcepath="javax/net/ssl/SSLServerSocket.java"/>
+    </Type>
+    <LocalVariable name="socket" register="1" pc="0" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.apache.commons.net.ftp.FTPSSocketFactory" start="93" end="93" startBytecode="1" endBytecode="1" sourcefile="FTPSSocketFactory.java" sourcepath="org/apache/commons/net/ftp/FTPSSocketFactory.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" start="40" end="70" sourcefile="CompositeFileEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/CompositeFileEntryParser.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" name="&lt;init&gt;" signature="([Lorg/apache/commons/net/ftp/FTPFileEntryParser;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" start="40" end="44" startBytecode="0" endBytecode="78" sourcefile="CompositeFileEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/CompositeFileEntryParser.java"/>
+    </Method>
+    <Field classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" name="ftpFileEntryParsers" signature="[Lorg/apache/commons/net/ftp/FTPFileEntryParser;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" sourcefile="CompositeFileEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/CompositeFileEntryParser.java"/>
+    </Field>
+    <LocalVariable name="ftpFileEntryParsers" register="1" pc="11" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" start="43" end="43" startBytecode="11" endBytecode="11" sourcefile="CompositeFileEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/CompositeFileEntryParser.java"/>
+  </BugInstance>
+  <BugInstance type="BC_VACUOUS_INSTANCEOF" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl" start="59" end="106" sourcefile="ConfigurableFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/ConfigurableFTPFileEntryParserImpl.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl" name="configure" signature="(Lorg/apache/commons/net/ftp/FTPClientConfig;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl" start="92" end="106" startBytecode="0" endBytecode="36" sourcefile="ConfigurableFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/ConfigurableFTPFileEntryParserImpl.java"/>
+    </Method>
+    <Type descriptor="Lorg/apache/commons/net/ftp/parser/FTPTimestampParserImpl;" role="TYPE_FOUND">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.FTPTimestampParserImpl" start="46" end="300" sourcefile="FTPTimestampParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/FTPTimestampParserImpl.java"/>
+    </Type>
+    <Type descriptor="Lorg/apache/commons/net/ftp/Configurable;" role="TYPE_EXPECTED">
+      <SourceLine classname="org.apache.commons.net.ftp.Configurable" sourcefile="Configurable.java" sourcepath="org/apache/commons/net/ftp/Configurable.java"/>
+    </Type>
+    <SourceLine classname="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl" start="92" end="92" startBytecode="4" endBytecode="4" sourcefile="ConfigurableFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/ConfigurableFTPFileEntryParserImpl.java"/>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" priority="2" abbrev="RCN" category="STYLE">
+    <Class classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" start="43" end="152" sourcefile="RegexFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/RegexFTPFileEntryParserImpl.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" name="setRegex" signature="(Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" start="147" end="152" startBytecode="0" endBytecode="137" sourcefile="RegexFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/RegexFTPFileEntryParserImpl.java"/>
+    </Method>
+    <Field classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" name="pattern" signature="Ljava/util/regex/Pattern;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" sourcefile="RegexFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/RegexFTPFileEntryParserImpl.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" start="152" end="152" startBytecode="43" endBytecode="43" sourcefile="RegexFTPFileEntryParserImpl.java" sourcepath="org/apache/commons/net/ftp/parser/RegexFTPFileEntryParserImpl.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.net.ftp.parser.UnixFTPEntryParser">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.UnixFTPEntryParser" start="60" end="310" sourcefile="UnixFTPEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/UnixFTPEntryParser.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.ftp.parser.UnixFTPEntryParser" name="parseFTPEntry" signature="(Ljava/lang/String;)Lorg/apache/commons/net/ftp/FTPFile;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.ftp.parser.UnixFTPEntryParser" start="168" end="299" startBytecode="0" endBytecode="988" sourcefile="UnixFTPEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/UnixFTPEntryParser.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.ftp.parser.UnixFTPEntryParser" start="210" end="215" startBytecode="216" endBytecode="218" sourcefile="UnixFTPEntryParser.java" sourcepath="org/apache/commons/net/ftp/parser/UnixFTPEntryParser.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="152" end="152" startBytecode="91" endBytecode="91" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="179" end="179" startBytecode="244" endBytecode="244" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="190" end="190" startBytecode="287" endBytecode="287" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="195" end="195" startBytecode="311" endBytecode="311" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="152" end="152" startBytecode="85" endBytecode="85" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="169" end="169" startBytecode="152" endBytecode="152" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="171" end="171" startBytecode="174" endBytecode="174" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="173" end="173" startBytecode="180" endBytecode="180" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="190" end="190" startBytecode="281" endBytecode="281" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.imap.AuthenticatingIMAPClient">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="42" end="222" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" name="auth" signature="(Lorg/apache/commons/net/imap/AuthenticatingIMAPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="143" end="204" startBytecode="0" endBytecode="599" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.imap.AuthenticatingIMAPClient" start="195" end="195" startBytecode="305" endBytecode="305" sourcefile="AuthenticatingIMAPClient.java" sourcepath="org/apache/commons/net/imap/AuthenticatingIMAPClient.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.net.io.DotTerminatedMessageWriter">
+      <SourceLine classname="org.apache.commons.net.io.DotTerminatedMessageWriter" start="57" end="212" sourcefile="DotTerminatedMessageWriter.java" sourcepath="org/apache/commons/net/io/DotTerminatedMessageWriter.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.io.DotTerminatedMessageWriter" name="write" signature="(I)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.io.DotTerminatedMessageWriter" start="77" end="101" startBytecode="0" endBytecode="276" sourcefile="DotTerminatedMessageWriter.java" sourcepath="org/apache/commons/net/io/DotTerminatedMessageWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.io.DotTerminatedMessageWriter" start="79" end="94" startBytecode="8" endBytecode="111" sourcefile="DotTerminatedMessageWriter.java" sourcepath="org/apache/commons/net/io/DotTerminatedMessageWriter.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.io.FromNetASCIIInputStream">
+      <SourceLine classname="org.apache.commons.net.io.FromNetASCIIInputStream" start="41" end="206" sourcefile="FromNetASCIIInputStream.java" sourcepath="org/apache/commons/net/io/FromNetASCIIInputStream.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.io.FromNetASCIIInputStream" name="&lt;clinit&gt;" signature="()V" isStatic="true">
+      <SourceLine classname="org.apache.commons.net.io.FromNetASCIIInputStream" start="41" end="44" startBytecode="0" endBytecode="64" sourcefile="FromNetASCIIInputStream.java" sourcepath="org/apache/commons/net/io/FromNetASCIIInputStream.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.io.FromNetASCIIInputStream" start="43" end="43" startBytecode="22" endBytecode="22" sourcefile="FromNetASCIIInputStream.java" sourcepath="org/apache/commons/net/io/FromNetASCIIInputStream.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.net.io.ToNetASCIIOutputStream">
+      <SourceLine classname="org.apache.commons.net.io.ToNetASCIIOutputStream" start="47" end="116" sourcefile="ToNetASCIIOutputStream.java" sourcepath="org/apache/commons/net/io/ToNetASCIIOutputStream.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.io.ToNetASCIIOutputStream" name="write" signature="(I)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.io.ToNetASCIIOutputStream" start="67" end="80" startBytecode="0" endBytecode="156" sourcefile="ToNetASCIIOutputStream.java" sourcepath="org/apache/commons/net/io/ToNetASCIIOutputStream.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.io.ToNetASCIIOutputStream" start="67" end="75" startBytecode="1" endBytecode="58" sourcefile="ToNetASCIIOutputStream.java" sourcepath="org/apache/commons/net/io/ToNetASCIIOutputStream.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
+    <Class classname="org.apache.commons.net.nntp.ArticlePointer">
+      <SourceLine classname="org.apache.commons.net.nntp.ArticlePointer" start="30" end="30" sourcefile="ArticlePointer.java" sourcepath="org/apache/commons/net/nntp/ArticlePointer.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.nntp.ArticlePointer" name="articleId" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.nntp.ArticlePointer" sourcefile="ArticlePointer.java" sourcepath="org/apache/commons/net/nntp/ArticlePointer.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.nntp.NNTPClient" start="1724" end="1724" startBytecode="9" endBytecode="9" sourcefile="NNTPClient.java" sourcepath="org/apache/commons/net/nntp/NNTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
+    <Class classname="org.apache.commons.net.nntp.ArticlePointer">
+      <SourceLine classname="org.apache.commons.net.nntp.ArticlePointer" start="30" end="30" sourcefile="ArticlePointer.java" sourcepath="org/apache/commons/net/nntp/ArticlePointer.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.nntp.ArticlePointer" name="articleNumber" signature="I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.nntp.ArticlePointer" sourcefile="ArticlePointer.java" sourcepath="org/apache/commons/net/nntp/ArticlePointer.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.nntp.NNTPClient" start="1725" end="1725" startBytecode="18" endBytecode="18" sourcefile="NNTPClient.java" sourcepath="org/apache/commons/net/nntp/NNTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="ES_COMPARING_STRINGS_WITH_EQ" priority="2" abbrev="ES" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.net.nntp.Threader">
+      <SourceLine classname="org.apache.commons.net.nntp.Threader" start="34" end="430" sourcefile="Threader.java" sourcepath="org/apache/commons/net/nntp/Threader.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.nntp.Threader" name="gatherSubjects" signature="()V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.nntp.Threader" start="285" end="416" startBytecode="0" endBytecode="267" sourcefile="Threader.java" sourcepath="org/apache/commons/net/nntp/Threader.java"/>
+    </Method>
+    <Type descriptor="Ljava/lang/String;" role="TYPE_FOUND">
+      <SourceLine classname="java.lang.String" start="92" end="2973" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Type>
+    <String value="" role="STRING_CONSTANT"/>
+    <LocalVariable name="subj" register="5" pc="92" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.apache.commons.net.nntp.Threader" start="305" end="305" startBytecode="94" endBytecode="94" sourcefile="Threader.java" sourcepath="org/apache/commons/net/nntp/Threader.java"/>
+    <SourceLine classname="org.apache.commons.net.nntp.Threader" start="347" end="347" startBytecode="258" endBytecode="258" sourcefile="Threader.java" sourcepath="org/apache/commons/net/nntp/Threader.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+    <Property name="edu.umd.cs.findbugs.detect.RefComparisonWarningProperty.EMPTY_AND_UNKNOWN" value="true"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="89" end="89" startBytecode="91" endBytecode="91" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="109" end="109" startBytecode="228" endBytecode="228" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="89" end="89" startBytecode="85" endBytecode="85" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="99" end="99" startBytecode="136" endBytecode="136" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="101" end="101" startBytecode="158" endBytecode="158" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.ExtendedPOP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="47" end="130" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.ExtendedPOP3Client" name="auth" signature="(Lorg/apache/commons/net/pop3/ExtendedPOP3Client$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="83" end="111" startBytecode="0" endBytecode="422" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.ExtendedPOP3Client" start="103" end="103" startBytecode="164" endBytecode="164" sourcefile="ExtendedPOP3Client.java" sourcepath="org/apache/commons/net/pop3/ExtendedPOP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.pop3.POP3Client">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3Client" start="52" end="536" sourcefile="POP3Client.java" sourcepath="org/apache/commons/net/pop3/POP3Client.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.pop3.POP3Client" name="login" signature="(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3Client" start="188" end="212" startBytecode="0" endBytecode="376" sourcefile="POP3Client.java" sourcepath="org/apache/commons/net/pop3/POP3Client.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.pop3.POP3Client" start="193" end="193" startBytecode="38" endBytecode="38" sourcefile="POP3Client.java" sourcepath="org/apache/commons/net/pop3/POP3Client.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
+    <Class classname="org.apache.commons.net.pop3.POP3MessageInfo">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="54" end="81" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.pop3.POP3MessageInfo" name="identifier" signature="Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="80" end="80" startBytecode="16" endBytecode="16" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
+    <Class classname="org.apache.commons.net.pop3.POP3MessageInfo">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="54" end="81" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.pop3.POP3MessageInfo" name="number" signature="I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="78" end="78" startBytecode="6" endBytecode="6" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" priority="2" abbrev="UrF" category="STYLE">
+    <Class classname="org.apache.commons.net.pop3.POP3MessageInfo">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="54" end="81" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.pop3.POP3MessageInfo" name="size" signature="I" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.pop3.POP3MessageInfo" start="79" end="79" startBytecode="11" endBytecode="11" sourcefile="POP3MessageInfo.java" sourcepath="org/apache/commons/net/pop3/POP3MessageInfo.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="175" end="175" startBytecode="67" endBytecode="67" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="197" end="197" startBytecode="209" endBytecode="209" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="204" end="204" startBytecode="241" endBytecode="241" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="&lt;init&gt;" signature="([B)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="593" end="594" startBytecode="0" endBytecode="36" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="206" end="206" startBytecode="267" endBytecode="267" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="175" end="175" startBytecode="61" endBytecode="61" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="187" end="187" startBytecode="117" endBytecode="117" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="189" end="189" startBytecode="139" endBytecode="139" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="191" end="191" startBytecode="145" endBytecode="145" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="204" end="204" startBytecode="235" endBytecode="235" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="48" end="227" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" name="auth" signature="(Lorg/apache/commons/net/smtp/AuthenticatingSMTPClient$AUTH_METHOD;Ljava/lang/String;Ljava/lang/String;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="169" end="209" startBytecode="0" endBytecode="476" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.smtp.AuthenticatingSMTPClient" start="206" end="206" startBytecode="261" endBytecode="261" sourcefile="AuthenticatingSMTPClient.java" sourcepath="org/apache/commons/net/smtp/AuthenticatingSMTPClient.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.telnet.Telnet">
+      <SourceLine classname="org.apache.commons.net.telnet.Telnet" start="38" end="1268" sourcefile="Telnet.java" sourcepath="org/apache/commons/net/telnet/Telnet.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.telnet.Telnet" name="_sendTerminalType" signature="()V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.telnet.Telnet" start="744" end="752" startBytecode="0" endBytecode="124" sourcefile="Telnet.java" sourcepath="org/apache/commons/net/telnet/Telnet.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.telnet.Telnet" start="748" end="748" startBytecode="35" endBytecode="35" sourcefile="Telnet.java" sourcepath="org/apache/commons/net/telnet/Telnet.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.net.tftp.TFTPDataPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="82" end="251" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPDataPacket" name="getData" signature="()[B" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="251" end="251" startBytecode="0" endBytecode="46" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Method>
+    <Field classname="org.apache.commons.net.tftp.TFTPDataPacket" name="_data" signature="[B" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="251" end="251" startBytecode="4" endBytecode="4" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.net.tftp.TFTPDataPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="82" end="251" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPDataPacket" name="&lt;init&gt;" signature="(Ljava/net/InetAddress;II[BII)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="82" end="92" startBytecode="0" endBytecode="178" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Method>
+    <Field classname="org.apache.commons.net.tftp.TFTPDataPacket" name="_data" signature="[B" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Field>
+    <LocalVariable name="data" register="4" pc="15" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="85" end="85" startBytecode="15" endBytecode="15" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.net.tftp.TFTPDataPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="82" end="251" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPDataPacket" name="setData" signature="([BII)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="212" end="220" startBytecode="0" endBytecode="133" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Method>
+    <Field classname="org.apache.commons.net.tftp.TFTPDataPacket" name="_data" signature="[B" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+    </Field>
+    <LocalVariable name="data" register="1" pc="2" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPDataPacket" start="212" end="212" startBytecode="2" endBytecode="2" sourcefile="TFTPDataPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPDataPacket.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.tftp.TFTPErrorPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="90" end="223" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPErrorPacket" name="_newDatagram" signature="(Ljava/net/DatagramPacket;[B)Ljava/net/DatagramPacket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="151" end="167" startBytecode="0" endBytecode="211" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="158" end="158" startBytecode="50" endBytecode="50" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.tftp.TFTPErrorPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="90" end="223" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPErrorPacket" name="newDatagram" signature="()Ljava/net/DatagramPacket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="189" end="201" startBytecode="0" endBytecode="184" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPErrorPacket" start="197" end="197" startBytecode="56" endBytecode="56" sourcefile="TFTPErrorPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPErrorPacket.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.tftp.TFTPRequestPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="56" end="248" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPRequestPacket" name="_newDatagram" signature="(Ljava/net/DatagramPacket;[B)Ljava/net/DatagramPacket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="182" end="197" startBytecode="0" endBytecode="227" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="187" end="187" startBytecode="35" endBytecode="35" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.net.tftp.TFTPRequestPacket">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="56" end="248" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.tftp.TFTPRequestPacket" name="newDatagram" signature="()Ljava/net/DatagramPacket;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="217" end="228" startBytecode="0" endBytecode="197" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+    </Method>
+    <Method classname="java.lang.String" name="getBytes" signature="()[B" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.lang.String" start="986" end="986" startBytecode="0" endBytecode="39" sourcefile="String.java" sourcepath="java/lang/String.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.tftp.TFTPRequestPacket" start="223" end="223" startBytecode="42" endBytecode="42" sourcefile="TFTPRequestPacket.java" sourcepath="org/apache/commons/net/tftp/TFTPRequestPacket.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.net.util.Base64">
+      <SourceLine classname="org.apache.commons.net.util.Base64" start="77" end="1044" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.util.Base64" name="decode" signature="([BII)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.util.Base64" start="537" end="584" startBytecode="0" endBytecode="600" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.util.Base64" start="573" end="580" startBytecode="258" endBytecode="381" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.net.util.Base64">
+      <SourceLine classname="org.apache.commons.net.util.Base64" start="77" end="1044" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+    </Class>
+    <Method classname="org.apache.commons.net.util.Base64" name="encode" signature="([BII)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.util.Base64" start="451" end="511" startBytecode="0" endBytecode="894" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.net.util.Base64" start="461" end="478" startBytecode="49" endBytecode="303" sourcefile="Base64.java" sourcepath="org/apache/commons/net/util/Base64.java"/>
+  </BugInstance>
+  <BugInstance type="SE_BAD_FIELD" priority="2" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.net.util.ListenerList">
+      <SourceLine classname="org.apache.commons.net.util.ListenerList" start="35" end="61" sourcefile="ListenerList.java" sourcepath="org/apache/commons/net/util/ListenerList.java"/>
+    </Class>
+    <Field classname="org.apache.commons.net.util.ListenerList" name="__listeners" signature="Ljava/util/concurrent/CopyOnWriteArrayList;" isStatic="false">
+      <SourceLine classname="org.apache.commons.net.util.ListenerList" sourcefile="ListenerList.java" sourcepath="org/apache/commons/net/util/ListenerList.java"/>
+    </Field>
+    <Type descriptor="Ljava/util/EventListener;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.EventListener" sourcefile="EventListener.java" sourcepath="java/util/EventListener.java"/>
+    </Type>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 4 Oct 2012 11:41:29 +0530" total_classes="171" referenced_classes="319" total_bugs="72" total_size="9486" num_packages="20" vm_version="17.1-b03" cpu_seconds="24.52" clock_seconds="8.45" peak_mbytes="306.77" alloc_mbytes="682.69" gc_seconds="0.10" priority_2="20" priority_1="52">
+    <PackageStats package="org.apache.commons.net" total_bugs="4" total_types="10" total_size="416" priority_1="4">
+      <ClassStats class="org.apache.commons.net.DatagramSocketClient" sourceFile="DatagramSocketClient.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.DatagramSocketFactory" sourceFile="DatagramSocketFactory.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.DefaultDatagramSocketFactory" sourceFile="DefaultDatagramSocketFactory.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.DefaultSocketFactory" sourceFile="DefaultSocketFactory.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.MalformedServerReplyException" sourceFile="MalformedServerReplyException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.PrintCommandListener" sourceFile="PrintCommandListener.java" interface="false" size="70" bugs="4" priority_1="4"/>
+      <ClassStats class="org.apache.commons.net.ProtocolCommandEvent" sourceFile="ProtocolCommandEvent.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ProtocolCommandListener" sourceFile="ProtocolCommandListener.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ProtocolCommandSupport" sourceFile="ProtocolCommandSupport.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.SocketClient" sourceFile="SocketClient.java" interface="false" size="191" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.bsd" total_bugs="5" total_types="3" total_size="137" priority_1="5">
+      <ClassStats class="org.apache.commons.net.bsd.RCommandClient" sourceFile="RCommandClient.java" interface="false" size="65" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.bsd.RExecClient" sourceFile="RExecClient.java" interface="false" size="60" bugs="4" priority_1="4"/>
+      <ClassStats class="org.apache.commons.net.bsd.RLoginClient" sourceFile="RLoginClient.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.chargen" total_bugs="0" total_types="2" total_size="40">
+      <ClassStats class="org.apache.commons.net.chargen.CharGenTCPClient" sourceFile="CharGenTCPClient.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.chargen.CharGenUDPClient" sourceFile="CharGenUDPClient.java" interface="false" size="28" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.daytime" total_bugs="2" total_types="2" total_size="32" priority_1="2">
+      <ClassStats class="org.apache.commons.net.daytime.DaytimeTCPClient" sourceFile="DaytimeTCPClient.java" interface="false" size="16" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.daytime.DaytimeUDPClient" sourceFile="DaytimeUDPClient.java" interface="false" size="16" bugs="1" priority_1="1"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.discard" total_bugs="0" total_types="2" total_size="28">
+      <ClassStats class="org.apache.commons.net.discard.DiscardTCPClient" sourceFile="DiscardTCPClient.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.discard.DiscardUDPClient" sourceFile="DiscardUDPClient.java" interface="false" size="20" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.echo" total_bugs="0" total_types="2" total_size="27">
+      <ClassStats class="org.apache.commons.net.echo.EchoTCPClient" sourceFile="EchoTCPClient.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.echo.EchoUDPClient" sourceFile="EchoUDPClient.java" interface="false" size="19" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.finger" total_bugs="2" total_types="1" total_size="36" priority_1="2">
+      <ClassStats class="org.apache.commons.net.finger.FingerClient" sourceFile="FingerClient.java" interface="false" size="36" bugs="2" priority_1="2"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.ftp" total_bugs="8" total_types="24" total_size="1892" priority_2="2" priority_1="6">
+      <ClassStats class="org.apache.commons.net.ftp.Configurable" sourceFile="Configurable.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTP" sourceFile="FTP.java" interface="false" size="292" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPClient" sourceFile="FTPClient.java" interface="false" size="636" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPClient$CSL" sourceFile="FTPClient.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPClient$PropertiesSingleton" sourceFile="FTPClient.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPClientConfig" sourceFile="FTPClientConfig.java" interface="false" size="115" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPCommand" sourceFile="FTPCommand.java" interface="false" size="88" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPConnectionClosedException" sourceFile="FTPConnectionClosedException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFile" sourceFile="FTPFile.java" interface="false" size="130" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileEntryParser" sourceFile="FTPFileEntryParser.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileEntryParserImpl" sourceFile="FTPFileEntryParserImpl.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileFilter" sourceFile="FTPFileFilter.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileFilters" sourceFile="FTPFileFilters.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileFilters$1" sourceFile="FTPFileFilters.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileFilters$2" sourceFile="FTPFileFilters.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPFileFilters$3" sourceFile="FTPFileFilters.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPHTTPClient" sourceFile="FTPHTTPClient.java" interface="false" size="73" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPListParseEngine" sourceFile="FTPListParseEngine.java" interface="false" size="68" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPReply" sourceFile="FTPReply.java" interface="false" size="66" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPSClient" sourceFile="FTPSClient.java" interface="false" size="251" bugs="4" priority_1="4"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPSCommand" sourceFile="FTPSCommand.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPSServerSocketFactory" sourceFile="FTPSServerSocketFactory.java" interface="false" size="17" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPSSocketFactory" sourceFile="FTPSSocketFactory.java" interface="false" size="25" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.FTPSTrustManager" sourceFile="FTPSTrustManager.java" interface="false" size="14" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.ftp.parser" total_bugs="4" total_types="18" total_size="897" priority_2="4">
+      <ClassStats class="org.apache.commons.net.ftp.parser.CompositeFileEntryParser" sourceFile="CompositeFileEntryParser.java" interface="false" size="21" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.ConfigurableFTPFileEntryParserImpl" sourceFile="ConfigurableFTPFileEntryParserImpl.java" interface="false" size="20" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactory" sourceFile="DefaultFTPFileEntryParserFactory.java" interface="false" size="73" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParser" sourceFile="EnterpriseUnixFTPEntryParser.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.FTPFileEntryParserFactory" sourceFile="FTPFileEntryParserFactory.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.FTPTimestampParser" sourceFile="FTPTimestampParser.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.FTPTimestampParserImpl" sourceFile="FTPTimestampParserImpl.java" interface="false" size="102" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.MLSxEntryParser" sourceFile="MLSxEntryParser.java" interface="false" size="99" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.MVSFTPEntryParser" sourceFile="MVSFTPEntryParser.java" interface="false" size="122" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.NTFTPEntryParser" sourceFile="NTFTPEntryParser.java" interface="false" size="43" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.NetwareFTPEntryParser" sourceFile="NetwareFTPEntryParser.java" interface="false" size="37" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.OS2FTPEntryParser" sourceFile="OS2FTPEntryParser.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.OS400FTPEntryParser" sourceFile="OS400FTPEntryParser.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.ParserInitializationException" sourceFile="ParserInitializationException.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.RegexFTPFileEntryParserImpl" sourceFile="RegexFTPFileEntryParserImpl.java" interface="false" size="36" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.UnixFTPEntryParser" sourceFile="UnixFTPEntryParser.java" interface="false" size="83" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.VMSFTPEntryParser" sourceFile="VMSFTPEntryParser.java" interface="false" size="74" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ftp.parser.VMSVersioningFTPEntryParser" sourceFile="VMSVersioningFTPEntryParser.java" interface="false" size="50" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.imap" total_bugs="10" total_types="12" total_size="627" priority_1="10">
+      <ClassStats class="org.apache.commons.net.imap.AuthenticatingIMAPClient" sourceFile="AuthenticatingIMAPClient.java" interface="false" size="58" bugs="10" priority_1="10"/>
+      <ClassStats class="org.apache.commons.net.imap.AuthenticatingIMAPClient$1" sourceFile="AuthenticatingIMAPClient.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.AuthenticatingIMAPClient$AUTH_METHOD" sourceFile="AuthenticatingIMAPClient.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAP" sourceFile="IMAP.java" interface="false" size="109" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAP$IMAPState" sourceFile="IMAP.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPClient" sourceFile="IMAPClient.java" interface="false" size="77" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPClient$FETCH_ITEM_NAMES" sourceFile="IMAPClient.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPClient$SEARCH_CRITERIA" sourceFile="IMAPClient.java" interface="false" size="77" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPClient$STATUS_DATA_ITEMS" sourceFile="IMAPClient.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPCommand" sourceFile="IMAPCommand.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPReply" sourceFile="IMAPReply.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.imap.IMAPSClient" sourceFile="IMAPSClient.java" interface="false" size="96" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.io" total_bugs="3" total_types="14" total_size="483" priority_2="2" priority_1="1">
+      <ClassStats class="org.apache.commons.net.io.CRLFLineReader" sourceFile="CRLFLineReader.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.CopyStreamAdapter" sourceFile="CopyStreamAdapter.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.CopyStreamEvent" sourceFile="CopyStreamEvent.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.CopyStreamException" sourceFile="CopyStreamException.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.CopyStreamListener" sourceFile="CopyStreamListener.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.DotTerminatedMessageReader" sourceFile="DotTerminatedMessageReader.java" interface="false" size="82" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.DotTerminatedMessageWriter" sourceFile="DotTerminatedMessageWriter.java" interface="false" size="61" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.io.FromNetASCIIInputStream" sourceFile="FromNetASCIIInputStream.java" interface="false" size="53" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.io.FromNetASCIIOutputStream" sourceFile="FromNetASCIIOutputStream.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.SocketInputStream" sourceFile="SocketInputStream.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.SocketOutputStream" sourceFile="SocketOutputStream.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.ToNetASCIIInputStream" sourceFile="ToNetASCIIInputStream.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.io.ToNetASCIIOutputStream" sourceFile="ToNetASCIIOutputStream.java" interface="false" size="23" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.io.Util" sourceFile="Util.java" interface="false" size="72" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.nntp" total_bugs="3" total_types="17" total_size="1230" priority_2="3">
+      <ClassStats class="org.apache.commons.net.nntp.Article" sourceFile="Article.java" interface="false" size="127" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.ArticleInfo" sourceFile="ArticleInfo.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.ArticleIterator" sourceFile="ArticleIterator.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.ArticlePointer" sourceFile="ArticlePointer.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NNTP" sourceFile="NNTP.java" interface="false" size="168" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NNTPClient" sourceFile="NNTPClient.java" interface="false" size="355" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.net.nntp.NNTPCommand" sourceFile="NNTPCommand.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NNTPConnectionClosedException" sourceFile="NNTPConnectionClosedException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NNTPReply" sourceFile="NNTPReply.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NewGroupsOrNewsQuery" sourceFile="NewGroupsOrNewsQuery.java" interface="false" size="92" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NewsgroupInfo" sourceFile="NewsgroupInfo.java" interface="false" size="43" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.NewsgroupIterator" sourceFile="NewsgroupIterator.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.ReplyIterator" sourceFile="ReplyIterator.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.SimpleNNTPHeader" sourceFile="SimpleNNTPHeader.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.ThreadContainer" sourceFile="ThreadContainer.java" interface="false" size="41" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.Threadable" sourceFile="Threadable.java" interface="true" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.nntp.Threader" sourceFile="Threader.java" interface="false" size="181" bugs="1" priority_2="1"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.ntp" total_bugs="0" total_types="6" total_size="457">
+      <ClassStats class="org.apache.commons.net.ntp.NTPUDPClient" sourceFile="NTPUDPClient.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ntp.NtpUtils" sourceFile="NtpUtils.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ntp.NtpV3Impl" sourceFile="NtpV3Impl.java" interface="false" size="153" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ntp.NtpV3Packet" sourceFile="NtpV3Packet.java" interface="true" size="55" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ntp.TimeInfo" sourceFile="TimeInfo.java" interface="false" size="83" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.ntp.TimeStamp" sourceFile="TimeStamp.java" interface="false" size="102" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.pop3" total_bugs="10" total_types="9" total_size="425" priority_2="3" priority_1="7">
+      <ClassStats class="org.apache.commons.net.pop3.ExtendedPOP3Client" sourceFile="ExtendedPOP3Client.java" interface="false" size="28" bugs="6" priority_1="6"/>
+      <ClassStats class="org.apache.commons.net.pop3.ExtendedPOP3Client$1" sourceFile="ExtendedPOP3Client.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.pop3.ExtendedPOP3Client$AUTH_METHOD" sourceFile="ExtendedPOP3Client.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3" sourceFile="POP3.java" interface="false" size="104" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3Client" sourceFile="POP3Client.java" interface="false" size="126" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3Command" sourceFile="POP3Command.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3MessageInfo" sourceFile="POP3MessageInfo.java" interface="false" size="19" bugs="3" priority_2="3"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3Reply" sourceFile="POP3Reply.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.pop3.POP3SClient" sourceFile="POP3SClient.java" interface="false" size="95" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.smtp" total_bugs="10" total_types="10" total_size="514" priority_1="10">
+      <ClassStats class="org.apache.commons.net.smtp.AuthenticatingSMTPClient" sourceFile="AuthenticatingSMTPClient.java" interface="false" size="51" bugs="10" priority_1="10"/>
+      <ClassStats class="org.apache.commons.net.smtp.AuthenticatingSMTPClient$AUTH_METHOD" sourceFile="AuthenticatingSMTPClient.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.RelayPath" sourceFile="RelayPath.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTP" sourceFile="SMTP.java" interface="false" size="136" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTPClient" sourceFile="SMTPClient.java" interface="false" size="68" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTPCommand" sourceFile="SMTPCommand.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTPConnectionClosedException" sourceFile="SMTPConnectionClosedException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTPReply" sourceFile="SMTPReply.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SMTPSClient" sourceFile="SMTPSClient.java" interface="false" size="91" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.smtp.SimpleSMTPHeader" sourceFile="SimpleSMTPHeader.java" interface="false" size="43" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.telnet" total_bugs="1" total_types="15" total_size="1087" priority_1="1">
+      <ClassStats class="org.apache.commons.net.telnet.EchoOptionHandler" sourceFile="EchoOptionHandler.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.InvalidTelnetOptionException" sourceFile="InvalidTelnetOptionException.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.SimpleOptionHandler" sourceFile="SimpleOptionHandler.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.SuppressGAOptionHandler" sourceFile="SuppressGAOptionHandler.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.Telnet" sourceFile="Telnet.java" interface="false" size="376" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetClient" sourceFile="TelnetClient.java" interface="false" size="91" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetCommand" sourceFile="TelnetCommand.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetInputListener" sourceFile="TelnetInputListener.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetInputStream" sourceFile="TelnetInputStream.java" interface="false" size="290" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetNotificationHandler" sourceFile="TelnetNotificationHandler.java" interface="true" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetOption" sourceFile="TelnetOption.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetOptionHandler" sourceFile="TelnetOptionHandler.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TelnetOutputStream" sourceFile="TelnetOutputStream.java" interface="false" size="53" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.TerminalTypeOptionHandler" sourceFile="TerminalTypeOptionHandler.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.telnet.WindowSizeOptionHandler" sourceFile="WindowSizeOptionHandler.java" interface="false" size="43" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.tftp" total_bugs="7" total_types="10" total_size="532" priority_2="3" priority_1="4">
+      <ClassStats class="org.apache.commons.net.tftp.TFTP" sourceFile="TFTP.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPAckPacket" sourceFile="TFTPAckPacket.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPClient" sourceFile="TFTPClient.java" interface="false" size="170" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPDataPacket" sourceFile="TFTPDataPacket.java" interface="false" size="69" bugs="3" priority_2="3"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPErrorPacket" sourceFile="TFTPErrorPacket.java" interface="false" size="59" bugs="2" priority_1="2"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPPacket" sourceFile="TFTPPacket.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPPacketException" sourceFile="TFTPPacketException.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPReadRequestPacket" sourceFile="TFTPReadRequestPacket.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPRequestPacket" sourceFile="TFTPRequestPacket.java" interface="false" size="70" bugs="2" priority_1="2"/>
+      <ClassStats class="org.apache.commons.net.tftp.TFTPWriteRequestPacket" sourceFile="TFTPWriteRequestPacket.java" interface="false" size="7" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.time" total_bugs="0" total_types="2" total_size="38">
+      <ClassStats class="org.apache.commons.net.time.TimeTCPClient" sourceFile="TimeTCPClient.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.time.TimeUDPClient" sourceFile="TimeUDPClient.java" interface="false" size="26" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.util" total_bugs="3" total_types="11" total_size="577" priority_2="3">
+      <ClassStats class="org.apache.commons.net.util.Base64" sourceFile="Base64.java" interface="false" size="295" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.net.util.KeyManagerUtils" sourceFile="KeyManagerUtils.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.KeyManagerUtils$ClientKeyStore" sourceFile="KeyManagerUtils.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.KeyManagerUtils$X509KeyManager" sourceFile="KeyManagerUtils.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.ListenerList" sourceFile="ListenerList.java" interface="false" size="17" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.net.util.SSLContextUtils" sourceFile="SSLContextUtils.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.SubnetUtils" sourceFile="SubnetUtils.java" interface="false" size="91" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.SubnetUtils$1" sourceFile="SubnetUtils.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.SubnetUtils$SubnetInfo" sourceFile="SubnetUtils.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.TrustManagerUtils" sourceFile="TrustManagerUtils.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.net.util.TrustManagerUtils$TrustManager" sourceFile="TrustManagerUtils.java" interface="false" size="15" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.net.whois" total_bugs="0" total_types="1" total_size="11">
+      <ClassStats class="org.apache.commons.net.whois.WhoisClient" sourceFile="WhoisClient.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="463" invocations="1597" avgMicrosecondsPerInvocation="290" maxMicrosecondsPerInvocation="18693" standardDeviationMircosecondsPerInvocation="918"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="438" invocations="1593" avgMicrosecondsPerInvocation="274" maxMicrosecondsPerInvocation="12584" standardDeviationMircosecondsPerInvocation="735"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="427" invocations="319" avgMicrosecondsPerInvocation="1341" maxMicrosecondsPerInvocation="21169" standardDeviationMircosecondsPerInvocation="2634"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="420" invocations="896" avgMicrosecondsPerInvocation="469" maxMicrosecondsPerInvocation="14054" standardDeviationMircosecondsPerInvocation="1049"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="397" invocations="319" avgMicrosecondsPerInvocation="1245" maxMicrosecondsPerInvocation="20769" standardDeviationMircosecondsPerInvocation="2586"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="388" invocations="1645" avgMicrosecondsPerInvocation="235" maxMicrosecondsPerInvocation="25411" standardDeviationMircosecondsPerInvocation="960"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="377" invocations="1594" avgMicrosecondsPerInvocation="237" maxMicrosecondsPerInvocation="21154" standardDeviationMircosecondsPerInvocation="832"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="372" invocations="1633" avgMicrosecondsPerInvocation="228" maxMicrosecondsPerInvocation="13168" standardDeviationMircosecondsPerInvocation="683"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="271" invocations="1597" avgMicrosecondsPerInvocation="170" maxMicrosecondsPerInvocation="18270" standardDeviationMircosecondsPerInvocation="591"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="237" invocations="1246" avgMicrosecondsPerInvocation="190" maxMicrosecondsPerInvocation="10731" standardDeviationMircosecondsPerInvocation="525"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="208" invocations="319" avgMicrosecondsPerInvocation="654" maxMicrosecondsPerInvocation="9539" standardDeviationMircosecondsPerInvocation="1256"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="177" invocations="2108" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="4807" standardDeviationMircosecondsPerInvocation="220"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="121" invocations="1597" avgMicrosecondsPerInvocation="76" maxMicrosecondsPerInvocation="12881" standardDeviationMircosecondsPerInvocation="408"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="108" invocations="1659" avgMicrosecondsPerInvocation="65" maxMicrosecondsPerInvocation="35284" standardDeviationMircosecondsPerInvocation="867"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="93" invocations="319" avgMicrosecondsPerInvocation="294" maxMicrosecondsPerInvocation="3812" standardDeviationMircosecondsPerInvocation="461"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="89" invocations="319" avgMicrosecondsPerInvocation="279" maxMicrosecondsPerInvocation="4719" standardDeviationMircosecondsPerInvocation="552"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="88" invocations="319" avgMicrosecondsPerInvocation="278" maxMicrosecondsPerInvocation="7307" standardDeviationMircosecondsPerInvocation="630"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.obl.ObligationAnalysis" totalMilliseconds="87" invocations="806" avgMicrosecondsPerInvocation="108" maxMicrosecondsPerInvocation="17464" standardDeviationMircosecondsPerInvocation="640"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="85" invocations="15589" avgMicrosecondsPerInvocation="5" maxMicrosecondsPerInvocation="1782" standardDeviationMircosecondsPerInvocation="19"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DefaultEncodingDetector" totalMilliseconds="79" invocations="171" avgMicrosecondsPerInvocation="464" maxMicrosecondsPerInvocation="6114" standardDeviationMircosecondsPerInvocation="700"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="78" invocations="171" avgMicrosecondsPerInvocation="456" maxMicrosecondsPerInvocation="5605" standardDeviationMircosecondsPerInvocation="783"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="77" invocations="171" avgMicrosecondsPerInvocation="455" maxMicrosecondsPerInvocation="6895" standardDeviationMircosecondsPerInvocation="841"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="77" invocations="319" avgMicrosecondsPerInvocation="241" maxMicrosecondsPerInvocation="6007" standardDeviationMircosecondsPerInvocation="532"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="73" invocations="371" avgMicrosecondsPerInvocation="199" maxMicrosecondsPerInvocation="10033" standardDeviationMircosecondsPerInvocation="573"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.StreamResourceTracker" totalMilliseconds="72" invocations="287" avgMicrosecondsPerInvocation="251" maxMicrosecondsPerInvocation="1293" standardDeviationMircosecondsPerInvocation="255"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="66" invocations="171" avgMicrosecondsPerInvocation="390" maxMicrosecondsPerInvocation="4045" standardDeviationMircosecondsPerInvocation="497"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="65" invocations="319" avgMicrosecondsPerInvocation="206" maxMicrosecondsPerInvocation="4403" standardDeviationMircosecondsPerInvocation="437"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="64" invocations="866" avgMicrosecondsPerInvocation="74" maxMicrosecondsPerInvocation="1470" standardDeviationMircosecondsPerInvocation="145"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="59" invocations="171" avgMicrosecondsPerInvocation="348" maxMicrosecondsPerInvocation="8854" standardDeviationMircosecondsPerInvocation="782"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="59" invocations="1593" avgMicrosecondsPerInvocation="37" maxMicrosecondsPerInvocation="1087" standardDeviationMircosecondsPerInvocation="64"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="57" invocations="171" avgMicrosecondsPerInvocation="335" maxMicrosecondsPerInvocation="8723" standardDeviationMircosecondsPerInvocation="982"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="55" invocations="1583" avgMicrosecondsPerInvocation="34" maxMicrosecondsPerInvocation="3136" standardDeviationMircosecondsPerInvocation="125"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="54" invocations="171" avgMicrosecondsPerInvocation="319" maxMicrosecondsPerInvocation="3802" standardDeviationMircosecondsPerInvocation="472"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

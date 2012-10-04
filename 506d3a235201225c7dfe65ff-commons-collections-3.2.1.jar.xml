@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.1" sequence="0" timestamp="1349335609000" analysisTimestamp="1349335610714" release="">
+  <Project projectName="">
+    <Jar>506d3a235201225c7dfe65ff-commons-collections-3.2.1.jar</Jar>
+  </Project>
+  <BugInstance type="MS_SHOULD_BE_FINAL" priority="1" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.BeanMap">
+      <SourceLine classname="org.apache.commons.collections.BeanMap" start="55" end="803" sourcefile="BeanMap.java" sourcepath="org/apache/commons/collections/BeanMap.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.BeanMap" name="defaultTransformers" signature="Ljava/util/HashMap;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.BeanMap" sourcefile="BeanMap.java" sourcepath="org/apache/commons/collections/BeanMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.BeanMap" start="72" end="72" startBytecode="14" endBytecode="14" sourcefile="BeanMap.java" sourcepath="org/apache/commons/collections/BeanMap.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.ExtendedProperties" name="load" signature="(Ljava/io/InputStream;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="531" end="599" startBytecode="0" endBytecode="626" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="548" end="548" startBytecode="64" endBytecode="64" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.ExtendedProperties" name="save" signature="(Ljava/io/OutputStream;Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="737" end="772" startBytecode="0" endBytecode="496" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="93" end="94" startBytecode="0" endBytecode="34" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="740" end="740" startBytecode="10" endBytecode="10" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Method classname="java.util.Hashtable" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="java.util.Hashtable" start="736" end="765" startBytecode="0" endBytecode="308" sourcefile="Hashtable.java" sourcepath="java/util/Hashtable.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" abbrev="IS" category="MT_CORRECTNESS">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.ExtendedProperties" name="isInitialized" signature="Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Field>
+    <Int value="50" role="INT_SYNC_PERCENT"/>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="489" end="489" startBytecode="1" endBytecode="1" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java" role="SOURCE_LINE_UNSYNC_ACCESS"/>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="662" end="662" startBytecode="82" endBytecode="82" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java" role="SOURCE_LINE_UNSYNC_ACCESS"/>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="598" end="598" startBytecode="311" endBytecode="311" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java" role="SOURCE_LINE_SYNC_ACCESS"/>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="598" end="598" startBytecode="84" endBytecode="84" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java" role="SOURCE_LINE_SYNC_ACCESS"/>
+  </BugInstance>
+  <BugInstance type="MS_PKGPROTECT" priority="2" abbrev="MS" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.ExtendedProperties" name="include" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="179" end="179" startBytecode="2" endBytecode="2" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+  </BugInstance>
+  <BugInstance type="SE_NO_SERIALVERSIONID" priority="2" abbrev="SnVI" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE">
+    <Class classname="org.apache.commons.collections.ExtendedProperties">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="144" end="1683" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.ExtendedProperties" name="setInclude" signature="(Ljava/lang/String;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="509" end="510" startBytecode="0" endBytecode="60" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.ExtendedProperties" name="include" signature="Ljava/lang/String;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.ExtendedProperties" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.ExtendedProperties" start="509" end="509" startBytecode="1" endBytecode="1" sourcefile="ExtendedProperties.java" sourcepath="org/apache/commons/collections/ExtendedProperties.java"/>
+  </BugInstance>
+  <BugInstance type="CN_IDIOM_NO_SUPER_CALL" priority="2" abbrev="CN" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.FastArrayList">
+      <SourceLine classname="org.apache.commons.collections.FastArrayList" start="77" end="831" sourcefile="FastArrayList.java" sourcepath="org/apache/commons/collections/FastArrayList.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastArrayList" name="clone" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastArrayList" start="283" end="292" startBytecode="0" endBytecode="162" sourcefile="FastArrayList.java" sourcepath="org/apache/commons/collections/FastArrayList.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_UNUSUAL" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.FastArrayList$SubList">
+      <SourceLine classname="org.apache.commons.collections.FastArrayList$SubList" start="835" end="1157" sourcefile="FastArrayList.java" sourcepath="org/apache/commons/collections/FastArrayList.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastArrayList$SubList" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastArrayList$SubList" start="987" end="993" startBytecode="0" endBytecode="147" sourcefile="FastArrayList.java" sourcepath="org/apache/commons/collections/FastArrayList.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="CN_IDIOM_NO_SUPER_CALL" priority="2" abbrev="CN" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.FastHashMap">
+      <SourceLine classname="org.apache.commons.collections.FastHashMap" start="71" end="454" sourcefile="FastHashMap.java" sourcepath="org/apache/commons/collections/FastHashMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastHashMap" name="clone" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastHashMap" start="420" end="429" startBytecode="0" endBytecode="162" sourcefile="FastHashMap.java" sourcepath="org/apache/commons/collections/FastHashMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_UNUSUAL" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.FastHashMap$CollectionView">
+      <SourceLine classname="org.apache.commons.collections.FastHashMap$CollectionView" start="463" end="621" sourcefile="FastHashMap.java" sourcepath="org/apache/commons/collections/FastHashMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastHashMap$CollectionView" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastHashMap$CollectionView" start="592" end="598" startBytecode="0" endBytecode="153" sourcefile="FastHashMap.java" sourcepath="org/apache/commons/collections/FastHashMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="CN_IDIOM_NO_SUPER_CALL" priority="2" abbrev="CN" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.FastTreeMap">
+      <SourceLine classname="org.apache.commons.collections.FastTreeMap" start="73" end="562" sourcefile="FastTreeMap.java" sourcepath="org/apache/commons/collections/FastTreeMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastTreeMap" name="clone" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastTreeMap" start="471" end="480" startBytecode="0" endBytecode="162" sourcefile="FastTreeMap.java" sourcepath="org/apache/commons/collections/FastTreeMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_UNUSUAL" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.FastTreeMap$CollectionView">
+      <SourceLine classname="org.apache.commons.collections.FastTreeMap$CollectionView" start="571" end="729" sourcefile="FastTreeMap.java" sourcepath="org/apache/commons/collections/FastTreeMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FastTreeMap$CollectionView" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FastTreeMap$CollectionView" start="700" end="706" startBytecode="0" endBytecode="153" sourcefile="FastTreeMap.java" sourcepath="org/apache/commons/collections/FastTreeMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N">
+    <Class classname="org.apache.commons.collections.FunctorException">
+      <SourceLine classname="org.apache.commons.collections.FunctorException" start="39" end="142" sourcefile="FunctorException.java" sourcepath="org/apache/commons/collections/FunctorException.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.FunctorException" name="printStackTrace" signature="(Ljava/io/PrintStream;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.FunctorException" start="121" end="127" startBytecode="0" endBytecode="133" sourcefile="FunctorException.java" sourcepath="org/apache/commons/collections/FunctorException.java"/>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;Z)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="110" end="116" startBytecode="0" endBytecode="71" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.FunctorException" start="122" end="122" startBytecode="10" endBytecode="10" sourcefile="FunctorException.java" sourcepath="org/apache/commons/collections/FunctorException.java"/>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" priority="2" abbrev="RCN" category="STYLE">
+    <Class classname="org.apache.commons.collections.IteratorUtils">
+      <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="84" end="910" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.IteratorUtils" name="getIterator" signature="(Ljava/lang/Object;)Ljava/util/Iterator;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="874" end="910" startBytecode="0" endBytecode="389" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java"/>
+    </Method>
+    <LocalVariable name="obj" register="0" pc="122" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="895" end="895" startBytecode="123" endBytecode="123" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="REC_CATCH_EXCEPTION" priority="2" abbrev="REC" category="STYLE">
+    <Class classname="org.apache.commons.collections.IteratorUtils">
+      <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="84" end="910" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.IteratorUtils" name="getIterator" signature="(Ljava/lang/Object;)Ljava/util/Iterator;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="874" end="910" startBytecode="0" endBytecode="389" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.IteratorUtils" start="907" end="907" startBytecode="212" endBytecode="212" sourcefile="IteratorUtils.java" sourcepath="org/apache/commons/collections/IteratorUtils.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.LRUMap">
+      <SourceLine classname="org.apache.commons.collections.LRUMap" start="55" end="201" sourcefile="LRUMap.java" sourcepath="org/apache/commons/collections/LRUMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.SequencedHashMap" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="org.apache.commons.collections.SequencedHashMap" start="514" end="522" startBytecode="0" endBytecode="114" sourcefile="SequencedHashMap.java" sourcepath="org/apache/commons/collections/SequencedHashMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="NP_BOOLEAN_RETURN_NULL" priority="2" abbrev="NP" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.MapUtils">
+      <SourceLine classname="org.apache.commons.collections.MapUtils" start="96" end="1642" sourcefile="MapUtils.java" sourcepath="org/apache/commons/collections/MapUtils.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.MapUtils" name="getBoolean" signature="(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Boolean;" isStatic="true">
+      <SourceLine classname="org.apache.commons.collections.MapUtils" start="163" end="178" startBytecode="0" endBytecode="189" sourcefile="MapUtils.java" sourcepath="org/apache/commons/collections/MapUtils.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.MapUtils" start="178" end="178" startBytecode="77" endBytecode="77" sourcefile="MapUtils.java" sourcepath="org/apache/commons/collections/MapUtils.java"/>
+  </BugInstance>
+  <BugInstance type="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" priority="2" abbrev="RCN" category="STYLE">
+    <Class classname="org.apache.commons.collections.MultiHashMap">
+      <SourceLine classname="org.apache.commons.collections.MultiHashMap" start="72" end="489" sourcefile="MultiHashMap.java" sourcepath="org/apache/commons/collections/MultiHashMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.MultiHashMap" name="containsValue" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.MultiHashMap" start="290" end="303" startBytecode="0" endBytecode="199" sourcefile="MultiHashMap.java" sourcepath="org/apache/commons/collections/MultiHashMap.java"/>
+    </Method>
+    <LocalVariable name="pairs" register="2" pc="5" role="LOCAL_VARIABLE_VALUE_OF"/>
+    <Method classname="java.util.HashMap" name="entrySet" signature="()Ljava/util/Set;" isStatic="false" role="METHOD_RETURN_VALUE_OF">
+      <SourceLine classname="java.util.HashMap" start="940" end="940" startBytecode="0" endBytecode="28" sourcefile="HashMap.java" sourcepath="java/util/HashMap.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.MultiHashMap" start="292" end="292" startBytecode="6" endBytecode="6" sourcefile="MultiHashMap.java" sourcepath="org/apache/commons/collections/MultiHashMap.java" role="SOURCE_REDUNDANT_NULL_CHECK"/>
+  </BugInstance>
+  <BugInstance type="VO_VOLATILE_INCREMENT" priority="2" abbrev="VO" category="MT_CORRECTNESS">
+    <Class classname="org.apache.commons.collections.ReferenceMap">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="85" end="737" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.ReferenceMap" name="put" signature="(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="537" end="559" startBytecode="0" endBytecode="369" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.ReferenceMap" name="modCount" signature="I" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="555" end="555" startBytecode="140" endBytecode="140" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+  </BugInstance>
+  <BugInstance type="VO_VOLATILE_INCREMENT" priority="2" abbrev="VO" category="MT_CORRECTNESS">
+    <Class classname="org.apache.commons.collections.ReferenceMap">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="85" end="737" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.ReferenceMap" name="remove" signature="(Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="571" end="588" startBytecode="0" endBytecode="284" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.ReferenceMap" name="modCount" signature="I" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.ReferenceMap" start="582" end="582" startBytecode="104" endBytecode="104" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="org.apache.commons.collections.ReferenceMap$EntryIterator">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap$EntryIterator" start="832" end="901" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.ReferenceMap$EntryIterator" name="currentValue" signature="Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.ReferenceMap$EntryIterator" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.ReferenceMap$EntryIterator" start="853" end="853" startBytecode="66" endBytecode="66" sourcefile="ReferenceMap.java" sourcepath="org/apache/commons/collections/ReferenceMap.java"/>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" abbrev="WMI" category="PERFORMANCE">
+    <Class classname="org.apache.commons.collections.StaticBucketMap">
+      <SourceLine classname="org.apache.commons.collections.StaticBucketMap" start="103" end="708" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/StaticBucketMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.StaticBucketMap" name="putAll" signature="(Ljava/util/Map;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.StaticBucketMap" start="342" end="349" startBytecode="0" endBytecode="136" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/StaticBucketMap.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.StaticBucketMap" start="347" end="347" startBytecode="32" endBytecode="32" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/StaticBucketMap.java"/>
+  </BugInstance>
+  <BugInstance type="SIC_INNER_SHOULD_BE_STATIC" priority="2" abbrev="SIC" category="PERFORMANCE">
+    <Class classname="org.apache.commons.collections.bag.SynchronizedBag$SynchronizedBagSet">
+      <SourceLine classname="org.apache.commons.collections.bag.SynchronizedBag$SynchronizedBagSet" start="123" end="125" sourcefile="SynchronizedBag.java" sourcepath="org/apache/commons/collections/bag/SynchronizedBag.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="EQ_UNUSUAL" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.bidimap.TreeBidiMap">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap" start="76" end="1459" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.bidimap.TreeBidiMap" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap" start="459" end="459" startBytecode="0" endBytecode="58" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" abbrev="UwF" category="CORRECTNESS">
+    <Class classname="org.apache.commons.collections.bidimap.TreeBidiMap">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap" start="76" end="1459" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.bidimap.TreeBidiMap" name="entrySet" signature="Ljava/util/Set;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap" start="394" end="394" startBytecode="1" endBytecode="1" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_UNUSUAL" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" start="1951" end="2081" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" start="2073" end="2073" startBytecode="0" endBytecode="61" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="UWF_UNWRITTEN_FIELD" priority="2" abbrev="UwF" category="CORRECTNESS">
+    <Class classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" start="1951" end="2081" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" name="entrySet" signature="Ljava/util/Set;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" start="2044" end="2044" startBytecode="1" endBytecode="1" sourcefile="TreeBidiMap.java" sourcepath="org/apache/commons/collections/bidimap/TreeBidiMap.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.buffer.BlockingBuffer">
+      <SourceLine classname="org.apache.commons.collections.buffer.BlockingBuffer" start="66" end="233" sourcefile="BlockingBuffer.java" sourcepath="org/apache/commons/collections/buffer/BlockingBuffer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.collection.SynchronizedCollection" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="org.apache.commons.collections.collection.SynchronizedCollection" start="181" end="186" startBytecode="0" endBytecode="123" sourcefile="SynchronizedCollection.java" sourcepath="org/apache/commons/collections/collection/SynchronizedCollection.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="EQ_DOESNT_OVERRIDE_EQUALS" priority="2" abbrev="Eq" category="STYLE">
+    <Class classname="org.apache.commons.collections.buffer.BoundedBuffer">
+      <SourceLine classname="org.apache.commons.collections.buffer.BoundedBuffer" start="48" end="174" sourcefile="BoundedBuffer.java" sourcepath="org/apache/commons/collections/buffer/BoundedBuffer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.collection.SynchronizedCollection" name="equals" signature="(Ljava/lang/Object;)Z" isStatic="false" role="METHOD_DID_YOU_MEAN_TO_OVERRIDE">
+      <SourceLine classname="org.apache.commons.collections.collection.SynchronizedCollection" start="181" end="186" startBytecode="0" endBytecode="123" sourcefile="SynchronizedCollection.java" sourcepath="org/apache/commons/collections/collection/SynchronizedCollection.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="RV_CHECK_COMPARETO_FOR_SPECIFIC_RETURN_VALUE" priority="2" abbrev="RV" category="CORRECTNESS">
+    <Class classname="org.apache.commons.collections.comparators.ComparatorChain">
+      <SourceLine classname="org.apache.commons.collections.comparators.ComparatorChain" start="63" end="343" sourcefile="ComparatorChain.java" sourcepath="org/apache/commons/collections/comparators/ComparatorChain.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.comparators.ComparatorChain" name="compare" signature="(Ljava/lang/Object;Ljava/lang/Object;)I" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.comparators.ComparatorChain" start="268" end="295" startBytecode="0" endBytecode="270" sourcefile="ComparatorChain.java" sourcepath="org/apache/commons/collections/comparators/ComparatorChain.java"/>
+    </Method>
+    <Method classname="java.util.Comparator" name="compare" signature="(Ljava/lang/Object;Ljava/lang/Object;)I" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.util.Comparator" sourcefile="Comparator.java" sourcepath="java/util/Comparator.java"/>
+    </Method>
+    <Int value="-2147483648" role="INT_VALUE"/>
+    <SourceLine classname="org.apache.commons.collections.comparators.ComparatorChain" start="282" end="282" startBytecode="82" endBytecode="82" sourcefile="ComparatorChain.java" sourcepath="org/apache/commons/collections/comparators/ComparatorChain.java"/>
+  </BugInstance>
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" abbrev="Se" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.comparators.FixedOrderComparator">
+      <SourceLine classname="org.apache.commons.collections.comparators.FixedOrderComparator" start="73" end="262" sourcefile="FixedOrderComparator.java" sourcepath="org/apache/commons/collections/comparators/FixedOrderComparator.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.AllPredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="58" end="124" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.AllPredicate" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="124" end="124" startBytecode="0" endBytecode="46" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.AllPredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="124" end="124" startBytecode="4" endBytecode="4" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.AllPredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="58" end="124" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.AllPredicate" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="98" end="100" startBytecode="0" endBytecode="69" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.AllPredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.AllPredicate" start="99" end="99" startBytecode="6" endBytecode="6" sourcefile="AllPredicate.java" sourcepath="org/apache/commons/collections/functors/AllPredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.AnyPredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="58" end="123" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.AnyPredicate" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="123" end="123" startBytecode="0" endBytecode="46" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.AnyPredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="123" end="123" startBytecode="4" endBytecode="4" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.AnyPredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="58" end="123" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.AnyPredicate" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="97" end="99" startBytecode="0" endBytecode="69" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.AnyPredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.AnyPredicate" start="98" end="98" startBytecode="6" endBytecode="6" sourcefile="AnyPredicate.java" sourcepath="org/apache/commons/collections/functors/AnyPredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.ChainedClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="50" end="129" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.ChainedClosure" name="getClosures" signature="()[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="129" end="129" startBytecode="0" endBytecode="46" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.ChainedClosure" name="iClosures" signature="[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="129" end="129" startBytecode="4" endBytecode="4" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.ChainedClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="50" end="129" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.ChainedClosure" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Closure;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="108" end="110" startBytecode="0" endBytecode="69" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.ChainedClosure" name="iClosures" signature="[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+    </Field>
+    <LocalVariable name="closures" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.ChainedClosure" start="109" end="109" startBytecode="6" endBytecode="6" sourcefile="ChainedClosure.java" sourcepath="org/apache/commons/collections/functors/ChainedClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.ChainedTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="53" end="134" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.ChainedTransformer" name="getTransformers" signature="()[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="134" end="134" startBytecode="0" endBytecode="46" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.ChainedTransformer" name="iTransformers" signature="[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="134" end="134" startBytecode="4" endBytecode="4" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.ChainedTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="53" end="134" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.ChainedTransformer" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Transformer;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="111" end="113" startBytecode="0" endBytecode="69" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.ChainedTransformer" name="iTransformers" signature="[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+    </Field>
+    <LocalVariable name="transformers" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.ChainedTransformer" start="112" end="112" startBytecode="6" endBytecode="6" sourcefile="ChainedTransformer.java" sourcepath="org/apache/commons/collections/functors/ChainedTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InstantiateFactory">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="46" end="136" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InstantiateFactory" name="&lt;init&gt;" signature="(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="98" end="103" startBytecode="0" endBytecode="124" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InstantiateFactory" name="iArgs" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Field>
+    <LocalVariable name="args" register="3" pc="21" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="101" end="101" startBytecode="21" endBytecode="21" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InstantiateFactory">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="46" end="136" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InstantiateFactory" name="&lt;init&gt;" signature="(Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="98" end="103" startBytecode="0" endBytecode="124" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InstantiateFactory" name="iParamTypes" signature="[Ljava/lang/Class;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+    </Field>
+    <LocalVariable name="paramTypes" register="2" pc="16" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InstantiateFactory" start="100" end="100" startBytecode="16" endBytecode="16" sourcefile="InstantiateFactory.java" sourcepath="org/apache/commons/collections/functors/InstantiateFactory.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InstantiateTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="40" end="115" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InstantiateTransformer" name="&lt;init&gt;" signature="([Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="87" end="90" startBytecode="0" endBytecode="88" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InstantiateTransformer" name="iArgs" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Field>
+    <LocalVariable name="args" register="2" pc="11" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="89" end="89" startBytecode="11" endBytecode="11" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InstantiateTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="40" end="115" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InstantiateTransformer" name="&lt;init&gt;" signature="([Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="87" end="90" startBytecode="0" endBytecode="88" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InstantiateTransformer" name="iParamTypes" signature="[Ljava/lang/Class;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+    </Field>
+    <LocalVariable name="paramTypes" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InstantiateTransformer" start="88" end="88" startBytecode="6" endBytecode="6" sourcefile="InstantiateTransformer.java" sourcepath="org/apache/commons/collections/functors/InstantiateTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InvokerTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="54" end="133" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InvokerTransformer" name="&lt;init&gt;" signature="(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="107" end="111" startBytecode="0" endBytecode="107" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InvokerTransformer" name="iArgs" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Field>
+    <LocalVariable name="args" register="3" pc="16" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="110" end="110" startBytecode="16" endBytecode="16" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.InvokerTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="54" end="133" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.InvokerTransformer" name="&lt;init&gt;" signature="(Ljava/lang/String;[Ljava/lang/Class;[Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="107" end="111" startBytecode="0" endBytecode="107" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.InvokerTransformer" name="iParamTypes" signature="[Ljava/lang/Class;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+    </Field>
+    <LocalVariable name="paramTypes" register="2" pc="11" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.InvokerTransformer" start="109" end="109" startBytecode="11" endBytecode="11" sourcefile="InvokerTransformer.java" sourcepath="org/apache/commons/collections/functors/InvokerTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.NonePredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="57" end="116" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.NonePredicate" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="116" end="116" startBytecode="0" endBytecode="46" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.NonePredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="116" end="116" startBytecode="4" endBytecode="4" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.NonePredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="57" end="116" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.NonePredicate" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="90" end="92" startBytecode="0" endBytecode="69" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.NonePredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.NonePredicate" start="91" end="91" startBytecode="6" endBytecode="6" sourcefile="NonePredicate.java" sourcepath="org/apache/commons/collections/functors/NonePredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.OnePredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="58" end="120" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.OnePredicate" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="120" end="120" startBytecode="0" endBytecode="46" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.OnePredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="120" end="120" startBytecode="4" endBytecode="4" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.OnePredicate">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="58" end="120" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.OnePredicate" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="89" end="91" startBytecode="0" endBytecode="69" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.OnePredicate" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.OnePredicate" start="90" end="90" startBytecode="6" endBytecode="6" sourcefile="OnePredicate.java" sourcepath="org/apache/commons/collections/functors/OnePredicate.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="58" end="172" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchClosure" name="getClosures" signature="()[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="162" end="162" startBytecode="0" endBytecode="46" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchClosure" name="iClosures" signature="[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="162" end="162" startBytecode="4" endBytecode="4" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="58" end="172" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchClosure" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="152" end="152" startBytecode="0" endBytecode="46" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchClosure" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="152" end="152" startBytecode="4" endBytecode="4" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="58" end="172" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchClosure" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="124" end="128" startBytecode="0" endBytecode="117" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchClosure" name="iClosures" signature="[Lorg/apache/commons/collections/Closure;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Field>
+    <LocalVariable name="closures" register="2" pc="11" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="126" end="126" startBytecode="11" endBytecode="11" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchClosure">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="58" end="172" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchClosure" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Closure;Lorg/apache/commons/collections/Closure;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="124" end="128" startBytecode="0" endBytecode="117" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchClosure" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchClosure" start="125" end="125" startBytecode="6" endBytecode="6" sourcefile="SwitchClosure.java" sourcepath="org/apache/commons/collections/functors/SwitchClosure.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="58" end="173" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchTransformer" name="getPredicates" signature="()[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="153" end="153" startBytecode="0" endBytecode="46" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchTransformer" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="153" end="153" startBytecode="4" endBytecode="4" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="58" end="173" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchTransformer" name="getTransformers" signature="()[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="163" end="163" startBytecode="0" endBytecode="46" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchTransformer" name="iTransformers" signature="[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="163" end="163" startBytecode="4" endBytecode="4" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="58" end="173" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchTransformer" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="124" end="128" startBytecode="0" endBytecode="117" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchTransformer" name="iPredicates" signature="[Lorg/apache/commons/collections/Predicate;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Field>
+    <LocalVariable name="predicates" register="1" pc="6" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="125" end="125" startBytecode="6" endBytecode="6" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.functors.SwitchTransformer">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="58" end="173" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.functors.SwitchTransformer" name="&lt;init&gt;" signature="([Lorg/apache/commons/collections/Predicate;[Lorg/apache/commons/collections/Transformer;Lorg/apache/commons/collections/Transformer;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="124" end="128" startBytecode="0" endBytecode="117" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.functors.SwitchTransformer" name="iTransformers" signature="[Lorg/apache/commons/collections/Transformer;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+    </Field>
+    <LocalVariable name="transformers" register="2" pc="11" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.functors.SwitchTransformer" start="126" end="126" startBytecode="11" endBytecode="11" sourcefile="SwitchTransformer.java" sourcepath="org/apache/commons/collections/functors/SwitchTransformer.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP" priority="2" abbrev="EI" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.iterators.ObjectArrayIterator">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="47" end="214" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="getArray" signature="()[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="166" end="166" startBytecode="0" endBytecode="46" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="array" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="166" end="166" startBytecode="4" endBytecode="4" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.iterators.ObjectArrayIterator">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="47" end="214" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="&lt;init&gt;" signature="([Ljava/lang/Object;II)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="101" end="118" startBytecode="0" endBytecode="245" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="array" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Field>
+    <LocalVariable name="array" register="1" pc="87" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="114" end="114" startBytecode="87" endBytecode="87" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.iterators.ObjectArrayIterator">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="47" end="214" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="setArray" signature="([Ljava/lang/Object;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="182" end="189" startBytecode="0" endBytecode="114" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.iterators.ObjectArrayIterator" name="array" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+    </Field>
+    <LocalVariable name="array" register="1" pc="19" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.iterators.ObjectArrayIterator" start="185" end="185" startBytecode="19" endBytecode="19" sourcefile="ObjectArrayIterator.java" sourcepath="org/apache/commons/collections/iterators/ObjectArrayIterator.java"/>
+  </BugInstance>
+  <BugInstance type="EI_EXPOSE_REP2" priority="2" abbrev="EI2" category="MALICIOUS_CODE">
+    <Class classname="org.apache.commons.collections.keyvalue.MultiKey">
+      <SourceLine classname="org.apache.commons.collections.keyvalue.MultiKey" start="69" end="255" sourcefile="MultiKey.java" sourcepath="org/apache/commons/collections/keyvalue/MultiKey.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.keyvalue.MultiKey" name="&lt;init&gt;" signature="([Ljava/lang/Object;Z)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.keyvalue.MultiKey" start="157" end="174" startBytecode="0" endBytecode="218" sourcefile="MultiKey.java" sourcepath="org/apache/commons/collections/keyvalue/MultiKey.java"/>
+    </Method>
+    <Field classname="org.apache.commons.collections.keyvalue.MultiKey" name="keys" signature="[Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.keyvalue.MultiKey" sourcefile="MultiKey.java" sourcepath="org/apache/commons/collections/keyvalue/MultiKey.java"/>
+    </Field>
+    <LocalVariable name="keys" register="1" pc="41" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="org.apache.commons.collections.keyvalue.MultiKey" start="164" end="164" startBytecode="41" endBytecode="41" sourcefile="MultiKey.java" sourcepath="org/apache/commons/collections/keyvalue/MultiKey.java"/>
+  </BugInstance>
+  <BugInstance type="BC_BAD_CAST_TO_ABSTRACT_COLLECTION" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.collections.list.SynchronizedList">
+      <SourceLine classname="org.apache.commons.collections.list.SynchronizedList" start="50" end="161" sourcefile="SynchronizedList.java" sourcepath="org/apache/commons/collections/list/SynchronizedList.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.list.SynchronizedList" name="getList" signature="()Ljava/util/List;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.list.SynchronizedList" start="81" end="81" startBytecode="0" endBytecode="3" sourcefile="SynchronizedList.java" sourcepath="org/apache/commons/collections/list/SynchronizedList.java"/>
+    </Method>
+    <Type descriptor="Ljava/util/Collection;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.Collection" sourcefile="Collection.java" sourcepath="java/util/Collection.java"/>
+    </Type>
+    <Type descriptor="Ljava/util/List;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.util.List" sourcefile="List.java" sourcepath="java/util/List.java"/>
+    </Type>
+    <Field classname="org.apache.commons.collections.collection.SynchronizedCollection" name="collection" signature="Ljava/util/Collection;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.collections.collection.SynchronizedCollection" sourcefile="SynchronizedCollection.java" sourcepath="org/apache/commons/collections/collection/SynchronizedCollection.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.list.SynchronizedList" start="81" end="81" startBytecode="4" endBytecode="4" sourcefile="SynchronizedList.java" sourcepath="org/apache/commons/collections/list/SynchronizedList.java"/>
+  </BugInstance>
+  <BugInstance type="BC_BAD_CAST_TO_ABSTRACT_COLLECTION" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.collections.list.TransformedList">
+      <SourceLine classname="org.apache.commons.collections.list.TransformedList" start="42" end="128" sourcefile="TransformedList.java" sourcepath="org/apache/commons/collections/list/TransformedList.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.list.TransformedList" name="getList" signature="()Ljava/util/List;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.list.TransformedList" start="82" end="82" startBytecode="0" endBytecode="3" sourcefile="TransformedList.java" sourcepath="org/apache/commons/collections/list/TransformedList.java"/>
+    </Method>
+    <Type descriptor="Ljava/util/Collection;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.Collection" sourcefile="Collection.java" sourcepath="java/util/Collection.java"/>
+    </Type>
+    <Type descriptor="Ljava/util/List;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.util.List" sourcefile="List.java" sourcepath="java/util/List.java"/>
+    </Type>
+    <Field classname="org.apache.commons.collections.collection.AbstractCollectionDecorator" name="collection" signature="Ljava/util/Collection;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.collections.collection.AbstractCollectionDecorator" sourcefile="AbstractCollectionDecorator.java" sourcepath="org/apache/commons/collections/collection/AbstractCollectionDecorator.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.list.TransformedList" start="82" end="82" startBytecode="4" endBytecode="4" sourcefile="TransformedList.java" sourcepath="org/apache/commons/collections/list/TransformedList.java"/>
+  </BugInstance>
+  <BugInstance type="NP_CLONE_COULD_RETURN_NULL" priority="2" abbrev="NP" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.map.AbstractHashedMap">
+      <SourceLine classname="org.apache.commons.collections.map.AbstractHashedMap" start="80" end="1327" sourcefile="AbstractHashedMap.java" sourcepath="org/apache/commons/collections/map/AbstractHashedMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.AbstractHashedMap" name="clone" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.AbstractHashedMap" start="1229" end="1241" startBytecode="0" endBytecode="172" sourcefile="AbstractHashedMap.java" sourcepath="org/apache/commons/collections/map/AbstractHashedMap.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.AbstractHashedMap" start="1241" end="1241" startBytecode="58" endBytecode="58" sourcefile="AbstractHashedMap.java" sourcepath="org/apache/commons/collections/map/AbstractHashedMap.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
+    <Class classname="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator">
+      <SourceLine classname="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator" start="727" end="803" sourcefile="AbstractReferenceMap.java" sourcepath="org/apache/commons/collections/map/AbstractReferenceMap.java"/>
+    </Class>
+    <Field classname="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator" name="currentValue" signature="Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator" sourcefile="AbstractReferenceMap.java" sourcepath="org/apache/commons/collections/map/AbstractReferenceMap.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator" start="748" end="748" startBytecode="69" endBytecode="69" sourcefile="AbstractReferenceMap.java" sourcepath="org/apache/commons/collections/map/AbstractReferenceMap.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="convertToMap" signature="()V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="364" end="378" startBytecode="0" endBytecode="216" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="367" end="369" startBytecode="55" endBytecode="56" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="369" end="371" startBytecode="71" endBytecode="72" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="hashCode" signature="()I" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1084" end="1096" startBytecode="0" endBytecode="207" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1090" end="1092" startBytecode="73" endBytecode="74" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1092" end="1094" startBytecode="99" endBytecode="100" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="toString" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1105" end="1130" startBytecode="0" endBytecode="378" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1118" end="1120" startBytecode="129" endBytecode="130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1123" end="1125" startBytecode="187" endBytecode="188" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="convertToMap" signature="()V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="364" end="378" startBytecode="0" endBytecode="216" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="365" end="371" startBytecode="12" endBytecode="87" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="hashCode" signature="()I" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1084" end="1096" startBytecode="0" endBytecode="207" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1088" end="1094" startBytecode="21" endBytecode="125" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="75" end="1130" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map" name="toString" signature="()Ljava/lang/String;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1105" end="1130" startBytecode="0" endBytecode="378" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map" start="1113" end="1127" startBytecode="47" endBytecode="238" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+  </BugInstance>
+  <BugInstance type="PZ_DONT_REUSE_ENTRY_OBJECTS_IN_ITERATORS" priority="2" abbrev="PZ" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="739" end="843" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <String value="shouldn&apos;t reuse Iterator as a Map.Entry"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="739" end="843" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" name="setValue" signature="(Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="800" end="812" startBytecode="0" endBytecode="170" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="806" end="808" startBytecode="60" endBytecode="61" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="808" end="810" startBytecode="69" endBytecode="70" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="739" end="843" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" name="setValue" signature="(Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="800" end="812" startBytecode="0" endBytecode="170" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" start="804" end="810" startBytecode="26" endBytecode="78" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_FALLTHROUGH" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="587" end="672" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" name="setValue" signature="(Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="648" end="660" startBytecode="0" endBytecode="170" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="654" end="656" startBytecode="60" endBytecode="61" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="656" end="658" startBytecode="69" endBytecode="70" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java" role="SOURCE_LINE_ANOTHER_INSTANCE"/>
+  </BugInstance>
+  <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="587" end="672" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" name="setValue" signature="(Ljava/lang/Object;)Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="648" end="660" startBytecode="0" endBytecode="170" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" start="652" end="658" startBytecode="26" endBytecode="78" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+  </BugInstance>
+  <BugInstance type="PZ_DONT_REUSE_ENTRY_OBJECTS_IN_ITERATORS" priority="2" abbrev="PZ" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$KeySetIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$KeySetIterator" start="908" end="913" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <String value="shouldn&apos;t reuse Iterator as a Map.Entry"/>
+  </BugInstance>
+  <BugInstance type="PZ_DONT_REUSE_ENTRY_OBJECTS_IN_ITERATORS" priority="2" abbrev="PZ" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.map.Flat3Map$ValuesIterator">
+      <SourceLine classname="org.apache.commons.collections.map.Flat3Map$ValuesIterator" start="971" end="976" sourcefile="Flat3Map.java" sourcepath="org/apache/commons/collections/map/Flat3Map.java"/>
+    </Class>
+    <String value="shouldn&apos;t reuse Iterator as a Map.Entry"/>
+  </BugInstance>
+  <BugInstance type="CN_IMPLEMENTS_CLONE_BUT_NOT_CLONEABLE" priority="1" abbrev="CN" category="BAD_PRACTICE">
+    <Class classname="org.apache.commons.collections.map.MultiKeyMap">
+      <SourceLine classname="org.apache.commons.collections.map.MultiKeyMap" start="98" end="910" sourcefile="MultiKeyMap.java" sourcepath="org/apache/commons/collections/map/MultiKeyMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.MultiKeyMap" name="clone" signature="()Ljava/lang/Object;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.MultiKeyMap" start="819" end="819" startBytecode="0" endBytecode="59" sourcefile="MultiKeyMap.java" sourcepath="org/apache/commons/collections/map/MultiKeyMap.java"/>
+    </Method>
+  </BugInstance>
+  <BugInstance type="WMI_WRONG_MAP_ITERATOR" priority="2" abbrev="WMI" category="PERFORMANCE">
+    <Class classname="org.apache.commons.collections.map.StaticBucketMap">
+      <SourceLine classname="org.apache.commons.collections.map.StaticBucketMap" start="104" end="699" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/map/StaticBucketMap.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.map.StaticBucketMap" name="putAll" signature="(Ljava/util/Map;)V" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.map.StaticBucketMap" start="385" end="391" startBytecode="0" endBytecode="136" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/map/StaticBucketMap.java"/>
+    </Method>
+    <SourceLine classname="org.apache.commons.collections.map.StaticBucketMap" start="389" end="389" startBytecode="32" endBytecode="32" sourcefile="StaticBucketMap.java" sourcepath="org/apache/commons/collections/map/StaticBucketMap.java"/>
+  </BugInstance>
+  <BugInstance type="BC_BAD_CAST_TO_ABSTRACT_COLLECTION" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.collections.set.SynchronizedSet">
+      <SourceLine classname="org.apache.commons.collections.set.SynchronizedSet" start="48" end="79" sourcefile="SynchronizedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSet.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.set.SynchronizedSet" name="getSet" signature="()Ljava/util/Set;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.set.SynchronizedSet" start="79" end="79" startBytecode="0" endBytecode="3" sourcefile="SynchronizedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSet.java"/>
+    </Method>
+    <Type descriptor="Ljava/util/Collection;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.Collection" sourcefile="Collection.java" sourcepath="java/util/Collection.java"/>
+    </Type>
+    <Type descriptor="Ljava/util/Set;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.util.Set" sourcefile="Set.java" sourcepath="java/util/Set.java"/>
+    </Type>
+    <Field classname="org.apache.commons.collections.collection.SynchronizedCollection" name="collection" signature="Ljava/util/Collection;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.collections.collection.SynchronizedCollection" sourcefile="SynchronizedCollection.java" sourcepath="org/apache/commons/collections/collection/SynchronizedCollection.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.set.SynchronizedSet" start="79" end="79" startBytecode="4" endBytecode="4" sourcefile="SynchronizedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSet.java"/>
+  </BugInstance>
+  <BugInstance type="BC_BAD_CAST_TO_ABSTRACT_COLLECTION" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.collections.set.SynchronizedSortedSet">
+      <SourceLine classname="org.apache.commons.collections.set.SynchronizedSortedSet" start="49" end="126" sourcefile="SynchronizedSortedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSortedSet.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.set.SynchronizedSortedSet" name="getSortedSet" signature="()Ljava/util/SortedSet;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.set.SynchronizedSortedSet" start="80" end="80" startBytecode="0" endBytecode="3" sourcefile="SynchronizedSortedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSortedSet.java"/>
+    </Method>
+    <Type descriptor="Ljava/util/Collection;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.Collection" sourcefile="Collection.java" sourcepath="java/util/Collection.java"/>
+    </Type>
+    <Type descriptor="Ljava/util/SortedSet;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.util.SortedSet" sourcefile="SortedSet.java" sourcepath="java/util/SortedSet.java"/>
+    </Type>
+    <Field classname="org.apache.commons.collections.collection.SynchronizedCollection" name="collection" signature="Ljava/util/Collection;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.collections.collection.SynchronizedCollection" sourcefile="SynchronizedCollection.java" sourcepath="org/apache/commons/collections/collection/SynchronizedCollection.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.set.SynchronizedSortedSet" start="80" end="80" startBytecode="4" endBytecode="4" sourcefile="SynchronizedSortedSet.java" sourcepath="org/apache/commons/collections/set/SynchronizedSortedSet.java"/>
+  </BugInstance>
+  <BugInstance type="BC_BAD_CAST_TO_ABSTRACT_COLLECTION" priority="2" abbrev="BC" category="STYLE">
+    <Class classname="org.apache.commons.collections.set.TransformedSortedSet">
+      <SourceLine classname="org.apache.commons.collections.set.TransformedSortedSet" start="55" end="108" sourcefile="TransformedSortedSet.java" sourcepath="org/apache/commons/collections/set/TransformedSortedSet.java"/>
+    </Class>
+    <Method classname="org.apache.commons.collections.set.TransformedSortedSet" name="getSortedSet" signature="()Ljava/util/SortedSet;" isStatic="false">
+      <SourceLine classname="org.apache.commons.collections.set.TransformedSortedSet" start="79" end="79" startBytecode="0" endBytecode="3" sourcefile="TransformedSortedSet.java" sourcepath="org/apache/commons/collections/set/TransformedSortedSet.java"/>
+    </Method>
+    <Type descriptor="Ljava/util/Collection;" role="TYPE_FOUND">
+      <SourceLine classname="java.util.Collection" sourcefile="Collection.java" sourcepath="java/util/Collection.java"/>
+    </Type>
+    <Type descriptor="Ljava/util/SortedSet;" role="TYPE_EXPECTED">
+      <SourceLine classname="java.util.SortedSet" sourcefile="SortedSet.java" sourcepath="java/util/SortedSet.java"/>
+    </Type>
+    <Field classname="org.apache.commons.collections.collection.AbstractCollectionDecorator" name="collection" signature="Ljava/util/Collection;" isStatic="false" role="FIELD_VALUE_OF">
+      <SourceLine classname="org.apache.commons.collections.collection.AbstractCollectionDecorator" sourcefile="AbstractCollectionDecorator.java" sourcepath="org/apache/commons/collections/collection/AbstractCollectionDecorator.java"/>
+    </Field>
+    <SourceLine classname="org.apache.commons.collections.set.TransformedSortedSet" start="79" end="79" startBytecode="4" endBytecode="4" sourcefile="TransformedSortedSet.java" sourcepath="org/apache/commons/collections/set/TransformedSortedSet.java"/>
+  </BugInstance>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 4 Oct 2012 12:56:49 +0530" total_classes="458" referenced_classes="618" total_bugs="85" total_size="19669" num_packages="13" vm_version="17.1-b03" cpu_seconds="33.35" clock_seconds="12.82" peak_mbytes="421.51" alloc_mbytes="682.69" gc_seconds="0.64" priority_2="79" priority_1="6">
+    <PackageStats package="org.apache.commons.collections" total_bugs="23" total_types="138" total_size="7290" priority_2="18" priority_1="5">
+      <ClassStats class="org.apache.commons.collections.ArrayStack" sourceFile="ArrayStack.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Bag" sourceFile="Bag.java" interface="true" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BagUtils" sourceFile="BagUtils.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap" sourceFile="BeanMap.java" interface="false" size="215" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$1" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$10" sourceFile="BeanMap.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$11" sourceFile="BeanMap.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$2" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$3" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$4" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$5" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$6" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$7" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$8" sourceFile="BeanMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$9" sourceFile="BeanMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BeanMap$MyMapEntry" sourceFile="BeanMap.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BidiMap" sourceFile="BidiMap.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BinaryHeap" sourceFile="BinaryHeap.java" interface="false" size="159" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BinaryHeap$1" sourceFile="BinaryHeap.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BoundedCollection" sourceFile="BoundedCollection.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BoundedFifoBuffer" sourceFile="BoundedFifoBuffer.java" interface="false" size="91" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BoundedFifoBuffer$1" sourceFile="BoundedFifoBuffer.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BoundedMap" sourceFile="BoundedMap.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Buffer" sourceFile="Buffer.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BufferOverflowException" sourceFile="BufferOverflowException.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BufferUnderflowException" sourceFile="BufferUnderflowException.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.BufferUtils" sourceFile="BufferUtils.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Closure" sourceFile="Closure.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ClosureUtils" sourceFile="ClosureUtils.java" interface="false" size="53" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CollectionUtils" sourceFile="CollectionUtils.java" interface="false" size="400" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ComparatorUtils" sourceFile="ComparatorUtils.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CursorableLinkedList" sourceFile="CursorableLinkedList.java" interface="false" size="340" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CursorableLinkedList$Cursor" sourceFile="CursorableLinkedList.java" interface="false" size="61" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CursorableLinkedList$ListIter" sourceFile="CursorableLinkedList.java" interface="false" size="88" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CursorableLinkedList$Listable" sourceFile="CursorableLinkedList.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.CursorableSubList" sourceFile="CursorableLinkedList.java" interface="false" size="161" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DefaultMapBag" sourceFile="DefaultMapBag.java" interface="false" size="165" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DefaultMapBag$BagIterator" sourceFile="DefaultMapBag.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DefaultMapEntry" sourceFile="DefaultMapEntry.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap" sourceFile="DoubleOrderedMap.java" interface="false" size="449" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$1" sourceFile="DoubleOrderedMap.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$1$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$2" sourceFile="DoubleOrderedMap.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$2$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$3" sourceFile="DoubleOrderedMap.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$3$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$4" sourceFile="DoubleOrderedMap.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$4$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$5" sourceFile="DoubleOrderedMap.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$5$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$6" sourceFile="DoubleOrderedMap.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$6$1" sourceFile="DoubleOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$DoubleOrderedMapIterator" sourceFile="DoubleOrderedMap.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.DoubleOrderedMap$Node" sourceFile="DoubleOrderedMap.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.EnumerationUtils" sourceFile="EnumerationUtils.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ExtendedProperties" sourceFile="ExtendedProperties.java" interface="false" size="512" bugs="6" priority_2="3" priority_1="3"/>
+      <ClassStats class="org.apache.commons.collections.ExtendedProperties$PropertiesReader" sourceFile="ExtendedProperties.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ExtendedProperties$PropertiesTokenizer" sourceFile="ExtendedProperties.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Factory" sourceFile="Factory.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FactoryUtils" sourceFile="FactoryUtils.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastArrayList" sourceFile="FastArrayList.java" interface="false" size="283" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastArrayList$ListIter" sourceFile="FastArrayList.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastArrayList$SubList" sourceFile="FastArrayList.java" interface="false" size="230" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastArrayList$SubList$SubListIter" sourceFile="FastArrayList.java" interface="false" size="64" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap" sourceFile="FastHashMap.java" interface="false" size="169" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$1" sourceFile="FastHashMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$CollectionView" sourceFile="FastHashMap.java" interface="false" size="107" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$CollectionView$CollectionViewIterator" sourceFile="FastHashMap.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$EntrySet" sourceFile="FastHashMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$KeySet" sourceFile="FastHashMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastHashMap$Values" sourceFile="FastHashMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap" sourceFile="FastTreeMap.java" interface="false" size="205" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$1" sourceFile="FastTreeMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$CollectionView" sourceFile="FastTreeMap.java" interface="false" size="107" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$CollectionView$CollectionViewIterator" sourceFile="FastTreeMap.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$EntrySet" sourceFile="FastTreeMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$KeySet" sourceFile="FastTreeMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FastTreeMap$Values" sourceFile="FastTreeMap.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.FunctorException" sourceFile="FunctorException.java" interface="false" size="50" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.collections.HashBag" sourceFile="HashBag.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.IterableMap" sourceFile="IterableMap.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.IteratorUtils" sourceFile="IteratorUtils.java" interface="false" size="168" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.KeyValue" sourceFile="KeyValue.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.LRUMap" sourceFile="LRUMap.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ListUtils" sourceFile="ListUtils.java" interface="false" size="85" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.MapIterator" sourceFile="MapIterator.java" interface="true" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.MapUtils" sourceFile="MapUtils.java" interface="false" size="372" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.MultiHashMap" sourceFile="MultiHashMap.java" interface="false" size="135" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.MultiHashMap$1" sourceFile="MultiHashMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.MultiHashMap$ValueIterator" sourceFile="MultiHashMap.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.MultiHashMap$Values" sourceFile="MultiHashMap.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.MultiMap" sourceFile="MultiMap.java" interface="true" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.OrderedBidiMap" sourceFile="OrderedBidiMap.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.OrderedIterator" sourceFile="OrderedIterator.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.OrderedMap" sourceFile="OrderedMap.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.OrderedMapIterator" sourceFile="OrderedMapIterator.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Predicate" sourceFile="Predicate.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.PredicateUtils" sourceFile="PredicateUtils.java" interface="false" size="62" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.PriorityQueue" sourceFile="PriorityQueue.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ProxyMap" sourceFile="ProxyMap.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap" sourceFile="ReferenceMap.java" interface="false" size="215" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$1" sourceFile="ReferenceMap.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$2" sourceFile="ReferenceMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$3" sourceFile="ReferenceMap.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$Entry" sourceFile="ReferenceMap.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$EntryIterator" sourceFile="ReferenceMap.java" interface="false" size="62" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$KeyIterator" sourceFile="ReferenceMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$SoftRef" sourceFile="ReferenceMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$ValueIterator" sourceFile="ReferenceMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ReferenceMap$WeakRef" sourceFile="ReferenceMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ResettableIterator" sourceFile="ResettableIterator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.ResettableListIterator" sourceFile="ResettableListIterator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap" sourceFile="SequencedHashMap.java" interface="false" size="202" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap$1" sourceFile="SequencedHashMap.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap$2" sourceFile="SequencedHashMap.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap$3" sourceFile="SequencedHashMap.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap$Entry" sourceFile="SequencedHashMap.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SequencedHashMap$OrderedIterator" sourceFile="SequencedHashMap.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SetUtils" sourceFile="SetUtils.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SortedBag" sourceFile="SortedBag.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SortedBidiMap" sourceFile="SortedBidiMap.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap" sourceFile="StaticBucketMap.java" interface="false" size="164" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$1" sourceFile="StaticBucketMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$EntryIterator" sourceFile="StaticBucketMap.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$EntrySet" sourceFile="StaticBucketMap.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$KeyIterator" sourceFile="StaticBucketMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$KeySet" sourceFile="StaticBucketMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$Lock" sourceFile="StaticBucketMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$Node" sourceFile="StaticBucketMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$ValueIterator" sourceFile="StaticBucketMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.StaticBucketMap$Values" sourceFile="StaticBucketMap.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.SynchronizedPriorityQueue" sourceFile="SynchronizedPriorityQueue.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Transformer" sourceFile="Transformer.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.TransformerUtils" sourceFile="TransformerUtils.java" interface="false" size="63" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.TreeBag" sourceFile="TreeBag.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.UnboundedFifoBuffer" sourceFile="UnboundedFifoBuffer.java" interface="false" size="75" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.UnboundedFifoBuffer$1" sourceFile="UnboundedFifoBuffer.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.Unmodifiable" sourceFile="Unmodifiable.java" interface="true" size="1" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.bag" total_bugs="1" total_types="18" total_size="548" priority_2="1">
+      <ClassStats class="org.apache.commons.collections.bag.AbstractBagDecorator" sourceFile="AbstractBagDecorator.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.AbstractMapBag" sourceFile="AbstractMapBag.java" interface="false" size="206" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.AbstractMapBag$BagIterator" sourceFile="AbstractMapBag.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.AbstractMapBag$MutableInteger" sourceFile="AbstractMapBag.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.AbstractSortedBagDecorator" sourceFile="AbstractSortedBagDecorator.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.HashBag" sourceFile="HashBag.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.PredicatedBag" sourceFile="PredicatedBag.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.PredicatedSortedBag" sourceFile="PredicatedSortedBag.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.SynchronizedBag" sourceFile="SynchronizedBag.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.SynchronizedBag$SynchronizedBagSet" sourceFile="SynchronizedBag.java" interface="false" size="6" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.bag.SynchronizedSortedBag" sourceFile="SynchronizedSortedBag.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.TransformedBag" sourceFile="TransformedBag.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.TransformedSortedBag" sourceFile="TransformedSortedBag.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.TreeBag" sourceFile="TreeBag.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.TypedBag" sourceFile="TypedBag.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.TypedSortedBag" sourceFile="TypedSortedBag.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.UnmodifiableBag" sourceFile="UnmodifiableBag.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bag.UnmodifiableSortedBag" sourceFile="UnmodifiableSortedBag.java" interface="false" size="38" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.bidimap" total_bugs="4" total_types="27" total_size="1512" priority_2="4">
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractBidiMapDecorator" sourceFile="AbstractBidiMapDecorator.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap" sourceFile="AbstractDualBidiMap.java" interface="false" size="102" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$BidiMapIterator" sourceFile="AbstractDualBidiMap.java" interface="false" size="50" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$EntrySet" sourceFile="AbstractDualBidiMap.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$EntrySetIterator" sourceFile="AbstractDualBidiMap.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$KeySet" sourceFile="AbstractDualBidiMap.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$KeySetIterator" sourceFile="AbstractDualBidiMap.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$MapEntry" sourceFile="AbstractDualBidiMap.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$Values" sourceFile="AbstractDualBidiMap.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$ValuesIterator" sourceFile="AbstractDualBidiMap.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractDualBidiMap$View" sourceFile="AbstractDualBidiMap.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractOrderedBidiMapDecorator" sourceFile="AbstractOrderedBidiMapDecorator.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.AbstractSortedBidiMapDecorator" sourceFile="AbstractSortedBidiMapDecorator.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.DualHashBidiMap" sourceFile="DualHashBidiMap.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.DualTreeBidiMap" sourceFile="DualTreeBidiMap.java" interface="false" size="75" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.DualTreeBidiMap$BidiOrderedMapIterator" sourceFile="DualTreeBidiMap.java" interface="false" size="47" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.DualTreeBidiMap$ViewMap" sourceFile="DualTreeBidiMap.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap" sourceFile="TreeBidiMap.java" interface="false" size="567" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$EntryView" sourceFile="TreeBidiMap.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$Inverse" sourceFile="TreeBidiMap.java" interface="false" size="83" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$Node" sourceFile="TreeBidiMap.java" interface="false" size="84" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$View" sourceFile="TreeBidiMap.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$ViewIterator" sourceFile="TreeBidiMap.java" interface="false" size="62" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.TreeBidiMap$ViewMapIterator" sourceFile="TreeBidiMap.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.UnmodifiableBidiMap" sourceFile="UnmodifiableBidiMap.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.UnmodifiableOrderedBidiMap" sourceFile="UnmodifiableOrderedBidiMap.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.bidimap.UnmodifiableSortedBidiMap" sourceFile="UnmodifiableSortedBidiMap.java" interface="false" size="51" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.buffer" total_bugs="0" total_types="16" total_size="732">
+      <ClassStats class="org.apache.commons.collections.buffer.AbstractBufferDecorator" sourceFile="AbstractBufferDecorator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.BlockingBuffer" sourceFile="BlockingBuffer.java" interface="false" size="87" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.BoundedBuffer" sourceFile="BoundedBuffer.java" interface="false" size="60" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.BoundedBuffer$NotifyingIterator" sourceFile="BoundedBuffer.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.BoundedFifoBuffer" sourceFile="BoundedFifoBuffer.java" interface="false" size="112" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.BoundedFifoBuffer$1" sourceFile="BoundedFifoBuffer.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.CircularFifoBuffer" sourceFile="CircularFifoBuffer.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.PredicatedBuffer" sourceFile="PredicatedBuffer.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.PriorityBuffer" sourceFile="PriorityBuffer.java" interface="false" size="146" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.PriorityBuffer$1" sourceFile="PriorityBuffer.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.SynchronizedBuffer" sourceFile="SynchronizedBuffer.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.TransformedBuffer" sourceFile="TransformedBuffer.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.TypedBuffer" sourceFile="TypedBuffer.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.UnboundedFifoBuffer" sourceFile="UnboundedFifoBuffer.java" interface="false" size="86" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.UnboundedFifoBuffer$1" sourceFile="UnboundedFifoBuffer.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.buffer.UnmodifiableBuffer" sourceFile="UnmodifiableBuffer.java" interface="false" size="33" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.collection" total_bugs="2" total_types="10" total_size="383" priority_2="2">
+      <ClassStats class="org.apache.commons.collections.collection.AbstractCollectionDecorator" sourceFile="AbstractCollectionDecorator.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.AbstractSerializableCollectionDecorator" sourceFile="AbstractSerializableCollectionDecorator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.CompositeCollection" sourceFile="CompositeCollection.java" interface="false" size="115" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.CompositeCollection$CollectionMutator" sourceFile="CompositeCollection.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.PredicatedCollection" sourceFile="PredicatedCollection.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.SynchronizedCollection" sourceFile="SynchronizedCollection.java" interface="false" size="85" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.collection.TransformedCollection" sourceFile="TransformedCollection.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.TypedCollection" sourceFile="TypedCollection.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.UnmodifiableBoundedCollection" sourceFile="UnmodifiableBoundedCollection.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.collection.UnmodifiableCollection" sourceFile="UnmodifiableCollection.java" interface="false" size="23" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.comparators" total_bugs="2" total_types="7" total_size="298" priority_2="2">
+      <ClassStats class="org.apache.commons.collections.comparators.BooleanComparator" sourceFile="BooleanComparator.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.comparators.ComparableComparator" sourceFile="ComparableComparator.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.comparators.ComparatorChain" sourceFile="ComparatorChain.java" interface="false" size="102" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.comparators.FixedOrderComparator" sourceFile="FixedOrderComparator.java" interface="false" size="71" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.comparators.NullComparator" sourceFile="NullComparator.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.comparators.ReverseComparator" sourceFile="ReverseComparator.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.comparators.TransformingComparator" sourceFile="TransformingComparator.java" interface="false" size="15" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.functors" total_bugs="26" total_types="51" total_size="1084" priority_2="26">
+      <ClassStats class="org.apache.commons.collections.functors.AllPredicate" sourceFile="AllPredicate.java" interface="false" size="29" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.AndPredicate" sourceFile="AndPredicate.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.AnyPredicate" sourceFile="AnyPredicate.java" interface="false" size="28" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.ChainedClosure" sourceFile="ChainedClosure.java" interface="false" size="36" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.ChainedTransformer" sourceFile="ChainedTransformer.java" interface="false" size="36" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.CloneTransformer" sourceFile="CloneTransformer.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ClosureTransformer" sourceFile="ClosureTransformer.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ConstantFactory" sourceFile="ConstantFactory.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ConstantTransformer" sourceFile="ConstantTransformer.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.EqualPredicate" sourceFile="EqualPredicate.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ExceptionClosure" sourceFile="ExceptionClosure.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ExceptionFactory" sourceFile="ExceptionFactory.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ExceptionPredicate" sourceFile="ExceptionPredicate.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ExceptionTransformer" sourceFile="ExceptionTransformer.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.FactoryTransformer" sourceFile="FactoryTransformer.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.FalsePredicate" sourceFile="FalsePredicate.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.ForClosure" sourceFile="ForClosure.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.FunctorUtils" sourceFile="FunctorUtils.java" interface="false" size="49" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.IdentityPredicate" sourceFile="IdentityPredicate.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.IfClosure" sourceFile="IfClosure.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.InstanceofPredicate" sourceFile="InstanceofPredicate.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.InstantiateFactory" sourceFile="InstantiateFactory.java" interface="false" size="47" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.InstantiateTransformer" sourceFile="InstantiateTransformer.java" interface="false" size="38" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.InvokerTransformer" sourceFile="InvokerTransformer.java" interface="false" size="43" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.MapTransformer" sourceFile="MapTransformer.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NOPClosure" sourceFile="NOPClosure.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NOPTransformer" sourceFile="NOPTransformer.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NonePredicate" sourceFile="NonePredicate.java" interface="false" size="25" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.NotNullPredicate" sourceFile="NotNullPredicate.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NotPredicate" sourceFile="NotPredicate.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NullIsExceptionPredicate" sourceFile="NullIsExceptionPredicate.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NullIsFalsePredicate" sourceFile="NullIsFalsePredicate.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NullIsTruePredicate" sourceFile="NullIsTruePredicate.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.NullPredicate" sourceFile="NullPredicate.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.OnePredicate" sourceFile="OnePredicate.java" interface="false" size="28" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.functors.OrPredicate" sourceFile="OrPredicate.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PredicateDecorator" sourceFile="PredicateDecorator.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PredicateTransformer" sourceFile="PredicateTransformer.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PrototypeFactory" sourceFile="PrototypeFactory.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PrototypeFactory$1" sourceFile="PrototypeFactory.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PrototypeFactory$PrototypeCloneFactory" sourceFile="PrototypeFactory.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.PrototypeFactory$PrototypeSerializationFactory" sourceFile="PrototypeFactory.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.StringValueTransformer" sourceFile="StringValueTransformer.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.SwitchClosure" sourceFile="SwitchClosure.java" interface="false" size="55" bugs="4" priority_2="4"/>
+      <ClassStats class="org.apache.commons.collections.functors.SwitchTransformer" sourceFile="SwitchTransformer.java" interface="false" size="53" bugs="4" priority_2="4"/>
+      <ClassStats class="org.apache.commons.collections.functors.TransformedPredicate" sourceFile="TransformedPredicate.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.TransformerClosure" sourceFile="TransformerClosure.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.TransformerPredicate" sourceFile="TransformerPredicate.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.TruePredicate" sourceFile="TruePredicate.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.UniquePredicate" sourceFile="UniquePredicate.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.functors.WhileClosure" sourceFile="WhileClosure.java" interface="false" size="30" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.iterators" total_bugs="3" total_types="36" total_size="1384" priority_2="3">
+      <ClassStats class="org.apache.commons.collections.iterators.AbstractEmptyIterator" sourceFile="AbstractEmptyIterator.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.AbstractIteratorDecorator" sourceFile="AbstractIteratorDecorator.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.AbstractListIteratorDecorator" sourceFile="AbstractListIteratorDecorator.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.AbstractMapIteratorDecorator" sourceFile="AbstractMapIteratorDecorator.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.AbstractOrderedMapIteratorDecorator" sourceFile="AbstractOrderedMapIteratorDecorator.java" interface="false" size="27" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ArrayIterator" sourceFile="ArrayIterator.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ArrayListIterator" sourceFile="ArrayListIterator.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.CollatingIterator" sourceFile="CollatingIterator.java" interface="false" size="130" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EmptyIterator" sourceFile="EmptyIterator.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EmptyListIterator" sourceFile="EmptyListIterator.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EmptyMapIterator" sourceFile="EmptyMapIterator.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EmptyOrderedIterator" sourceFile="EmptyOrderedIterator.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EmptyOrderedMapIterator" sourceFile="EmptyOrderedMapIterator.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EntrySetMapIterator" sourceFile="EntrySetMapIterator.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.EnumerationIterator" sourceFile="EnumerationIterator.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.FilterIterator" sourceFile="FilterIterator.java" interface="false" size="56" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.FilterListIterator" sourceFile="FilterListIterator.java" interface="false" size="107" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.IteratorChain" sourceFile="IteratorChain.java" interface="false" size="89" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.IteratorEnumeration" sourceFile="IteratorEnumeration.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ListIteratorWrapper" sourceFile="ListIteratorWrapper.java" interface="false" size="50" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.LoopingIterator" sourceFile="LoopingIterator.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.LoopingListIterator" sourceFile="LoopingListIterator.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ObjectArrayIterator" sourceFile="ObjectArrayIterator.java" interface="false" size="58" bugs="3" priority_2="3"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ObjectArrayListIterator" sourceFile="ObjectArrayListIterator.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ObjectGraphIterator" sourceFile="ObjectGraphIterator.java" interface="false" size="79" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ProxyIterator" sourceFile="ProxyIterator.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ProxyListIterator" sourceFile="ProxyListIterator.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.ReverseListIterator" sourceFile="ReverseListIterator.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.SingletonIterator" sourceFile="SingletonIterator.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.SingletonListIterator" sourceFile="SingletonListIterator.java" interface="false" size="48" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.TransformIterator" sourceFile="TransformIterator.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.UniqueFilterIterator" sourceFile="UniqueFilterIterator.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.UnmodifiableIterator" sourceFile="UnmodifiableIterator.java" interface="false" size="18" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.UnmodifiableListIterator" sourceFile="UnmodifiableListIterator.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.UnmodifiableMapIterator" sourceFile="UnmodifiableMapIterator.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.iterators.UnmodifiableOrderedMapIterator" sourceFile="UnmodifiableOrderedMapIterator.java" interface="false" size="28" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.keyvalue" total_bugs="1" total_types="8" total_size="193" priority_2="1">
+      <ClassStats class="org.apache.commons.collections.keyvalue.AbstractKeyValue" sourceFile="AbstractKeyValue.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.AbstractMapEntry" sourceFile="AbstractMapEntry.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.AbstractMapEntryDecorator" sourceFile="AbstractMapEntryDecorator.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.DefaultKeyValue" sourceFile="DefaultKeyValue.java" interface="false" size="36" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.DefaultMapEntry" sourceFile="DefaultMapEntry.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.MultiKey" sourceFile="MultiKey.java" interface="false" size="50" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.TiedMapEntry" sourceFile="TiedMapEntry.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.keyvalue.UnmodifiableMapEntry" sourceFile="UnmodifiableMapEntry.java" interface="false" size="12" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.list" total_bugs="2" total_types="29" total_size="1588" priority_2="2">
+      <ClassStats class="org.apache.commons.collections.list.AbstractLinkedList" sourceFile="AbstractLinkedList.java" interface="false" size="257" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractLinkedList$LinkedListIterator" sourceFile="AbstractLinkedList.java" interface="false" size="69" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractLinkedList$LinkedSubList" sourceFile="AbstractLinkedList.java" interface="false" size="83" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractLinkedList$LinkedSubListIterator" sourceFile="AbstractLinkedList.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractLinkedList$Node" sourceFile="AbstractLinkedList.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractListDecorator" sourceFile="AbstractListDecorator.java" interface="false" size="30" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.AbstractSerializableListDecorator" sourceFile="AbstractSerializableListDecorator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.CursorableLinkedList" sourceFile="CursorableLinkedList.java" interface="false" size="112" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.CursorableLinkedList$Cursor" sourceFile="CursorableLinkedList.java" interface="false" size="71" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.CursorableLinkedList$SubCursor" sourceFile="CursorableLinkedList.java" interface="false" size="22" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.FixedSizeList" sourceFile="FixedSizeList.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.FixedSizeList$FixedSizeListIterator" sourceFile="FixedSizeList.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.GrowthList" sourceFile="GrowthList.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.LazyList" sourceFile="LazyList.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.NodeCachingLinkedList" sourceFile="NodeCachingLinkedList.java" interface="false" size="76" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.PredicatedList" sourceFile="PredicatedList.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.PredicatedList$PredicatedListIterator" sourceFile="PredicatedList.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.SetUniqueList" sourceFile="SetUniqueList.java" interface="false" size="78" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.SetUniqueList$SetListIterator" sourceFile="SetUniqueList.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.SetUniqueList$SetListListIterator" sourceFile="SetUniqueList.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.SynchronizedList" sourceFile="SynchronizedList.java" interface="false" size="50" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.list.TransformedList" sourceFile="TransformedList.java" interface="false" size="37" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.list.TransformedList$TransformedListIterator" sourceFile="TransformedList.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.TreeList" sourceFile="TreeList.java" interface="false" size="68" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.TreeList$1" sourceFile="TreeList.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.TreeList$AVLNode" sourceFile="TreeList.java" interface="false" size="221" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.TreeList$TreeListIterator" sourceFile="TreeList.java" interface="false" size="78" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.TypedList" sourceFile="TypedList.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.list.UnmodifiableList" sourceFile="UnmodifiableList.java" interface="false" size="38" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.map" total_bugs="17" total_types="99" total_size="4183" priority_2="16" priority_1="1">
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap" sourceFile="AbstractHashedMap.java" interface="false" size="366" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$EntrySet" sourceFile="AbstractHashedMap.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$EntrySetIterator" sourceFile="AbstractHashedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$HashEntry" sourceFile="AbstractHashedMap.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$HashIterator" sourceFile="AbstractHashedMap.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$HashMapIterator" sourceFile="AbstractHashedMap.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$KeySet" sourceFile="AbstractHashedMap.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$KeySetIterator" sourceFile="AbstractHashedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$Values" sourceFile="AbstractHashedMap.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractHashedMap$ValuesIterator" sourceFile="AbstractHashedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractInputCheckedMapDecorator" sourceFile="AbstractInputCheckedMapDecorator.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractInputCheckedMapDecorator$EntrySet" sourceFile="AbstractInputCheckedMapDecorator.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractInputCheckedMapDecorator$EntrySetIterator" sourceFile="AbstractInputCheckedMapDecorator.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractInputCheckedMapDecorator$MapEntry" sourceFile="AbstractInputCheckedMapDecorator.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap" sourceFile="AbstractLinkedMap.java" interface="false" size="105" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$EntrySetIterator" sourceFile="AbstractLinkedMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$KeySetIterator" sourceFile="AbstractLinkedMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$LinkEntry" sourceFile="AbstractLinkedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$LinkIterator" sourceFile="AbstractLinkedMap.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$LinkMapIterator" sourceFile="AbstractLinkedMap.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractLinkedMap$ValuesIterator" sourceFile="AbstractLinkedMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractMapDecorator" sourceFile="AbstractMapDecorator.java" interface="false" size="47" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractOrderedMapDecorator" sourceFile="AbstractOrderedMapDecorator.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap" sourceFile="AbstractReferenceMap.java" interface="false" size="156" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntry" sourceFile="AbstractReferenceMap.java" interface="false" size="50" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySet" sourceFile="AbstractReferenceMap.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceEntrySetIterator" sourceFile="AbstractReferenceMap.java" interface="false" size="69" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceKeySet" sourceFile="AbstractReferenceMap.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceKeySetIterator" sourceFile="AbstractReferenceMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceMapIterator" sourceFile="AbstractReferenceMap.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceValues" sourceFile="AbstractReferenceMap.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$ReferenceValuesIterator" sourceFile="AbstractReferenceMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$SoftRef" sourceFile="AbstractReferenceMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractReferenceMap$WeakRef" sourceFile="AbstractReferenceMap.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.AbstractSortedMapDecorator" sourceFile="AbstractSortedMapDecorator.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.CaseInsensitiveMap" sourceFile="CaseInsensitiveMap.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.CompositeMap" sourceFile="CompositeMap.java" interface="false" size="116" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.CompositeMap$MapMutator" sourceFile="CompositeMap.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.DefaultedMap" sourceFile="DefaultedMap.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.FixedSizeMap" sourceFile="FixedSizeMap.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.FixedSizeSortedMap" sourceFile="FixedSizeSortedMap.java" interface="false" size="53" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map" sourceFile="Flat3Map.java" interface="false" size="391" bugs="6" priority_2="6"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$EntrySet" sourceFile="Flat3Map.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$EntrySetIterator" sourceFile="Flat3Map.java" interface="false" size="69" bugs="3" priority_2="3"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$FlatMapIterator" sourceFile="Flat3Map.java" interface="false" size="58" bugs="2" priority_2="2"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$KeySet" sourceFile="Flat3Map.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$KeySetIterator" sourceFile="Flat3Map.java" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$Values" sourceFile="Flat3Map.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.Flat3Map$ValuesIterator" sourceFile="Flat3Map.java" interface="false" size="7" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.map.HashedMap" sourceFile="HashedMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.IdentityMap" sourceFile="IdentityMap.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.IdentityMap$IdentityEntry" sourceFile="IdentityMap.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.LRUMap" sourceFile="LRUMap.java" interface="false" size="121" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.LazyMap" sourceFile="LazyMap.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.LazySortedMap" sourceFile="LazySortedMap.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.LinkedMap" sourceFile="LinkedMap.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.LinkedMap$LinkedMapList" sourceFile="LinkedMap.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap" sourceFile="ListOrderedMap.java" interface="false" size="121" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$EntrySetView" sourceFile="ListOrderedMap.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$KeySetView" sourceFile="ListOrderedMap.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$KeySetView$1" sourceFile="ListOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$ListOrderedIterator" sourceFile="ListOrderedMap.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$ListOrderedMapEntry" sourceFile="ListOrderedMap.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$ListOrderedMapIterator" sourceFile="ListOrderedMap.java" interface="false" size="52" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$ValuesView" sourceFile="ListOrderedMap.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ListOrderedMap$ValuesView$1" sourceFile="ListOrderedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiKeyMap" sourceFile="MultiKeyMap.java" interface="false" size="354" bugs="1" priority_1="1"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiValueMap" sourceFile="MultiValueMap.java" interface="false" size="111" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiValueMap$1" sourceFile="MultiValueMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiValueMap$ReflectionFactory" sourceFile="MultiValueMap.java" interface="false" size="10" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiValueMap$Values" sourceFile="MultiValueMap.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.MultiValueMap$ValuesIterator" sourceFile="MultiValueMap.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.PredicatedMap" sourceFile="PredicatedMap.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.PredicatedSortedMap" sourceFile="PredicatedSortedMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ReferenceIdentityMap" sourceFile="ReferenceIdentityMap.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.ReferenceMap" sourceFile="ReferenceMap.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.SingletonMap" sourceFile="SingletonMap.java" interface="false" size="112" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.SingletonMap$SingletonMapIterator" sourceFile="SingletonMap.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.SingletonMap$SingletonValues" sourceFile="SingletonMap.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap" sourceFile="StaticBucketMap.java" interface="false" size="166" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$1" sourceFile="StaticBucketMap.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$EntryIterator" sourceFile="StaticBucketMap.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$EntrySet" sourceFile="StaticBucketMap.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$KeyIterator" sourceFile="StaticBucketMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$KeySet" sourceFile="StaticBucketMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$Lock" sourceFile="StaticBucketMap.java" interface="false" size="5" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$Node" sourceFile="StaticBucketMap.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$ValueIterator" sourceFile="StaticBucketMap.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.StaticBucketMap$Values" sourceFile="StaticBucketMap.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.TransformedMap" sourceFile="TransformedMap.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.TransformedSortedMap" sourceFile="TransformedSortedMap.java" interface="false" size="31" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.TypedMap" sourceFile="TypedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.TypedSortedMap" sourceFile="TypedSortedMap.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableEntrySet" sourceFile="UnmodifiableEntrySet.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableEntrySet$UnmodifiableEntry" sourceFile="UnmodifiableEntrySet.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableEntrySet$UnmodifiableEntrySetIterator" sourceFile="UnmodifiableEntrySet.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableMap" sourceFile="UnmodifiableMap.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableOrderedMap" sourceFile="UnmodifiableOrderedMap.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.map.UnmodifiableSortedMap" sourceFile="UnmodifiableSortedMap.java" interface="false" size="49" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="org.apache.commons.collections.set" total_bugs="3" total_types="19" total_size="474" priority_2="3">
+      <ClassStats class="org.apache.commons.collections.set.AbstractSerializableSetDecorator" sourceFile="AbstractSerializableSetDecorator.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.AbstractSetDecorator" sourceFile="AbstractSetDecorator.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.AbstractSortedSetDecorator" sourceFile="AbstractSortedSetDecorator.java" interface="false" size="21" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.CompositeSet" sourceFile="CompositeSet.java" interface="false" size="58" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.CompositeSet$SetMutator" sourceFile="CompositeSet.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.ListOrderedSet" sourceFile="ListOrderedSet.java" interface="false" size="108" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.ListOrderedSet$1" sourceFile="ListOrderedSet.java" interface="false" size="1" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.ListOrderedSet$OrderedSetIterator" sourceFile="ListOrderedSet.java" interface="false" size="17" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.MapBackedSet" sourceFile="MapBackedSet.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.PredicatedSet" sourceFile="PredicatedSet.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.PredicatedSortedSet" sourceFile="PredicatedSortedSet.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.SynchronizedSet" sourceFile="SynchronizedSet.java" interface="false" size="12" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.set.SynchronizedSortedSet" sourceFile="SynchronizedSortedSet.java" interface="false" size="39" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.set.TransformedSet" sourceFile="TransformedSet.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.TransformedSortedSet" sourceFile="TransformedSortedSet.java" interface="false" size="24" bugs="1" priority_2="1"/>
+      <ClassStats class="org.apache.commons.collections.set.TypedSet" sourceFile="TypedSet.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.TypedSortedSet" sourceFile="TypedSortedSet.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.UnmodifiableSet" sourceFile="UnmodifiableSet.java" interface="false" size="23" bugs="0"/>
+      <ClassStats class="org.apache.commons.collections.set.UnmodifiableSortedSet" sourceFile="UnmodifiableSortedSet.java" interface="false" size="40" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="756" invocations="4059" avgMicrosecondsPerInvocation="186" maxMicrosecondsPerInvocation="28629" standardDeviationMircosecondsPerInvocation="704"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="753" invocations="4059" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="9287" standardDeviationMircosecondsPerInvocation="368"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="715" invocations="4085" avgMicrosecondsPerInvocation="175" maxMicrosecondsPerInvocation="132412" standardDeviationMircosecondsPerInvocation="2086"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="569" invocations="4059" avgMicrosecondsPerInvocation="140" maxMicrosecondsPerInvocation="6709" standardDeviationMircosecondsPerInvocation="278"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="526" invocations="618" avgMicrosecondsPerInvocation="851" maxMicrosecondsPerInvocation="23919" standardDeviationMircosecondsPerInvocation="1990"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="502" invocations="4103" avgMicrosecondsPerInvocation="122" maxMicrosecondsPerInvocation="9083" standardDeviationMircosecondsPerInvocation="290"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="486" invocations="1040" avgMicrosecondsPerInvocation="468" maxMicrosecondsPerInvocation="12745" standardDeviationMircosecondsPerInvocation="892"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="480" invocations="618" avgMicrosecondsPerInvocation="777" maxMicrosecondsPerInvocation="19535" standardDeviationMircosecondsPerInvocation="1905"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="431" invocations="3596" avgMicrosecondsPerInvocation="120" maxMicrosecondsPerInvocation="3395" standardDeviationMircosecondsPerInvocation="196"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="367" invocations="4059" avgMicrosecondsPerInvocation="90" maxMicrosecondsPerInvocation="8405" standardDeviationMircosecondsPerInvocation="177"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="244" invocations="4816" avgMicrosecondsPerInvocation="50" maxMicrosecondsPerInvocation="3291" standardDeviationMircosecondsPerInvocation="114"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.URLProblems" totalMilliseconds="235" invocations="458" avgMicrosecondsPerInvocation="514" maxMicrosecondsPerInvocation="149824" standardDeviationMircosecondsPerInvocation="7005"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.TypeQualifierNullnessAnnotationDatabase" totalMilliseconds="174" invocations="207229" avgMicrosecondsPerInvocation="0" maxMicrosecondsPerInvocation="1686" standardDeviationMircosecondsPerInvocation="5"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="168" invocations="4059" avgMicrosecondsPerInvocation="41" maxMicrosecondsPerInvocation="11359" standardDeviationMircosecondsPerInvocation="194"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantPoolGenFactory" totalMilliseconds="167" invocations="458" avgMicrosecondsPerInvocation="366" maxMicrosecondsPerInvocation="134968" standardDeviationMircosecondsPerInvocation="6298"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="165" invocations="618" avgMicrosecondsPerInvocation="267" maxMicrosecondsPerInvocation="7247" standardDeviationMircosecondsPerInvocation="545"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="164" invocations="4139" avgMicrosecondsPerInvocation="39" maxMicrosecondsPerInvocation="38725" standardDeviationMircosecondsPerInvocation="602"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.LoadOfKnownNullValue" totalMilliseconds="150" invocations="458" avgMicrosecondsPerInvocation="329" maxMicrosecondsPerInvocation="14577" standardDeviationMircosecondsPerInvocation="967"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.UnreadFields" totalMilliseconds="143" invocations="458" avgMicrosecondsPerInvocation="313" maxMicrosecondsPerInvocation="24163" standardDeviationMircosecondsPerInvocation="1176"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="139" invocations="458" avgMicrosecondsPerInvocation="304" maxMicrosecondsPerInvocation="5047" standardDeviationMircosecondsPerInvocation="521"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="132" invocations="618" avgMicrosecondsPerInvocation="214" maxMicrosecondsPerInvocation="15860" standardDeviationMircosecondsPerInvocation="968"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DefaultEncodingDetector" totalMilliseconds="132" invocations="458" avgMicrosecondsPerInvocation="288" maxMicrosecondsPerInvocation="8188" standardDeviationMircosecondsPerInvocation="595"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="130" invocations="618" avgMicrosecondsPerInvocation="211" maxMicrosecondsPerInvocation="6644" standardDeviationMircosecondsPerInvocation="564"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="130" invocations="618" avgMicrosecondsPerInvocation="210" maxMicrosecondsPerInvocation="6191" standardDeviationMircosecondsPerInvocation="513"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison" totalMilliseconds="109" invocations="458" avgMicrosecondsPerInvocation="239" maxMicrosecondsPerInvocation="20828" standardDeviationMircosecondsPerInvocation="1005"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref$CheckCallSitesAndReturnInstructions" totalMilliseconds="108" invocations="4059" avgMicrosecondsPerInvocation="26" maxMicrosecondsPerInvocation="659" standardDeviationMircosecondsPerInvocation="39"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.DumbMethods" totalMilliseconds="106" invocations="458" avgMicrosecondsPerInvocation="233" maxMicrosecondsPerInvocation="6285" standardDeviationMircosecondsPerInvocation="467"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="103" invocations="618" avgMicrosecondsPerInvocation="166" maxMicrosecondsPerInvocation="10789" standardDeviationMircosecondsPerInvocation="529"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNullDeref" totalMilliseconds="102" invocations="458" avgMicrosecondsPerInvocation="223" maxMicrosecondsPerInvocation="2237" standardDeviationMircosecondsPerInvocation="286"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="101" invocations="644" avgMicrosecondsPerInvocation="157" maxMicrosecondsPerInvocation="10927" standardDeviationMircosecondsPerInvocation="466"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="86" invocations="4059" avgMicrosecondsPerInvocation="21" maxMicrosecondsPerInvocation="1086" standardDeviationMircosecondsPerInvocation="43"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="84" invocations="1012" avgMicrosecondsPerInvocation="83" maxMicrosecondsPerInvocation="5583" standardDeviationMircosecondsPerInvocation="214"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="83" invocations="458" avgMicrosecondsPerInvocation="182" maxMicrosecondsPerInvocation="9669" standardDeviationMircosecondsPerInvocation="562"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SerializableIdiom" totalMilliseconds="74" invocations="458" avgMicrosecondsPerInvocation="163" maxMicrosecondsPerInvocation="2670" standardDeviationMircosecondsPerInvocation="290"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.SwitchFallthrough" totalMilliseconds="74" invocations="458" avgMicrosecondsPerInvocation="162" maxMicrosecondsPerInvocation="4105" standardDeviationMircosecondsPerInvocation="300"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindPuzzlers" totalMilliseconds="68" invocations="458" avgMicrosecondsPerInvocation="150" maxMicrosecondsPerInvocation="4414" standardDeviationMircosecondsPerInvocation="278"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

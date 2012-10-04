@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="2.0.1" sequence="0" timestamp="1349329643000" analysisTimestamp="1349329645277" release="">
+  <Project projectName="">
+    <Jar>506d22e2520165c8a770ee0f-bsf-api-3.1.jar</Jar>
+  </Project>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" instanceHash="5cad1b49bcb5064531ae439afe40da66" instanceOccurrenceNum="0" instanceOccurrenceMax="0" rank="19">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in new javax.script.SimpleScriptContext(): new java.io.InputStreamReader(InputStream)</LongMessage>
+    <Class classname="javax.script.SimpleScriptContext" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="43" end="236" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+        <Message>At SimpleScriptContext.java:[lines 43-236]</Message>
+      </SourceLine>
+      <Message>In class javax.script.SimpleScriptContext</Message>
+    </Class>
+    <Method classname="javax.script.SimpleScriptContext" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="72" end="76" startBytecode="0" endBytecode="130" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java"/>
+      <Message>In method new javax.script.SimpleScriptContext()</Message>
+    </Method>
+    <Method classname="java.io.InputStreamReader" name="&lt;init&gt;" signature="(Ljava/io/InputStream;)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.InputStreamReader" start="55" end="62" startBytecode="0" endBytecode="83" sourcefile="InputStreamReader.java" sourcepath="java/io/InputStreamReader.java"/>
+      <Message>Called method new java.io.InputStreamReader(InputStream)</Message>
+    </Method>
+    <SourceLine classname="javax.script.SimpleScriptContext" primary="true" start="73" end="73" startBytecode="28" endBytecode="28" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+      <Message>At SimpleScriptContext.java:[line 73]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" instanceHash="185becd771e89ef722fd015ea00a280b" instanceOccurrenceNum="0" instanceOccurrenceMax="1" rank="19">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in new javax.script.SimpleScriptContext(): new java.io.PrintWriter(OutputStream, boolean)</LongMessage>
+    <Class classname="javax.script.SimpleScriptContext" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="43" end="236" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+        <Message>At SimpleScriptContext.java:[lines 43-236]</Message>
+      </SourceLine>
+      <Message>In class javax.script.SimpleScriptContext</Message>
+    </Class>
+    <Method classname="javax.script.SimpleScriptContext" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="72" end="76" startBytecode="0" endBytecode="130" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java"/>
+      <Message>In method new javax.script.SimpleScriptContext()</Message>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;Z)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="110" end="116" startBytecode="0" endBytecode="71" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+      <Message>Called method new java.io.PrintWriter(OutputStream, boolean)</Message>
+    </Method>
+    <SourceLine classname="javax.script.SimpleScriptContext" primary="true" start="74" end="74" startBytecode="43" endBytecode="43" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+      <Message>At SimpleScriptContext.java:[line 74]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugInstance type="DM_DEFAULT_ENCODING" priority="1" abbrev="Dm" category="I18N" instanceHash="185becd771e89ef722fd015ea00a280b" instanceOccurrenceNum="1" instanceOccurrenceMax="1" rank="19">
+    <ShortMessage>Reliance on default encoding</ShortMessage>
+    <LongMessage>Found reliance on default encoding in new javax.script.SimpleScriptContext(): new java.io.PrintWriter(OutputStream, boolean)</LongMessage>
+    <Class classname="javax.script.SimpleScriptContext" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="43" end="236" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+        <Message>At SimpleScriptContext.java:[lines 43-236]</Message>
+      </SourceLine>
+      <Message>In class javax.script.SimpleScriptContext</Message>
+    </Class>
+    <Method classname="javax.script.SimpleScriptContext" name="&lt;init&gt;" signature="()V" isStatic="false" primary="true">
+      <SourceLine classname="javax.script.SimpleScriptContext" start="72" end="76" startBytecode="0" endBytecode="130" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java"/>
+      <Message>In method new javax.script.SimpleScriptContext()</Message>
+    </Method>
+    <Method classname="java.io.PrintWriter" name="&lt;init&gt;" signature="(Ljava/io/OutputStream;Z)V" isStatic="false" role="METHOD_CALLED">
+      <SourceLine classname="java.io.PrintWriter" start="110" end="116" startBytecode="0" endBytecode="71" sourcefile="PrintWriter.java" sourcepath="java/io/PrintWriter.java"/>
+      <Message>Called method new java.io.PrintWriter(OutputStream, boolean)</Message>
+    </Method>
+    <SourceLine classname="javax.script.SimpleScriptContext" primary="true" start="75" end="75" startBytecode="58" endBytecode="58" sourcefile="SimpleScriptContext.java" sourcepath="javax/script/SimpleScriptContext.java">
+      <Message>At SimpleScriptContext.java:[line 75]</Message>
+    </SourceLine>
+  </BugInstance>
+  <BugCategory category="I18N">
+    <Description>Internationalization</Description>
+  </BugCategory>
+  <BugPattern type="DM_DEFAULT_ENCODING" abbrev="Dm" category="I18N">
+    <ShortDescription>Reliance on default encoding</ShortDescription>
+    <Details><![CDATA[
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      ]]></Details>
+  </BugPattern>
+  <BugCode abbrev="Dm">
+    <Description>Dubious method used</Description>
+  </BugCode>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 4 Oct 2012 11:17:23 +0530" total_classes="12" referenced_classes="57" total_bugs="3" total_size="429" num_packages="1" vm_version="17.1-b03" cpu_seconds="9.55" clock_seconds="3.21" peak_mbytes="134.01" alloc_mbytes="682.69" gc_seconds="0.02" priority_1="3">
+    <FileStats path="javax/script/AbstractScriptEngine.java" bugCount="0" size="55"/>
+    <FileStats path="javax/script/Bindings.java" bugCount="0" size="6"/>
+    <FileStats path="javax/script/Compilable.java" bugCount="0" size="3"/>
+    <FileStats path="javax/script/CompiledScript.java" bugCount="0" size="19"/>
+    <FileStats path="javax/script/Invocable.java" bugCount="0" size="5"/>
+    <FileStats path="javax/script/ScriptContext.java" bugCount="0" size="17"/>
+    <FileStats path="javax/script/ScriptEngine.java" bugCount="0" size="22"/>
+    <FileStats path="javax/script/ScriptEngineFactory.java" bugCount="0" size="13"/>
+    <FileStats path="javax/script/ScriptEngineManager.java" bugCount="0" size="102"/>
+    <FileStats path="javax/script/ScriptException.java" bugCount="0" size="39"/>
+    <FileStats path="javax/script/SimpleBindings.java" bugCount="0" size="57"/>
+    <FileStats path="javax/script/SimpleScriptContext.java" bugCount="3" size="91" bugHash="f2f25e4904768e1ea137832c1a5c4dc9"/>
+    <PackageStats package="javax.script" total_bugs="3" total_types="12" total_size="429" priority_1="3">
+      <ClassStats class="javax.script.AbstractScriptEngine" sourceFile="AbstractScriptEngine.java" interface="false" size="55" bugs="0"/>
+      <ClassStats class="javax.script.Bindings" sourceFile="Bindings.java" interface="true" size="6" bugs="0"/>
+      <ClassStats class="javax.script.Compilable" sourceFile="Compilable.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="javax.script.CompiledScript" sourceFile="CompiledScript.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="javax.script.Invocable" sourceFile="Invocable.java" interface="true" size="5" bugs="0"/>
+      <ClassStats class="javax.script.ScriptContext" sourceFile="ScriptContext.java" interface="true" size="17" bugs="0"/>
+      <ClassStats class="javax.script.ScriptEngine" sourceFile="ScriptEngine.java" interface="true" size="22" bugs="0"/>
+      <ClassStats class="javax.script.ScriptEngineFactory" sourceFile="ScriptEngineFactory.java" interface="true" size="13" bugs="0"/>
+      <ClassStats class="javax.script.ScriptEngineManager" sourceFile="ScriptEngineManager.java" interface="false" size="102" bugs="0"/>
+      <ClassStats class="javax.script.ScriptException" sourceFile="ScriptException.java" interface="false" size="39" bugs="0"/>
+      <ClassStats class="javax.script.SimpleBindings" sourceFile="SimpleBindings.java" interface="false" size="57" bugs="0"/>
+      <ClassStats class="javax.script.SimpleScriptContext" sourceFile="SimpleScriptContext.java" interface="false" size="91" bugs="3" priority_1="3"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="306" invocations="427" avgMicrosecondsPerInvocation="718" maxMicrosecondsPerInvocation="15102" standardDeviationMircosecondsPerInvocation="1581"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="220" invocations="57" avgMicrosecondsPerInvocation="3861" maxMicrosecondsPerInvocation="35131" standardDeviationMircosecondsPerInvocation="6595"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ExplicitSerialization" totalMilliseconds="203" invocations="57" avgMicrosecondsPerInvocation="3563" maxMicrosecondsPerInvocation="36560" standardDeviationMircosecondsPerInvocation="6480"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="128" invocations="71" avgMicrosecondsPerInvocation="1806" maxMicrosecondsPerInvocation="27152" standardDeviationMircosecondsPerInvocation="3303"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="115" invocations="57" avgMicrosecondsPerInvocation="2028" maxMicrosecondsPerInvocation="15271" standardDeviationMircosecondsPerInvocation="3342"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="110" invocations="71" avgMicrosecondsPerInvocation="1555" maxMicrosecondsPerInvocation="17022" standardDeviationMircosecondsPerInvocation="2161"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="108" invocations="71" avgMicrosecondsPerInvocation="1533" maxMicrosecondsPerInvocation="33766" standardDeviationMircosecondsPerInvocation="4032"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="99" invocations="71" avgMicrosecondsPerInvocation="1403" maxMicrosecondsPerInvocation="20554" standardDeviationMircosecondsPerInvocation="2484"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="92" invocations="267" avgMicrosecondsPerInvocation="345" maxMicrosecondsPerInvocation="2682" standardDeviationMircosecondsPerInvocation="386"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="92" invocations="71" avgMicrosecondsPerInvocation="1300" maxMicrosecondsPerInvocation="14654" standardDeviationMircosecondsPerInvocation="2090"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="63" invocations="71" avgMicrosecondsPerInvocation="892" maxMicrosecondsPerInvocation="9265" standardDeviationMircosecondsPerInvocation="1344"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="61" invocations="59" avgMicrosecondsPerInvocation="1038" maxMicrosecondsPerInvocation="11079" standardDeviationMircosecondsPerInvocation="1490"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="59" invocations="57" avgMicrosecondsPerInvocation="1050" maxMicrosecondsPerInvocation="9439" standardDeviationMircosecondsPerInvocation="1949"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="54" invocations="57" avgMicrosecondsPerInvocation="948" maxMicrosecondsPerInvocation="5008" standardDeviationMircosecondsPerInvocation="1235"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="48" invocations="57" avgMicrosecondsPerInvocation="846" maxMicrosecondsPerInvocation="6613" standardDeviationMircosecondsPerInvocation="1366"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="46" invocations="124" avgMicrosecondsPerInvocation="371" maxMicrosecondsPerInvocation="37270" standardDeviationMircosecondsPerInvocation="3328"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="45" invocations="57" avgMicrosecondsPerInvocation="801" maxMicrosecondsPerInvocation="6013" standardDeviationMircosecondsPerInvocation="1297"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="45" invocations="411" avgMicrosecondsPerInvocation="109" maxMicrosecondsPerInvocation="1976" standardDeviationMircosecondsPerInvocation="220"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="44" invocations="71" avgMicrosecondsPerInvocation="625" maxMicrosecondsPerInvocation="8053" standardDeviationMircosecondsPerInvocation="969"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="40" invocations="66" avgMicrosecondsPerInvocation="609" maxMicrosecondsPerInvocation="16466" standardDeviationMircosecondsPerInvocation="2042"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindDeadLocalStores" totalMilliseconds="35" invocations="12" avgMicrosecondsPerInvocation="2934" maxMicrosecondsPerInvocation="25478" standardDeviationMircosecondsPerInvocation="6886"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="33" invocations="57" avgMicrosecondsPerInvocation="584" maxMicrosecondsPerInvocation="4181" standardDeviationMircosecondsPerInvocation="919"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.impl.ZipCodeBaseFactory" totalMilliseconds="32" invocations="12" avgMicrosecondsPerInvocation="2714" maxMicrosecondsPerInvocation="19035" standardDeviationMircosecondsPerInvocation="6007"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>

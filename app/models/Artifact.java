@@ -14,6 +14,7 @@ public class Artifact {
 	public ObjectId id;
 	public String artifactName;
 	public String findBugsReport;
+	public FindbugsReport report = new FindbugsReport();
 
 	public Artifact() {
 	}
@@ -28,6 +29,7 @@ public class Artifact {
 			response.put("id", id);
 			response.put("artifactName", artifactName);
 			response.put("findBugsReport", findBugsReport);
+			response.put("bugCounts", new JSONObject(report.toString()));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}

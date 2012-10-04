@@ -1,0 +1,2692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>
+         FindBugs (2.0.1) 
+         Analysis for 
+         </title>
+<style type="text/css">
+         html, body, div, form {
+            margin:0px;
+            padding:0px;
+         }
+         body {
+            padding:3px;
+         }
+         a, a:link , a:active, a:visited, a:hover {
+            text-decoration: none; color: black;
+         }
+         #navlist {
+                 padding: 3px 0;
+                 margin-left: 0;
+                 border-bottom: 1px solid #778;
+                 font: bold 12px Verdana, sans-serif;
+         }
+         #navlist li {
+                 list-style: none;
+                 margin: 0;
+                 display: inline;
+         }
+         #navlist li a {
+                 padding: 3px 0.5em;
+                 margin-left: 3px;
+                 border: 1px solid #778;
+                 border-bottom: none;
+                 background: #DDE;
+                 text-decoration: none;
+         }
+         #navlist li a:link { color: #448; }
+         #navlist li a:visited { color: #667; }
+         #navlist li a:hover {
+                 color: #000;
+                 background: #AAE;
+                 border-color: #227;
+         }
+         #navlist li a.current {
+                 background: white;
+                 border-bottom: 1px solid white;
+         }
+         #filterWrapper {
+            margin-bottom:5px;
+         }
+         #displayWrapper {
+            margin-top:5px;
+         }
+         .message {
+            background:#BBBBBB;
+           border: 1px solid #778;
+         }
+         .displayContainer {
+            border:1px solid #555555;
+            margin-top:3px;
+            padding: 3px;
+            display:none;
+         }
+         #summaryContainer table,
+         #historyContainer table {
+            border:1px solid black;
+         }
+         #summaryContainer th,
+         #historyContainer th {
+            background: #aaaaaa;
+            color: white;
+         }
+         #summaryContainer th, #summaryContainer td,
+         #historyContainer th, #historyContainer td {
+            padding: 2px 4px 2px 4px;
+         }
+         .summary-name {
+            background: #eeeeee;
+            text-align:left;
+         }
+         .summary-size {
+            background: #eeeeee;
+            text-align:center;
+         }
+         .summary-priority-all {
+            background: #dddddd;
+            text-align:center;
+         }
+         .summary-priority-1 {
+            background: red;
+            text-align:center;
+         }
+         .summary-priority-2 {
+            background: orange;
+            text-align:center;
+         }
+         .summary-priority-3 {
+            background: green;
+            text-align:center;
+         }
+         .summary-priority-4 {
+            background: blue;
+            text-align:center;
+         }
+
+         .bugList-level1 {
+            margin-bottom:5px;
+         }
+         .bugList-level1, .bugList-level2, .bugList-level3, .bugList-level4 {
+            background-color: #ffffff;
+            margin-left:15px;
+            padding-left:10px;
+         }
+         .bugList-level1-label, .bugList-level2-label, .bugList-level3-label, .bugList-level4-label {
+            background-color: #bbbbbb;
+            border: 1px solid black;
+            padding: 1px 3px 1px 3px;;
+         }
+         .bugList-level2-label, .bugList-level3-label, .bugList-level4-label {
+            border-width: 0px 1px 1px 1px;
+         }
+         .bugList-level4-label {
+            background-color: #ffffff;
+            border: 0px 0px 1px 0px;
+         }
+         .bugList-level4 {
+            border: 0px 1px 1px 1px;
+         }
+
+         .bugList-level4-inner {
+            border-style: solid;
+            border-color: black;
+            border-width: 0px 1px 1px 1px;
+         }
+         .b-r {
+            font-size: 10pt; font-weight: bold; padding: 0 0 0 60px;
+         }
+         .b-d {
+            font-weight: normal; background: #ccccc0;
+            padding: 0 5px 0 5px; margin: 0px;
+         }
+         .b-1 {
+            background: red; height: 0.5em; width: 1em;
+            margin-right: 0.5em;
+         }
+         .b-2 {
+            background: orange; height: 0.5em; width: 1em;
+            margin-right: 0.5em;
+         }
+         .b-3 {
+            background: green; height: 0.5em; width: 1em;
+            margin-right: 0.5em;
+         }
+         .b-4 {
+            background: blue; height: 0.5em; width: 1em;
+            margin-right: 0.5em;
+         }
+
+      </style>
+<script type="text/javascript">
+         var menus            = new Array('summary','info','history','listByCategories','listByPackages');
+         var selectedMenuId   = "summary";
+         var selectedVersion  = -1;
+         var selectedPriority = 4;
+         var lastVersion      = 0;
+         var includeFixedIntroducedBugs;
+
+         var bPackageNamesPopulated = false;
+
+         var filterContainerId              = "filterWrapper";
+         var historyControlContainerId      = "historyControlWrapper";
+         var messageContainerId             = "messageContainer";
+         var summaryContainerId             = "summaryContainer";
+         var infoContainerId                = "infoContainer";
+         var historyContainerId             = "historyContainer";
+         var listByCategoriesContainerId    = "listByCategoriesContainer";
+         var listByPackagesContainerId      = "listByPackagesContainer";
+
+         var idxCatKey = 0; var idxCatDescr = 1; var idxBugCat = 1;
+         var idxCodeKey = 0; var idxCodeDescr = 1; var idxBugCode = 2;
+         var idxPatternKey = 2; var idxPatternDescr = 3; var idxBugPattern = 3;
+         var idxBugKey = 0; var idxBugDescr = 6;
+         var idxBugClass = 6, idxBugPackage = 7;
+
+         // main init function
+         function init() {
+            loadFilter();
+            selectMenu(selectedMenuId);
+            lastVersion = versions.length - 1;
+         }
+
+         // menu callback function
+         function selectMenu(menuId) {
+            document.getElementById(selectedMenuId).className="none";
+            document.getElementById(menuId).className="current";
+            if (menuId!=selectedMenuId) {
+               hideMenu(selectedMenuId);
+               selectedMenuId = menuId;
+            }
+            if (menuId=="summary")           displaySummary();
+            if (menuId=="info")              displayInfo();
+            if (menuId=="history")           displayHistory();
+            if (menuId=="listByCategories")  displayListByCategories();
+            if (menuId=="listByPackages")    displayListByPackages();
+         }
+
+         // display filter
+         function loadFilter() {
+            var versionsBox = document.findbugsForm.versions.options;
+            versionsBox[0] = new Option(" -- All Versions -- ","-1");
+            versionsBox.selectedIndex = 0;
+            if (versions.length>=1) {
+               for (x=0; versions.length>1 && x<versions.length; x++) {
+                  versionsBox[x+1] = new Option(" Bugs at release: "+versions[versions.length-x-1][1], versions[versions.length-x-1][0]);
+               }
+            }
+
+            var prioritiesBox = document.findbugsForm.priorities.options;
+            prioritiesBox[0] = new Option(" -- All priorities -- ", "4");
+            prioritiesBox[1] = new Option(" P1 bugs ", "1");
+            prioritiesBox[2] = new Option(" P1 and P2 bugs ", "2");
+            prioritiesBox[3] = new Option(" P1, P2 and P3 bugs ", "3");
+         }
+
+         // display a message
+         function displayMessage(msg) {
+            var container = document.getElementById(messageContainerId);
+            container.innerHTML = "<div class='message'>"+msg+"</div>";
+         }
+
+         // reset displayed message
+         function resetMessage() {
+            var container = document.getElementById(messageContainerId);
+            container.innerHTML = "";
+         }
+
+         function hideMenu(menuId) {
+            var container = menuId+"Container";
+            document.getElementById(container).style.display="none";
+         }
+
+         // filter callback function
+         function filter() {
+            var versionsBox = document.findbugsForm.versions.options;
+            selectedVersion = versionsBox[versionsBox.selectedIndex].value;
+
+            var prioritiesBox = document.findbugsForm.priorities.options;
+            selectedPriority = prioritiesBox[prioritiesBox.selectedIndex].value;
+
+            selectMenu(selectedMenuId);
+         }
+
+         // includeFixedBugs callback function
+         function includeFixedIntroducedBugsInHistory() {
+            includeFixedIntroducedBugs =
+              document.findbugsHistoryControlForm.includeFixedIntroducedBugs.checked;
+
+            selectMenu(selectedMenuId);
+         }
+
+         // display summary tab
+         function displaySummary() {
+            resetMessage();
+            hide(filterContainerId);
+            hide(historyControlContainerId);
+            var container = document.getElementById(summaryContainerId);
+            container.style.display="block";
+         }
+
+         // display info tab
+         function displayInfo() {
+            resetMessage();
+            hide(filterContainerId);
+            hide(historyControlContainerId);
+            var container = document.getElementById(infoContainerId);
+            container.style.display="block";
+         }
+
+         // display history tab
+         function displayHistory() {
+            displayMessage("Loading history...");
+            hide(filterContainerId);
+            show(historyControlContainerId);
+            var container = document.getElementById(historyContainerId);
+            var content = "";
+            var i=0;
+            var p = [0,0,0,0,0];
+            var f = [0,0,0,0,0];
+
+            content += "<table><tr><th>Release</th><th>Bugs</th><th>Bugs p1</th><th>Bugs p2</th><th>Bugs p3</th><th>Bugs Exp.</th></tr>";
+
+            var aSpan   = "<span title='Bugs introduced in this release that have not been fixed.'>";
+            var fSpan   = "<span title='Bugs fixed in this release.'>";
+            var fiSpan  = "<span title='Bugs introduced in this release that were fixed in later releases.'>";
+            var afiSpan = "<span title='Total number of bugs introduced in this release.'>";
+            var eSpan   = "</span>";
+
+            if(includeFixedIntroducedBugs) {
+                for (i=(versions.length-1); i>0; i--) {
+                    v = countBugsVersion(i, 4);
+                    t = countTotalBugsVersion(i);
+                    o = countFixedButActiveBugsVersion(i);
+                    f = countFixedBugsInVersion(i);
+                    fi = countFixedBugsIntroducedInVersion(i);
+                    content += "<tr>";
+                    content += "<td class='summary-name'>" + versions[i][1] + "</td>";
+                    content += "<td class='summary-priority-all'> " + (t[0] + o[0]) + " (+" + afiSpan + (v[0] + fi[0]) + eSpan +
+                      " [" + aSpan + v[0] + eSpan + " / " + fiSpan + fi[0] + eSpan + "] " + eSpan + " / -" + fSpan + f[0] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-1'> " + (t[1] + o[1]) + " (+" + afiSpan + (v[1] + fi[1]) + eSpan +
+                      " [" + aSpan + v[1] + eSpan + " / " + fiSpan + fi[1] + eSpan + "] " + eSpan + " / -" + fSpan + f[1] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-2'> " + (t[2] + o[2]) + " (+" + afiSpan + (v[2] + fi[2]) + eSpan +
+                      " [" + aSpan + v[2] + eSpan + " / " + fiSpan + fi[2] + eSpan + "] " + eSpan + " / -" + fSpan + f[2] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-3'> " + (t[3] + o[3]) + " (+" + afiSpan + (v[3] + fi[3]) + eSpan +
+                      " [" + aSpan + v[3] + eSpan + " / " + fiSpan + fi[3] + eSpan + "] " + eSpan + " / -" + fSpan + f[3] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-4'> " + (t[4] + o[4]) + " (+" + afiSpan + (v[4] + fi[4]) + eSpan +
+                      " [" + aSpan + v[4] + eSpan + " / " + fiSpan + fi[4] + eSpan + "] " + eSpan + " / -" + fSpan + f[4] + eSpan + ") </td>";
+                    content += "</tr>";
+                }
+            } else {
+                for (i=(versions.length-1); i>0; i--) {
+                    v = countBugsVersion(i, 4);
+                    t = countTotalBugsVersion(i);
+                    o = countFixedButActiveBugsVersion(i);
+                    f = countFixedBugsInVersion(i);
+                    content += "<tr>";
+                    content += "<td class='summary-name'>" + versions[i][1] + "</td>";
+                    content += "<td class='summary-priority-all'> " + (t[0] + o[0]) + " (+" + aSpan + v[0] + eSpan + " / -" + fSpan + f[0] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-1'  > " + (t[1] + o[1]) + " (+" + aSpan + v[1] + eSpan + " / -" + fSpan + f[1] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-2'  > " + (t[2] + o[2]) + " (+" + aSpan + v[2] + eSpan + " / -" + fSpan + f[2] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-3'  > " + (t[3] + o[3]) + " (+" + aSpan + v[3] + eSpan + " / -" + fSpan + f[3] + eSpan + ") </td>";
+                    content += "<td class='summary-priority-4'  > " + (t[4] + o[4]) + " (+" + aSpan + v[4] + eSpan + " / -" + fSpan + f[4] + eSpan + ") </td>";
+                    content += "</tr>";
+                }
+            }
+
+            t = countTotalBugsVersion(0);
+            o = countFixedButActiveBugsVersion(0);
+            content += "<tr>";
+            content += "<td class='summary-name'>" + versions[0][1] + "</td>";
+            content += "<td class='summary-priority-all'> " + (t[0] + o[0]) + " </td>";
+            content += "<td class='summary-priority-1'  > " + (t[1] + o[1]) + " </td>";
+            content += "<td class='summary-priority-2'  > " + (t[2] + o[2]) + " </td>";
+            content += "<td class='summary-priority-3'  > " + (t[3] + o[3]) + " </td>";
+            content += "<td class='summary-priority-4'  > " + (t[4] + o[4]) + " </td>";
+            content += "</tr>";
+
+            content += "</table>";
+            container.innerHTML = content;
+            container.style.display="block";
+            resetMessage();
+         }
+
+         // display list by cat tab
+         function displayListByCategories() {
+            hide(historyControlContainerId);
+            show(filterContainerId);
+            var container = document.getElementById(listByCategoriesContainerId);
+            container.innerHTML = "";
+            container.style.display="block";
+            displayMessage("Loading stats (categories)...");
+            container.innerHTML = displayLevel1("lbc", "Stats by Bug Categories");
+            resetMessage();
+         }
+
+         // display list by package tab
+         function displayListByPackages() {
+            hide(historyControlContainerId);
+            show(filterContainerId);
+            var container = document.getElementById(listByPackagesContainerId);
+            container.style.display="block";
+            if (!bPackageNamesPopulated) {
+               displayMessage("Initializing...");
+               populatePackageNames();
+            }
+            displayMessage("Loading stats (packages)...");
+            container.innerHTML = displayLevel1("lbp", "Stats by Bug Package");
+            resetMessage();
+         }
+
+         // callback function for list item click
+         function toggleList(listType, containerId, id1, id2, id3) {
+            var container = document.getElementById(containerId);
+            if (container.style.display=="block") {
+               container.style.display="none";
+            } else {
+               if (listType=="lbc") {
+                  if (id1.length>0 && id2.length==0 && id3.length==0) {
+                     displayCategoriesCodes(containerId, id1);
+                  } else if (id1.length>0 && id2.length>0 && id3.length==0) {
+                     displayCategoriesCodesPatterns(containerId, id1, id2);
+                  } else if (id1.length>0 && id2.length>0 && id3.length>0) {
+                     displayCategoriesCodesPatternsBugs(containerId, id1, id2, id3);
+                  } else {
+                     // ???
+                  }
+               } else if (listType=="lbp") {
+                  if (id1.length>0 && id2.length==0 && id3.length==0) {
+                     displayPackageCodes(containerId, id1);
+                  } else if (id1.length>0 && id2.length>0 && id3.length==0) {
+                     displayPackageClassPatterns(containerId, id1, id2);
+                  } else if (id1.length>0 && id2.length>0 && id3.length>0) {
+                     displayPackageClassPatternsBugs(containerId, id1, id2, id3);
+                  } else {
+                     // ???
+                  }
+               } else {
+                  // ????
+               }
+            }
+         }
+
+         // list by categories, display bug cat>codes
+         function displayCategoriesCodes(containerId, catId) {
+            displayMessage("Loading stats (codes)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="") {
+               container.innerHTML = displayLevel2("lbc", catId);
+            }
+            resetMessage();
+         }
+
+         // list by categories, display bug package>codes
+         function displayPackageCodes(containerId, packageId) {
+            displayMessage("Loading stats (codes)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="") {
+               container.innerHTML = displayLevel2("lbp", packageId);
+            }
+            resetMessage();
+         }
+
+         // list by categories, display bug cat>codes>patterns
+         function displayCategoriesCodesPatterns(containerId, catId, codeId) {
+            displayMessage("Loading stats (patterns)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="")
+               container.innerHTML = displayLevel3("lbc", catId, codeId);
+            resetMessage();
+         }
+
+         // list by package, display bug package>class>patterns
+         function displayPackageClassPatterns(containerId, packageId, classId) {
+            displayMessage("Loading stats (patterns)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="")
+               container.innerHTML = displayLevel3("lbp", packageId, classId);
+            resetMessage();
+         }
+
+         // list by categories, display bug cat>codes>patterns>bugs
+         function displayCategoriesCodesPatternsBugs(containerId, catId, codeId, patternId) {
+            displayMessage("Loading stats (bugs)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="")
+               container.innerHTML = displayLevel4("lbc", catId, codeId, patternId);
+            resetMessage();
+         }
+
+         // list by package, display bug package>class>patterns>bugs
+         function displayPackageClassPatternsBugs(containerId, packageId, classId, patternId) {
+            displayMessage("Loading stats (bugs)...");
+            var container = document.getElementById(containerId);
+            container.style.display="block";
+            if (container.innerHTML=="Loading..." || container.innerHTML=="")
+               container.innerHTML = displayLevel4("lbp",  packageId, classId, patternId);
+            resetMessage();
+         }
+
+         // generate level 1 list
+         function displayLevel1(list, title) {
+            var content = "";
+            var content2 = "";
+
+            content += "<h3>"+title+"</h3>";
+            content += getPriorityLegend();
+            content2 += "<div class='bugList'>";
+
+            var id = "";
+            var containerId = "";
+            var subContainerId = "";
+            var prefixSub = "";
+            var prefixId = "";
+            var p = [0,0,0,0,0];
+            var numberOfBugs = 0;
+            var label = "";
+            var max = 0;
+            if (list=="lbc") {
+               max = categories.length;
+            } else if (list=="lbp") {
+               max = packageStats.length;
+            }
+
+            for (var x=0; x<max -1; x++) {
+               if (list=="lbp" && packageStats[x][1]=="0") continue;
+
+               if (list=="lbc") {
+                  id = categories[x][idxCatKey];
+                  label = categories[x][idxCatDescr];
+                  containerId = "categories-" + id;
+                  subContainerId = "cat-"+id;
+                  p = countBugsCat(selectedVersion, selectedPriority, id, idxBugCat);
+               }
+               if (list=="lbp") {
+                  id = packageStats[x][0];
+                  label = packageStats[x][0];
+                  containerId = "packages-" + id;
+                  subContainerId = "package-"+id;
+                  p = countBugsPackage(selectedVersion, selectedPriority, id, idxBugPackage);
+               }
+
+               subContainerId = prefixSub+id;
+
+               var total = p[1]+p[2]+p[3]+p[4];
+               if (total > 0) {
+                  content2 += addListItem( 1, containerId, label, total, p, subContainerId,
+                                          "toggleList('" + list + "', '" + subContainerId + "', '"+ id + "', '', '')"
+                                          );
+               }
+               numberOfBugs += total;
+            }
+            content2 += "</div>";
+            content += "<h4>Total number of bugs";
+            if (selectedVersion!=-1) {
+               content += " (introduced in release " + versions[selectedVersion][1] +")";
+            }
+            content += ": "+numberOfBugs+"</h4>";
+            return content+content2;
+         }
+
+         // generate level 2 list
+        function displayLevel2(list, id1) {
+            var content = "";
+            var code = "";
+            var containerId = "";
+            var subContainerId = "";
+            var p = [0,0,0,0,0];
+            var max = 0;
+            var id2 = "";
+            if (list=="lbc") {
+               max = codes.length;
+            } else if (list=="lbp") {
+               max = classStats.length;
+            }
+
+            for (var x=0; x<max -1; x++) {
+               if (list=="lbp" && classStats[x][3]=="0") continue;
+
+               if (list=="lbc") {
+                  id2 = codes[x][idxCodeKey];
+                  label = codes[x][idxCodeDescr];
+                  containerId = "codes-"+id1;
+                  subContainerId = "cat-" + id1 + "-code-" + id2;
+                  p = countBugsCode(selectedVersion, selectedPriority, id1, idxBugCat, id2, idxBugCode);
+               }
+               if (list=="lbp") {
+                  id2 = classStats[x][0];
+                  label = classStats[x][0];
+                  containerId = "packages-"+id1;
+                  subContainerId = "package-" + id1 + "-class-" + id2;
+                  p = countBugsClass(selectedVersion, selectedPriority, id1, idxBugPackage, id2, idxBugClass);
+               }
+
+               var total = p[1]+p[2]+p[3]+p[4];
+               if (total > 0) {
+                  content += addListItem( 2, containerId, label, total, p, subContainerId,
+                                          "toggleList('"+ list + "', '" + subContainerId + "', '"+ id1 + "', '"+ id2 + "', '')"
+                                          );
+               }
+            }
+            return content;
+         }
+
+         // generate level 3 list
+        function displayLevel3(list, id1, id2) {
+            var content = "";
+            var containerId = "";
+            var subContainerId = "";
+            var p = [0,0,0,0,0];
+            var max = 0;
+            var label = "";
+            var id3 = "";
+
+            if (list=="lbc") {
+               max = patterns.length;
+            } else if (list=="lbp") {
+               max = patterns.length;
+            }
+
+            for (var x=0; x<max -1; x++) {
+               //if (list=="lbp" && (patterns[x][0]!=id1 || patterns[x][1]!=id2)) continue;
+               //if (list=="lbp" && classStats[x][3]=="0") continue;
+
+               if (list=="lbc") {
+                  id3 = patterns[x][idxPatternKey];;
+                  label = patterns[x][idxPatternDescr];
+                  containerId = "patterns-"+id1;
+                  subContainerId = "cat-" + id1 + "-code-" + id2 + "-pattern-" + id3;
+                  p = countBugsPattern(selectedVersion, selectedPriority, id1, idxBugCat, id2, idxBugCode, id3, idxBugPattern);
+               }
+               if (list=="lbp") {
+                  id3 = patterns[x][idxPatternKey];;
+                  label = patterns[x][idxPatternDescr];
+                  containerId = "classpatterns-"+id1;
+                  subContainerId = "package-" + id1 + "-class-" + id2 + "-pattern-" + id3;
+                  p = countBugsClassPattern(selectedVersion, selectedPriority, id2, idxBugClass, id3, idxBugPattern);
+               }
+
+               var total = p[1]+p[2]+p[3]+p[4];
+               if (total > 0) {
+                  content += addListItem( 3, containerId, label, total, p, subContainerId,
+                                          "toggleList('" + list + "', '" + subContainerId + "', '"+ id1 + "', '"+ id2 + "', '"+ id3 + "')"
+                                          );
+               }
+            }
+            return content;
+         }
+
+         // generate level 4 list
+        function displayLevel4(list, id1, id2, id3) {
+            var content = "";
+            var bug = "";
+            var bugP = 0;
+            var containerId = "";
+            var subContainerId = "";
+            var bugId = "";
+            var label = "";
+            var p = [0,0,0,0,0];
+            for (var x=0; x<bugs.length -1; x++) {
+               bug = bugs[x];
+               if (list=="lbc") {
+                  if ( bug[1]!=id1 || bug[2]!=id2 || bug[3]!=id3 ) continue;
+                  if ( selectedVersion!=-1
+                     && selectedVersion!=bug[5]) continue;
+                  if ( selectedPriority!=4
+                     && selectedPriority<bug[4]) continue;
+
+                  subContainerId = "cat-" + id1 + "-code-" + id2 + "-pattern-" + id3 + "-bug-" + bug[0];
+               }
+               if (list=="lbp") {
+                  if ( bug[7]!=id1 || bug[6]!=id2 || bug[3]!=id3 ) continue;
+                  if ( selectedVersion!=-1
+                     && selectedVersion!=bug[5]) continue;
+                  if ( selectedPriority!=4
+                     && selectedPriority<bug[4]) continue;
+
+                  subContainerId = "package-" + id1 + "-class-" + id2 + "-pattern-" + id3 + "-bug-" + bug[0];
+               }
+
+               bugId = "b-uid-" + bug[0];
+               label = bug[idxBugDescr];
+               containerId = "bugs-"+bugId;
+               bugP = bug[4];
+               p[bugP]++;
+               var total = p[1]+p[2]+p[3]+p[4];
+               if (total > 0) {
+                  content += addBug(   4, containerId, label, bugP, bug[5], subContainerId,
+                                       "showbug('" + bugId + "', '" + subContainerId + "', '"+id3+"')");
+               }
+            }
+            return content;
+         }
+
+
+         function addListItem(level, id, label, total, p, subId, onclick) {
+            var content = "";
+
+            content += "<div class='bugList-level"+level+"' >";
+            content += "<div class='bugList-level"+level+"-label' id='"+id+"' >";
+            content += "<a href='' onclick=\"" + onclick + ";return false;\" ";
+            content += ">";
+            content += "<strong>"+label+"</strong>";
+            content += " "+total+" bugs";
+            if (selectedPriority>1)
+               content += " <em>("+p[1];
+            if (selectedPriority>=2)
+               content += "/"+p[2];
+            if (selectedPriority>=3)
+               content += "/"+p[3];
+            if (selectedPriority>=4)
+               content += "/"+p[4];
+            if (selectedPriority>1)
+               content += ")</em>";
+            content += "</a>";
+            content += "</div>";
+            content += "<div class='bugList-level"+level+"-inner' id='"+subId+"' style='display:none;'>Loading...</div>";
+            content += "</div>";
+            return content;
+         }
+
+         function addBug( level, id, label, p, version, subId, onclick) {
+            var content = "";
+
+            content += "<div class='bugList-level" + level + "' id='" + id + "'>";
+            content += "<div class='bugList-level" + level + "-label' id='" + id + "'>";
+            content += "<span class='b-" + p + "'>&nbsp;&nbsp;&nbsp;</span>";
+            content += "<a href='' onclick=\"" + onclick + ";return false;\">";
+            if (version==lastVersion) {
+               content += "<span style='color:red;font-weight:bold;'>NEW!</span> ";
+            }
+            content += "<strong>" + label + "</strong>";
+            if (version==0) {
+               content += " <em>since release first historized release</em>";
+            } else {
+               content += " <em>since release " + versions[version][1] + "</em>";
+            }
+            content += "</a>";
+            content += "</div>";
+            content += "<div class='bugList-level" + level + "-inner' id='" + subId + "' style='display:none;'>Loading...</div>";
+            content += "</div>";
+            return content;
+         }
+
+         function countBugsVersion(version, priority) {
+            return countBugs(version, priority, "", -1, "", -1, "", -1, "", -1, "", -1);
+         }
+
+         function countBugsCat(version, priority, cat, idxCat) {
+            return countBugs(version, priority, cat, idxCat, "", -1, "", -1, "", -1, "", -1);
+         }
+
+         function countBugsPackage(version, priority, packageId, idxPackage) {
+            return countBugs(version, priority, "", -1, "", -1, "", -1, packageId, idxPackage, "", -1);
+         }
+
+         function countBugsCode(version, priority, cat, idxCat, code, idxCode) {
+            return countBugs(version, priority, cat, idxCat, code, idxCode, "", -1, "", -1, "", -1);
+         }
+
+         function countBugsPattern(version, priority, cat, idxCat, code, idxCode, packageId, idxPattern) {
+            return countBugs(version, priority, cat, idxCat, code, idxCode, packageId, idxPattern, "", -1, "", -1);
+         }
+
+         function countBugsClass(version, priority, id1, idxBugPackage, id2, idxBugClass) {
+            return countBugs(version, priority, "", -1, "", -1, "", -1, id1, idxBugPackage, id2, idxBugClass);
+         }
+
+         function countBugsClassPattern(version, priority, id2, idxBugClass, id3, idxBugPattern) {
+            return countBugs(version, priority, "", -1, "", -1, id3, idxBugPattern, "", -1, id2, idxBugClass);
+         }
+
+         function countBugs(version, priority, cat, idxCat, code, idxCode, pattern, idxPattern, packageId, idxPackage, classId, idxClass) {
+            var count = [0,0,0,0,0];
+            var last=1000000;
+            for (var x=0; x<bugs.length-1; x++) {
+               var bug = bugs[x];
+
+               var bugCat = bug[idxCat];
+               var bugP = bug[4];
+               var bugCode = bug[idxCode];
+               var bugPattern = bug[idxPattern];
+
+               if (     (version==-1    || version==bug[5])
+                     && (priority==4    || priority>=bug[4])
+                     && (idxCat==-1     || bug[idxCat]==cat)
+                     && (idxCode==-1    || bug[idxCode]==code)
+                     && (idxPattern==-1 || bug[idxPattern]==pattern)
+                     && (idxPackage==-1 || bug[idxPackage]==packageId)
+                     && (idxClass==-1   || bug[idxClass]==classId)
+                     ) {
+                  count[bug[4]]++;
+               }
+            }
+            count[0] = count[1] + count[2] + count[3] + count[4];
+            return count;
+         }
+
+         function countFixedBugsInVersion(version) {
+            var count = [0,0,0,0,0];
+            var last=1000000;
+            for (var x=0; x<fixedBugs.length-1; x++) {
+               var bug = fixedBugs[x];
+
+               var bugP = bug[4];
+
+               if ( version==-1 || version==(bug[6]+1)) {
+                  count[bug[4]]++;
+               }
+            }
+            count[0] = count[1] + count[2] + count[3] + count[4];
+            return count;
+         }
+
+         function countFixedBugsIntroducedInVersion(version) {
+            var count = [0,0,0,0,0];
+            var last=1000000;
+            for (var x=0; x<fixedBugs.length-1; x++) {
+               var bug = fixedBugs[x];
+
+               var bugP = bug[4];
+
+               if ( version==-1 || version==(bug[5])) {
+                  count[bug[4]]++;
+               }
+            }
+            count[0] = count[1] + count[2] + count[3] + count[4];
+            return count;
+         }
+
+         function countFixedButActiveBugsVersion(version) {
+            var count = [0,0,0,0,0];
+            var last=1000000;
+            for (var x=0; x<fixedBugs.length-1; x++) {
+               var bug = fixedBugs[x];
+
+               var bugP = bug[4];
+
+               if ( version==-1 || (version >=bug[5] && version<=bug[6]) ) {
+                  count[bug[4]]++;
+               }
+            }
+            count[0] = count[1] + count[2] + count[3] + count[4];
+            return count;
+         }
+
+         function countTotalBugsVersion(version) {
+            var count = [0,0,0,0,0];
+            var last=1000000;
+            for (var x=0; x<bugs.length-1; x++) {
+               var bug = bugs[x];
+
+               var bugP = bug[4];
+
+               if (version==-1 || version>=bug[5]) {
+                  count[bug[4]]++;
+               }
+            }
+            count[0] = count[1] + count[2] + count[3] + count[4];
+            return count;
+         }
+
+         function getPriorityLegend() {
+            var content = "";
+            content += "<h5><span class='b-1'>&nbsp;&nbsp;&nbsp;</span> P1 ";
+            content += "<span class='b-2'>&nbsp;&nbsp;&nbsp;</span> P2 ";
+            content += "<span class='b-3'>&nbsp;&nbsp;&nbsp;</span> P3 ";
+            content += "<span class='b-4'>&nbsp;&nbsp;&nbsp;</span> Exp ";
+            content += "</h5>";
+            return content;
+         }
+
+         function populatePackageNames() {
+            for (var i=0; i<bugs.length; i++) {
+               var classId = bugs[i][6];
+               var idx = classId.lastIndexOf('.');
+               var packageId = "";
+
+               if (idx>0) {
+                  packageId = classId.substring(0, idx);
+               }
+
+               bugs[i][7] = packageId;
+            }
+         }
+
+         function showbug(bugId, containerId, patternId) {
+            var bugplaceholder   = document.getElementById(containerId);
+            var bug              = document.getElementById(bugId);
+
+            if ( bugplaceholder==null) {
+               alert(buguid+'-ph-'+list+' - '+buguid+' - bugplaceholder==null');
+               return;
+            }
+            if ( bug==null) {
+               alert(buguid+'-ph-'+list+' - '+buguid+' - bug==null');
+               return;
+            }
+
+            var newBug = bug.innerHTML;
+            var pattern = document.getElementById('tip-'+patternId).innerHTML;
+            toggle(containerId);
+            bugplaceholder.innerHTML = newBug + pattern;
+         }
+         function toggle(foo) {
+            if( document.getElementById(foo).style.display == "none") {
+               show(foo);
+            } else {
+               if( document.getElementById(foo).style.display == "block") {
+                  hide(foo);
+               } else {
+                  show(foo);
+               }
+            }
+         }
+         function show(foo) {
+            document.getElementById(foo).style.display="block";
+         }
+         function hide(foo) {
+            document.getElementById(foo).style.display="none";
+         }
+
+         window.onload = function(){
+            init();
+         };
+      </script>
+<script type="text/javascript">
+         // versions fields: release id, release label
+         var versions = new Array(
+            
+               [ "0", "" ]
+            );
+
+         // categories fields: category id, category label
+         var categories = new Array(
+            
+               [ "BAD_PRACTICE", "Bad practice" ],
+            
+               [ "CORRECTNESS", "Correctness" ],
+            
+               [ "EXPERIMENTAL", "Experimental" ],
+            
+               [ "I18N", "Internationalization" ],
+            
+               [ "MALICIOUS_CODE", "Malicious code vulnerability" ],
+            
+               [ "MT_CORRECTNESS", "Multithreaded correctness" ],
+            
+               [ "PERFORMANCE", "Performance" ],
+            
+               [ "STYLE", "Dodgy code" ],
+            
+               [ "", "" ]
+            );
+
+         // codes fields: code id, code label
+         var codes = new Array(
+            
+               [ "Bx", "Questionable Boxing of primitive value" ],
+            
+               [ "Dm", "Dubious method used" ],
+            
+               [ "FS", "Format string problem" ],
+            
+               [ "GC", "Suspicious calls to generic collection methods" ],
+            
+               [ "HE", "Equal objects must have equal hashcodes" ],
+            
+               [ "IA", "Ambiguous invocation" ],
+            
+               [ "It", "Incorrect definition of Iterator" ],
+            
+               [ "LI", "Unsynchronized Lazy Initialization" ],
+            
+               [ "MS", "Mutable static field" ],
+            
+               [ "Nm", "Confusing method name" ],
+            
+               [ "NP", "Null pointer dereference" ],
+            
+               [ "OBL", "Unsatisfied obligation to clean up stream or resource" ],
+            
+               [ "OS", "Stream not closed on all paths" ],
+            
+               [ "RV", "Bad use of return value from method" ],
+            
+               [ "SIC", "Inner class could be made static" ],
+            
+               [ "ST", "Misuse of static fields" ],
+            
+               [ "VA", "Var arg problems" ],
+            
+               [ "VO", "Use of volatile" ],
+            
+               [ "", "" ]
+            );
+
+         // patterns fields: category id, code id, pattern id, pattern label
+         var patterns = new Array(
+            
+               [ "I18N", "Dm", "DM_DEFAULT_ENCODING", "Reliance on default encoding" ],
+
+            
+               [ "BAD_PRACTICE", "Dm", "DM_EXIT", "Method invokes System.exit(...)" ],
+
+            
+               [ "PERFORMANCE", "Bx", "DM_NUMBER_CTOR", "Method invokes inefficient Number constructor; use static valueOf instead" ],
+
+            
+               [ "CORRECTNESS", "GC", "GC_UNRELATED_TYPES", "No relationship between generic parameter and method argument" ],
+
+            
+               [ "BAD_PRACTICE", "HE", "HE_EQUALS_USE_HASHCODE", "Class defines equals() and uses Object.hashCode()" ],
+
+            
+               [ "STYLE", "IA", "IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD", "Ambiguous invocation of either an inherited or outer method" ],
+
+            
+               [ "BAD_PRACTICE", "It", "IT_NO_SUCH_ELEMENT", "Iterator next() method can't throw NoSuchElementException" ],
+
+            
+               [ "MT_CORRECTNESS", "LI", "LI_LAZY_INIT_UPDATE_STATIC", "Incorrect lazy initialization and update of static field" ],
+
+            
+               [ "MALICIOUS_CODE", "MS", "MS_SHOULD_BE_FINAL", "Field isn't final but should be" ],
+
+            
+               [ "BAD_PRACTICE", "Nm", "NM_CLASS_NOT_EXCEPTION", "Class is not derived from an Exception, even though it is named as such" ],
+
+            
+               [ "BAD_PRACTICE", "Nm", "NM_SAME_SIMPLE_NAME_AS_SUPERCLASS", "Class names shouldn't shadow simple name of superclass" ],
+
+            
+               [ "BAD_PRACTICE", "NP", "NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT", "equals() method does not check for null argument" ],
+
+            
+               [ "EXPERIMENTAL", "OBL", "OBL_UNSATISFIED_OBLIGATION", "Method may fail to clean up stream or resource" ],
+
+            
+               [ "BAD_PRACTICE", "OS", "OS_OPEN_STREAM", "Method may fail to close stream" ],
+
+            
+               [ "BAD_PRACTICE", "RV", "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE", "Method ignores exceptional return value" ],
+
+            
+               [ "PERFORMANCE", "SIC", "SIC_INNER_SHOULD_BE_STATIC", "Should be a static inner class" ],
+
+            
+               [ "STYLE", "ST", "ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD", "Write to static field from instance method" ],
+
+            
+               [ "BAD_PRACTICE", "FS", "VA_FORMAT_STRING_USES_NEWLINE", "Format string should use %n rather than \n" ],
+
+            
+               [ "CORRECTNESS", "VA", "VA_PRIMITIVE_ARRAY_PASSED_TO_OBJECT_VARARG", "Primitive array passed to function expecting a variable number of object arguments" ],
+
+            
+               [ "MT_CORRECTNESS", "VO", "VO_VOLATILE_INCREMENT", "An increment to a volatile field isn't atomic" ],
+
+            
+               [ "", "", "", "" ]
+            );
+
+         // class stats fields: class name, package name, isInterface, total bugs, bugs p1, bugs p2, bugs p3, bugs p4
+         var classStats = new Array(
+            
+               [ "junit.extensions.ActiveTestSuite", "junit.extensions", "false", "1", "", "1", "", "" ],
+            
+               [ "junit.extensions.ActiveTestSuite$1", "junit.extensions", "false", "0", "", "", "", "" ],
+            
+               [ "junit.extensions.package-info", "junit.extensions", "true", "0", "", "", "", "" ],
+            
+               [ "junit.extensions.RepeatedTest", "junit.extensions", "false", "0", "", "", "", "" ],
+            
+               [ "junit.extensions.TestDecorator", "junit.extensions", "false", "0", "", "", "", "" ],
+            
+               [ "junit.extensions.TestSetup", "junit.extensions", "false", "0", "", "", "", "" ],
+            
+               [ "junit.extensions.TestSetup$1", "junit.extensions", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.Assert", "junit.framework", "false", "5", "", "5", "", "" ],
+            
+               [ "junit.framework.AssertionFailedError", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.ComparisonCompactor", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.ComparisonFailure", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.JUnit4TestAdapter", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.JUnit4TestAdapterCache", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.JUnit4TestAdapterCache$1", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.JUnit4TestCaseFacade", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.package-info", "junit.framework", "true", "0", "", "", "", "" ],
+            
+               [ "junit.framework.Protectable", "junit.framework", "true", "0", "", "", "", "" ],
+            
+               [ "junit.framework.Test", "junit.framework", "true", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestCase", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestFailure", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestListener", "junit.framework", "true", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestResult", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestResult$1", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestSuite", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.framework.TestSuite$1", "junit.framework", "false", "0", "", "", "", "" ],
+            
+               [ "junit.runner.BaseTestRunner", "junit.runner", "false", "4", "1", "3", "", "" ],
+            
+               [ "junit.runner.package-info", "junit.runner", "true", "0", "", "", "", "" ],
+            
+               [ "junit.runner.TestRunListener", "junit.runner", "true", "0", "", "", "", "" ],
+            
+               [ "junit.runner.Version", "junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "junit.textui.package-info", "junit.textui", "true", "0", "", "", "", "" ],
+            
+               [ "junit.textui.ResultPrinter", "junit.textui", "false", "0", "", "", "", "" ],
+            
+               [ "junit.textui.TestRunner", "junit.textui", "false", "1", "", "1", "", "" ],
+            
+               [ "org.hamcrest.BaseDescription", "org.hamcrest", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.BaseMatcher", "org.hamcrest", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.AllOf", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.AnyOf", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.DescribedAs", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.Is", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsAnything", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsEqual", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsInstanceOf", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsNot", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsNull", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core.IsSame", "org.hamcrest.core", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.CoreMatchers", "org.hamcrest", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.Description", "org.hamcrest", "true", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.Factory", "org.hamcrest", "true", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.internal.ArrayIterator", "org.hamcrest.internal", "false", "1", "", "1", "", "" ],
+            
+               [ "org.hamcrest.internal.SelfDescribingValue", "org.hamcrest.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.internal.SelfDescribingValueIterator", "org.hamcrest.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.Matcher", "org.hamcrest", "true", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.SelfDescribing", "org.hamcrest", "true", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.StringDescription", "org.hamcrest", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.After", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.AfterClass", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.Assert", "org.junit", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.Assume", "org.junit", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.Before", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.BeforeClass", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.ClassRule", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.ComparisonFailure", "org.junit", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.ComparisonFailure$ComparisonCompactor", "org.junit", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories.Categories", "org.junit.experimental.categories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories.Categories$CategoryFilter", "org.junit.experimental.categories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories.Categories$ExcludeCategory", "org.junit.experimental.categories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories.Categories$IncludeCategory", "org.junit.experimental.categories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories.Category", "org.junit.experimental.categories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.CouldNotReadCoreException", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxCore", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxCore$1", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxCore$1$1", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxHistory", "org.junit.experimental.max", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxHistory$1", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxHistory$RememberingListener", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max.MaxHistory$TestComparator", "org.junit.experimental.max", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.ParallelComputer", "org.junit.experimental", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.ParallelComputer$1", "org.junit.experimental", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.ParallelComputer$1$1", "org.junit.experimental", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.results.FailureList", "org.junit.experimental.results", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.results.PrintableResult", "org.junit.experimental.results", "false", "2", "2", "", "", "" ],
+            
+               [ "org.junit.experimental.results.ResultMatchers", "org.junit.experimental.results", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.results.ResultMatchers$1", "org.junit.experimental.results", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.results.ResultMatchers$2", "org.junit.experimental.results", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.results.ResultMatchers$3", "org.junit.experimental.results", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.runners.Enclosed", "org.junit.experimental.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.DataPoint", "org.junit.experimental.theories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.DataPoints", "org.junit.experimental.theories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal.AllMembersSupplier", "org.junit.experimental.theories.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal.AllMembersSupplier$1", "org.junit.experimental.theories.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal.AllMembersSupplier$MethodParameterValue", "org.junit.experimental.theories.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal.Assignments", "org.junit.experimental.theories.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal.ParameterizedAssertionError", "org.junit.experimental.theories.internal", "false", "2", "1", "1", "", "" ],
+            
+               [ "org.junit.experimental.theories.ParameterSignature", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.ParametersSuppliedBy", "org.junit.experimental.theories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.ParameterSupplier", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.PotentialAssignment", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.PotentialAssignment$1", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.PotentialAssignment$CouldNotGenerateValueException", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.suppliers.TestedOn", "org.junit.experimental.theories.suppliers", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.suppliers.TestedOnSupplier", "org.junit.experimental.theories.suppliers", "false", "1", "1", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theories", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theories$TheoryAnchor", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theories$TheoryAnchor$1", "org.junit.experimental.theories", "false", "1", "1", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theories$TheoryAnchor$1$1", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theories$TheoryAnchor$2", "org.junit.experimental.theories", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.Theory", "org.junit.experimental.theories", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.Ignore", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.ArrayComparisonFailure", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.AssumptionViolatedException", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.AllDefaultPossibilitiesBuilder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.AnnotatedBuilder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.IgnoredBuilder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.IgnoredClassRunner", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.JUnit3Builder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.JUnit4Builder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.NullBuilder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders.SuiteMethodBuilder", "org.junit.internal.builders", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.ComparisonCriteria", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.ExactComparisonCriteria", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.InexactComparisonCriteria", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.JUnitSystem", "org.junit.internal", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.CombinableMatcher", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.Each", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.Each$1", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.IsCollectionContaining", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.StringContains", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.SubstringMatcher", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers.TypeSafeMatcher", "org.junit.internal.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.RealSystem", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.requests.ClassRequest", "org.junit.internal.requests", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.requests.FilterRequest", "org.junit.internal.requests", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.requests.package-info", "org.junit.internal.requests", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.requests.SortingRequest", "org.junit.internal.requests", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.ClassRoadie", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.ErrorReportingRunner", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.FailedBefore", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.InitializationError", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit38ClassRunner", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit38ClassRunner$1", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit38ClassRunner$OldTestClassAdaptingListener", "org.junit.internal.runners", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit4ClassRunner", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit4ClassRunner$1", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.JUnit4ClassRunner$2", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.MethodRoadie", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.MethodRoadie$1", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.MethodRoadie$1$1", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.MethodRoadie$2", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.MethodValidator", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.model.EachTestNotifier", "org.junit.internal.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.model.MultipleFailureException", "org.junit.internal.runners.model", "false", "1", "1", "", "", "" ],
+            
+               [ "org.junit.internal.runners.model.ReflectiveCallable", "org.junit.internal.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.package-info", "org.junit.internal.runners", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.rules.RuleFieldValidator", "org.junit.internal.runners.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.ExpectException", "org.junit.internal.runners.statements", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.Fail", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.FailOnTimeout", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.FailOnTimeout$1", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.InvokeMethod", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.RunAfters", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements.RunBefores", "org.junit.internal.runners.statements", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.SuiteMethod", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.TestClass", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.TestMethod", "org.junit.internal.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.TextListener", "org.junit.internal", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.matchers.JUnitMatchers", "org.junit.matchers", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.matchers.package-info", "org.junit.matchers", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.package-info", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.Rule", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ErrorCollector", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ErrorCollector$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ExpectedException", "org.junit.rules", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.rules.ExpectedException$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ExpectedException$ExpectedExceptionStatement", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ExternalResource", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.ExternalResource$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.MethodRule", "org.junit.rules", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.RunRules", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TemporaryFolder", "org.junit.rules", "false", "5", "", "5", "", "" ],
+            
+               [ "org.junit.rules.TestName", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TestRule", "org.junit.rules", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TestWatcher", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TestWatcher$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TestWatchman", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.TestWatchman$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.Timeout", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.Verifier", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules.Verifier$1", "org.junit.rules", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Computer", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Computer$1", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Describable", "org.junit.runner", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Description", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.JUnitCore", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Filter", "org.junit.runner.manipulation", "false", "1", "1", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Filter$1", "org.junit.runner.manipulation", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Filter$2", "org.junit.runner.manipulation", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Filter$3", "org.junit.runner.manipulation", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Filterable", "org.junit.runner.manipulation", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.NoTestsRemainException", "org.junit.runner.manipulation", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.package-info", "org.junit.runner.manipulation", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Sortable", "org.junit.runner.manipulation", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Sorter", "org.junit.runner.manipulation", "false", "1", "1", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation.Sorter$1", "org.junit.runner.manipulation", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.Failure", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.package-info", "org.junit.runner.notification", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunListener", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$1", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$2", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$3", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$4", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$5", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$6", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$7", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.RunNotifier$SafeNotifier", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.notification.StoppedByUserException", "org.junit.runner.notification", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.package-info", "org.junit.runner", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Request", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Request$1", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Result", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Result$1", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Result$Listener", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.Runner", "org.junit.runner", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.RunWith", "org.junit.runner", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.AllTests", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.BlockJUnit4ClassRunner", "org.junit.runners", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.runners.BlockJUnit4ClassRunner$1", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.JUnit4", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.FrameworkField", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.FrameworkMember", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.FrameworkMethod", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.FrameworkMethod$1", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.InitializationError", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.MultipleFailureException", "org.junit.runners.model", "false", "1", "", "1", "", "" ],
+            
+               [ "org.junit.runners.model.RunnerBuilder", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.RunnerScheduler", "org.junit.runners.model", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.Statement", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.model.TestClass", "org.junit.runners.model", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.package-info", "org.junit.runners", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.Parameterized", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.Parameterized$Parameters", "org.junit.runners", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.Parameterized$TestClassRunnerForParameters", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.ParentRunner", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.ParentRunner$1", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.ParentRunner$2", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.ParentRunner$3", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.ParentRunner$4", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.Suite", "org.junit.runners", "false", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners.Suite$SuiteClasses", "org.junit.runners", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.Test", "org.junit", "true", "0", "", "", "", "" ],
+            
+               [ "org.junit.Test$None", "org.junit", "false", "0", "", "", "", "" ],
+            
+               [ "", "", "", "", "", "", "", "" ]
+            );
+
+         // package stats fields: package name, total bugs, bugs p1, bugs p2, bugs p3, bugs p4
+         var packageStats = new Array(
+            
+               [ "junit.extensions", "1", "", "1", "", "" ],
+            
+               [ "junit.framework", "5", "", "5", "", "" ],
+            
+               [ "junit.runner", "4", "1", "3", "", "" ],
+            
+               [ "junit.textui", "1", "", "1", "", "" ],
+            
+               [ "org.hamcrest", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.core", "0", "", "", "", "" ],
+            
+               [ "org.hamcrest.internal", "1", "", "1", "", "" ],
+            
+               [ "org.junit", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.categories", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.max", "1", "", "1", "", "" ],
+            
+               [ "org.junit.experimental.results", "2", "2", "", "", "" ],
+            
+               [ "org.junit.experimental.runners", "0", "", "", "", "" ],
+            
+               [ "org.junit.experimental.theories", "1", "1", "", "", "" ],
+            
+               [ "org.junit.experimental.theories.internal", "2", "1", "1", "", "" ],
+            
+               [ "org.junit.experimental.theories.suppliers", "1", "1", "", "", "" ],
+            
+               [ "org.junit.internal", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.builders", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.matchers", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.requests", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners", "1", "", "1", "", "" ],
+            
+               [ "org.junit.internal.runners.model", "1", "1", "", "", "" ],
+            
+               [ "org.junit.internal.runners.rules", "0", "", "", "", "" ],
+            
+               [ "org.junit.internal.runners.statements", "1", "", "1", "", "" ],
+            
+               [ "org.junit.matchers", "0", "", "", "", "" ],
+            
+               [ "org.junit.rules", "6", "", "6", "", "" ],
+            
+               [ "org.junit.runner", "0", "", "", "", "" ],
+            
+               [ "org.junit.runner.manipulation", "2", "2", "", "", "" ],
+            
+               [ "org.junit.runner.notification", "0", "", "", "", "" ],
+            
+               [ "org.junit.runners", "1", "", "1", "", "" ],
+            
+               [ "org.junit.runners.model", "1", "", "1", "", "" ],
+            
+               [ "", "", "", "", "", "" ]
+            );
+
+
+         // bugs fields: bug id, category id, code id, pattern id, priority, release id, class name, packagename (populated by javascript)
+         var bugs = new Array(
+            
+
+               [ "fa42e1e68998a12ac85393cd3a306e45-0",
+                 "MT_CORRECTNESS",
+                 "VO",
+                 "VO_VOLATILE_INCREMENT",
+                 2,
+                 0,
+                 "junit.extensions.ActiveTestSuite",
+                 ""],
+            
+
+               [ "4547949fd91a72d0ad5f1c34e7588bd5-0",
+                 "PERFORMANCE",
+                 "Bx",
+                 "DM_NUMBER_CTOR",
+                 2,
+                 0,
+                 "junit.framework.Assert",
+                 ""],
+            
+
+               [ "499863ce37eabf5a433fd5db208cf0e1-0",
+                 "PERFORMANCE",
+                 "Bx",
+                 "DM_NUMBER_CTOR",
+                 2,
+                 0,
+                 "junit.framework.Assert",
+                 ""],
+            
+
+               [ "83cd0117670ecd9a4e02ec670c239ce6-0",
+                 "PERFORMANCE",
+                 "Bx",
+                 "DM_NUMBER_CTOR",
+                 2,
+                 0,
+                 "junit.framework.Assert",
+                 ""],
+            
+
+               [ "1d42f9ee1193dad10bf9f6216d2207f2-0",
+                 "PERFORMANCE",
+                 "Bx",
+                 "DM_NUMBER_CTOR",
+                 2,
+                 0,
+                 "junit.framework.Assert",
+                 ""],
+            
+
+               [ "7eb714a4f297514eccd46043df1370e5-0",
+                 "PERFORMANCE",
+                 "Bx",
+                 "DM_NUMBER_CTOR",
+                 2,
+                 0,
+                 "junit.framework.Assert",
+                 ""],
+            
+
+               [ "cc14f934a7467662fab8a293c7430c01-0",
+                 "MT_CORRECTNESS",
+                 "LI",
+                 "LI_LAZY_INIT_UPDATE_STATIC",
+                 1,
+                 0,
+                 "junit.runner.BaseTestRunner",
+                 ""],
+            
+
+               [ "9118090463a18c7d44c85a7b8968a3eb-0",
+                 "EXPERIMENTAL",
+                 "OBL",
+                 "OBL_UNSATISFIED_OBLIGATION",
+                 2,
+                 0,
+                 "junit.runner.BaseTestRunner",
+                 ""],
+            
+
+               [ "688ed5ed4e3f300c236083a6c2274e6e-0",
+                 "BAD_PRACTICE",
+                 "OS",
+                 "OS_OPEN_STREAM",
+                 2,
+                 0,
+                 "junit.runner.BaseTestRunner",
+                 ""],
+            
+
+               [ "4615d41d36bf41f07ce2a8db2d0acb87-0",
+                 "STYLE",
+                 "ST",
+                 "ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD",
+                 2,
+                 0,
+                 "junit.runner.BaseTestRunner",
+                 ""],
+            
+
+               [ "70b5c0489626beb8f2a9068964b192b4-0",
+                 "BAD_PRACTICE",
+                 "Dm",
+                 "DM_EXIT",
+                 2,
+                 0,
+                 "junit.textui.TestRunner",
+                 ""],
+            
+
+               [ "a886094632bbc2853c95c0147a4d9136-0",
+                 "BAD_PRACTICE",
+                 "It",
+                 "IT_NO_SUCH_ELEMENT",
+                 2,
+                 0,
+                 "org.hamcrest.internal.ArrayIterator",
+                 ""],
+            
+
+               [ "4a283526269d11428377f2dc4097338b-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.experimental.max.MaxHistory",
+                 ""],
+            
+
+               [ "46464d2a3a00a964c48f953f60bdc8d6-0",
+                 "I18N",
+                 "Dm",
+                 "DM_DEFAULT_ENCODING",
+                 1,
+                 0,
+                 "org.junit.experimental.results.PrintableResult",
+                 ""],
+            
+
+               [ "edd0e35819b472c57cb614c89471f3ad-0",
+                 "I18N",
+                 "Dm",
+                 "DM_DEFAULT_ENCODING",
+                 1,
+                 0,
+                 "org.junit.experimental.results.PrintableResult",
+                 ""],
+            
+
+               [ "313525757151e81beebed6ed342a583a-0",
+                 "STYLE",
+                 "IA",
+                 "IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD",
+                 1,
+                 0,
+                 "org.junit.experimental.theories.Theories$TheoryAnchor$1",
+                 ""],
+            
+
+               [ "e1c0a24ab0800f29491a2eccc3ab3ae2-0",
+                 "BAD_PRACTICE",
+                 "HE",
+                 "HE_EQUALS_USE_HASHCODE",
+                 1,
+                 0,
+                 "org.junit.experimental.theories.internal.ParameterizedAssertionError",
+                 ""],
+            
+
+               [ "288175376f09d6bfe736c12c7396f5c8-0",
+                 "BAD_PRACTICE",
+                 "NP",
+                 "NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT",
+                 2,
+                 0,
+                 "org.junit.experimental.theories.internal.ParameterizedAssertionError",
+                 ""],
+            
+
+               [ "f745d64613aac2d0a988345f74e39e85-0",
+                 "CORRECTNESS",
+                 "VA",
+                 "VA_PRIMITIVE_ARRAY_PASSED_TO_OBJECT_VARARG",
+                 1,
+                 0,
+                 "org.junit.experimental.theories.suppliers.TestedOnSupplier",
+                 ""],
+            
+
+               [ "c5c1d02458755a83fd88c54766991931-0",
+                 "PERFORMANCE",
+                 "SIC",
+                 "SIC_INNER_SHOULD_BE_STATIC",
+                 2,
+                 0,
+                 "org.junit.internal.runners.JUnit38ClassRunner$OldTestClassAdaptingListener",
+                 ""],
+            
+
+               [ "eff4ed8c6e75650badd334a463f9ef2a-0",
+                 "BAD_PRACTICE",
+                 "Nm",
+                 "NM_SAME_SIMPLE_NAME_AS_SUPERCLASS",
+                 1,
+                 0,
+                 "org.junit.internal.runners.model.MultipleFailureException",
+                 ""],
+            
+
+               [ "b768c6ade6b3d9e4569c11ad1e20739e-0",
+                 "BAD_PRACTICE",
+                 "Nm",
+                 "NM_CLASS_NOT_EXCEPTION",
+                 2,
+                 0,
+                 "org.junit.internal.runners.statements.ExpectException",
+                 ""],
+            
+
+               [ "28cf09d73aac1828cc402faed03ed261-0",
+                 "BAD_PRACTICE",
+                 "Nm",
+                 "NM_CLASS_NOT_EXCEPTION",
+                 2,
+                 0,
+                 "org.junit.rules.ExpectedException",
+                 ""],
+            
+
+               [ "c4317c0f1d0107d5e544d727ef110bf7-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.rules.TemporaryFolder",
+                 ""],
+            
+
+               [ "ea12c0e2caa473701e67bd7644cef9f4-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.rules.TemporaryFolder",
+                 ""],
+            
+
+               [ "f256ed437751392c1dec5898780ebe85-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.rules.TemporaryFolder",
+                 ""],
+            
+
+               [ "90eb0feb71bae007de3c58000ab43b86-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.rules.TemporaryFolder",
+                 ""],
+            
+
+               [ "4f0b869edbf4fcc1b26fdecd6620c619-0",
+                 "BAD_PRACTICE",
+                 "RV",
+                 "RV_RETURN_VALUE_IGNORED_BAD_PRACTICE",
+                 2,
+                 0,
+                 "org.junit.rules.TemporaryFolder",
+                 ""],
+            
+
+               [ "3b242346506747dc2a2bb9ead3b8a6bd-0",
+                 "MALICIOUS_CODE",
+                 "MS",
+                 "MS_SHOULD_BE_FINAL",
+                 1,
+                 0,
+                 "org.junit.runner.manipulation.Filter",
+                 ""],
+            
+
+               [ "46fef3de82fe473c73daef2ab52e6ada-0",
+                 "MALICIOUS_CODE",
+                 "MS",
+                 "MS_SHOULD_BE_FINAL",
+                 1,
+                 0,
+                 "org.junit.runner.manipulation.Sorter",
+                 ""],
+            
+
+               [ "6fb67e19dc1634398b7ea9b3681e3e6f-0",
+                 "CORRECTNESS",
+                 "GC",
+                 "GC_UNRELATED_TYPES",
+                 2,
+                 0,
+                 "org.junit.runners.BlockJUnit4ClassRunner",
+                 ""],
+            
+
+               [ "31b3bd36d2e504fb863ef89cb43fd47c-0",
+                 "BAD_PRACTICE",
+                 "FS",
+                 "VA_FORMAT_STRING_USES_NEWLINE",
+                 2,
+                 0,
+                 "org.junit.runners.model.MultipleFailureException",
+                 ""],
+            
+               [ "", "", "", "", 0, 0, "", "" ]
+            );
+
+         // bugs fields: bug id, category id, code id, pattern id, priority, first release id, fixed release id, class name
+         var fixedBugs = new Array(
+            
+               [ "", "", "", "", 0, 0, 0, "" ]
+            );
+
+      </script>
+</head>
+<body>
+<h3>
+<a href="http://findbugs.sourceforge.net">FindBugs</a> (2.0.1) 
+         Analysis for 
+         </h3>
+<div id="menuWrapper" style="">
+<div id="navcontainer">
+<ul id="navlist">
+<li>
+<a id="summary" class="current" href="#" onclick="selectMenu('summary'); return false;">Summary</a>
+</li>
+<li>
+<a id="history" class="none" href="#" onclick="selectMenu('history'); return false;">History</a>
+</li>
+<li>
+<a id="listByCategories" class="none" href="#" onclick="selectMenu('listByCategories'); return false;">Browse By Categories</a>
+</li>
+<li>
+<a id="listByPackages" class="none" href="#" onclick="selectMenu('listByPackages'); return false;">Browse by Packages</a>
+</li>
+<li>
+<a id="info" class="none" href="#" onclick="selectMenu('info'); return false;">Info</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="displayWrapper">
+<div style="height:25px;">
+<div id="messageContainer" style="float:right;">
+            Computing data...
+         </div>
+<div id="filterWrapper" style="display:none;">
+<form name="findbugsForm">
+<div id="filterContainer">
+<select name="versions" onchange="filter()">
+<option value="loading">Loading filter...</option>
+</select>
+<select name="priorities" onchange="filter()">
+<option value="loading">Loading filter...</option>
+</select>
+</div>
+</form>
+</div>
+<div id="historyControlWrapper" style="display:none;">
+<form name="findbugsHistoryControlForm">
+<div id="historyControlContainer">
+<input type="checkbox" name="includeFixedIntroducedBugs" value="checked" alt="Include fixed introduced bugs." onclick="includeFixedIntroducedBugsInHistory()"/>
+               Include counts of introduced bugs that were fixed in later releases.
+             </div>
+</form>
+</div>
+</div>
+<div id="summaryContainer" class="displayContainer">
+<h3>Package Summary</h3>
+<table>
+<tr>
+<th>Package</th>
+<th>Code Size</th>
+<th>Bugs</th>
+<th>Bugs p1</th>
+<th>Bugs p2</th>
+<th>Bugs p3</th>
+<th>Bugs Exp.</th>
+</tr>
+<tr>
+<td class="summary-name">
+                     Overall
+                     (31 packages),
+                     (250 classes)
+                  </td>
+<td class="summary-size">5126</td>
+<td class="summary-priority-all">32</td>
+<td class="summary-priority-1">9</td>
+<td class="summary-priority-2">23</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">junit.extensions</td>
+<td class="summary-size">104</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">junit.framework</td>
+<td class="summary-size">653</td>
+<td class="summary-priority-all">5</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">5</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">junit.runner</td>
+<td class="summary-size">194</td>
+<td class="summary-priority-all">4</td>
+<td class="summary-priority-1">1</td>
+<td class="summary-priority-2">3</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">junit.textui</td>
+<td class="summary-size">174</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.hamcrest.internal</td>
+<td class="summary-size">40</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.experimental.max</td>
+<td class="summary-size">168</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.experimental.results</td>
+<td class="summary-size">73</td>
+<td class="summary-priority-all">2</td>
+<td class="summary-priority-1">2</td>
+<td class="summary-priority-2"/>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.experimental.theories</td>
+<td class="summary-size">201</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1">1</td>
+<td class="summary-priority-2"/>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.experimental.theories.internal</td>
+<td class="summary-size">144</td>
+<td class="summary-priority-all">2</td>
+<td class="summary-priority-1">1</td>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.experimental.theories.suppliers</td>
+<td class="summary-size">12</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1">1</td>
+<td class="summary-priority-2"/>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.internal.runners</td>
+<td class="summary-size">560</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.internal.runners.model</td>
+<td class="summary-size">42</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1">1</td>
+<td class="summary-priority-2"/>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.internal.runners.statements</td>
+<td class="summary-size">118</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.rules</td>
+<td class="summary-size">251</td>
+<td class="summary-priority-all">6</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">6</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.runner.manipulation</td>
+<td class="summary-size">88</td>
+<td class="summary-priority-all">2</td>
+<td class="summary-priority-1">2</td>
+<td class="summary-priority-2"/>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.runners</td>
+<td class="summary-size">376</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+<tr>
+<td class="summary-name">org.junit.runners.model</td>
+<td class="summary-size">237</td>
+<td class="summary-priority-all">1</td>
+<td class="summary-priority-1"/>
+<td class="summary-priority-2">1</td>
+<td class="summary-priority-3"/>
+<td class="summary-priority-4"/>
+</tr>
+</table>
+</div>
+<div id="infoContainer" class="displayContainer">
+<div id="analyzed-files">
+<h3>Analyzed Files:</h3>
+<ul>
+<li>506d4bd65201225c7dfe6603-junit-4.9.jar</li>
+</ul>
+</div>
+<div id="used-libraries">
+<h3>Used Libraries:</h3>
+<ul>
+<li>None</li>
+</ul>
+</div>
+<div id="analysis-error">
+<h3>Analysis Errors:</h3>
+<ul>
+<li>None</li>
+</ul>
+</div>
+</div>
+<div id="historyContainer" class="displayContainer">Loading...</div>
+<div id="listByCategoriesContainer" class="displayContainer">Loading...</div>
+<div id="listByPackagesContainer" class="displayContainer">Loading...</div>
+</div>
+<div id="bug-collection" style="display:none;">
+<div id="tip-IA_AMBIGUOUS_INVOCATION_OF_INHERITED_OR_OUTER_METHOD" class="tip">
+
+  <p> An inner class is invoking a method that could be resolved to either a inherited method or a method defined in an outer class. By the Java semantics,
+it will be resolved to invoke the inherited method, but this may not be want
+you intend. If you really intend to invoke the inherited method,
+invoke it by invoking the method on super (e.g., invoke super.foo(17)), and
+thus it will be clear to other readers of your code and to FindBugs
+that you want to invoke the inherited method, not the method in the outer class.
+</p>
+
+    </div>
+<div id="tip-HE_EQUALS_USE_HASHCODE" class="tip">
+
+  <p> This class overrides <code>equals(Object)</code>, but does not
+  override <code>hashCode()</code>, and inherits the implementation of
+  <code>hashCode()</code> from <code>java.lang.Object</code> (which returns
+  the identity hash code, an arbitrary value assigned to the object
+  by the VM).&nbsp; Therefore, the class is very likely to violate the
+  invariant that equal objects must have equal hashcodes.</p>
+
+<p>If you don't think instances of this class will ever be inserted into a HashMap/HashTable,
+the recommended <code>hashCode</code> implementation to use is:</p>
+<pre>public int hashCode() {
+  assert false : "hashCode not designed";
+  return 42; // any arbitrary constant will do
+  }</pre>
+
+    </div>
+<div id="tip-NM_CLASS_NOT_EXCEPTION" class="tip">
+
+<p> This class is not derived from another exception, but ends with 'Exception'. This will
+be confusing to users of this class.</p>
+
+    </div>
+<div id="tip-RV_RETURN_VALUE_IGNORED_BAD_PRACTICE" class="tip">
+
+   <p> This method returns a value that is not checked. The return value should be checked
+since it can indicate an unusual or unexpected function execution. For
+example, the <code>File.delete()</code> method returns false
+if the file could not be successfully deleted (rather than
+throwing an Exception).
+If you don't check the result, you won't notice if the method invocation
+signals unexpected behavior by returning an atypical return value.
+</p>
+
+    </div>
+<div id="tip-IT_NO_SUCH_ELEMENT" class="tip">
+
+  <p> This class implements the <code>java.util.Iterator</code> interface.&nbsp;
+  However, its <code>next()</code> method is not capable of throwing
+  <code>java.util.NoSuchElementException</code>.&nbsp; The <code>next()</code>
+  method should be changed so it throws <code>NoSuchElementException</code>
+  if is called when there are no more elements to return.</p>
+
+    </div>
+<div id="tip-ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" class="tip">
+
+  <p> This instance method writes to a static field. This is tricky to get
+correct if multiple instances are being manipulated,
+and generally bad practice.
+</p>
+
+    </div>
+<div id="tip-MS_SHOULD_BE_FINAL" class="tip">
+
+   <p>
+This static field public but not final, and
+could be changed by malicious code or
+        by accident from another package.
+        The field could be made final to avoid
+        this vulnerability.</p>
+
+    </div>
+<div id="tip-GC_UNRELATED_TYPES" class="tip">
+     
+     <p> This call to a generic collection method contains an argument
+     with an incompatible class from that of the collection's parameter
+    (i.e., the type of the argument is neither a supertype nor a subtype
+        of the corresponding generic type argument).
+     Therefore, it is unlikely that the collection contains any objects
+    that are equal to the method argument used here.
+    Most likely, the wrong value is being passed to the method.</p>
+    <p>In general, instances of two unrelated classes are not equal.
+    For example, if the <code>Foo</code> and <code>Bar</code> classes
+    are not related by subtyping, then an instance of <code>Foo</code>
+        should not be equal to an instance of <code>Bar</code>.
+    Among other issues, doing so will likely result in an equals method
+    that is not symmetrical. For example, if you define the <code>Foo</code> class
+    so that a <code>Foo</code> can be equal to a <code>String</code>,
+    your equals method isn't symmetrical since a <code>String</code> can only be equal
+    to a <code>String</code>.
+    </p>
+    <p>In rare cases, people do define nonsymmetrical equals methods and still manage to make
+    their code work. Although none of the APIs document or guarantee it, it is typically
+    the case that if you check if a <code>Collection&lt;String&gt;</code> contains
+    a <code>Foo</code>, the equals method of argument (e.g., the equals method of the
+    <code>Foo</code> class) used to perform the equality checks.
+    </p>
+     
+    </div>
+<div id="tip-LI_LAZY_INIT_UPDATE_STATIC" class="tip">
+
+<p> This method contains an unsynchronized lazy initialization of a static field.
+After the field is set, the object stored into that location is further updated or accessed.
+The setting of the field is visible to other threads as soon as it is set. If the
+futher accesses in the method that set the field serve to initialize the object, then
+you have a <em>very serious</em> multithreading bug, unless something else prevents
+any other thread from accessing the stored object until it is fully initialized.
+</p>
+<p>Even if you feel confident that the method is never called by multiple
+threads, it might be better to not set the static field until the value
+you are setting it to is fully populated/initialized.
+
+    </div>
+<div id="tip-DM_DEFAULT_ENCODING" class="tip">
+
+<p> Found a call to a method which will perform a byte to String (or String to byte) conversion, and will assume that the default platform encoding is suitable. This will cause the application behaviour to vary between platforms. Use an alternative API and specify a charset name or Charset object explicitly.  </p>
+
+      </div>
+<div id="tip-DM_EXIT" class="tip">
+
+  <p> Invoking System.exit shuts down the entire Java virtual machine. This
+   should only been done when it is appropriate. Such calls make it
+   hard or impossible for your code to be invoked by other code.
+   Consider throwing a RuntimeException instead.</p>
+
+    </div>
+<div id="tip-OBL_UNSATISFIED_OBLIGATION" class="tip">
+          
+          <p>
+          This method may fail to clean up (close, dispose of) a stream,
+          database object, or other
+          resource requiring an explicit cleanup operation.
+          </p>
+
+          <p>
+          In general, if a method opens a stream or other resource,
+          the method should use a try/finally block to ensure that
+          the stream or resource is cleaned up before the method
+          returns.
+          </p>
+
+          <p>
+          This bug pattern is essentially the same as the
+          OS_OPEN_STREAM and ODR_OPEN_DATABASE_RESOURCE
+          bug patterns, but is based on a different
+          (and hopefully better) static analysis technique.
+          We are interested is getting feedback about the
+          usefulness of this bug pattern.
+          To send feedback, either:
+          </p>
+          <ul>
+            <li>send email to findbugs@cs.umd.edu</li>
+            <li>file a bug report: <a href="http://findbugs.sourceforge.net/reportingBugs.html">http://findbugs.sourceforge.net/reportingBugs.html</a></li>
+          </ul>
+
+          <p>
+          In particular,
+          the false-positive suppression heuristics for this
+          bug pattern have not been extensively tuned, so
+          reports about false positives are helpful to us.
+          </p>
+
+          <p>
+          See Weimer and Necula, <i>Finding and Preventing Run-Time Error Handling Mistakes</i>, for
+          a description of the analysis technique.
+          </p>
+          
+      </div>
+<div id="tip-VA_PRIMITIVE_ARRAY_PASSED_TO_OBJECT_VARARG" class="tip">
+
+<p>
+This code passes a primitive array to a function that takes a variable number of object arguments.
+This creates an array of length one to hold the primitive array and passes it to the function.
+</p>
+
+    </div>
+<div id="tip-VA_FORMAT_STRING_USES_NEWLINE" class="tip">
+
+<p>
+This format string include a newline character (\n). In format strings, it is generally
+ preferable better to use %n, which will produce the platform-specific line separator.
+</p>
+
+     </div>
+<div id="tip-OS_OPEN_STREAM" class="tip">
+
+<p> The method creates an IO stream object, does not assign it to any
+fields, pass it to other methods that might close it,
+or return it, and does not appear to close
+the stream on all paths out of the method.&nbsp; This may result in
+a file descriptor leak.&nbsp; It is generally a good
+idea to use a <code>finally</code> block to ensure that streams are
+closed.</p>
+
+    </div>
+<div id="tip-NP_EQUALS_SHOULD_HANDLE_NULL_ARGUMENT" class="tip">
+      
+      <p>
+      This implementation of equals(Object) violates the contract defined
+      by java.lang.Object.equals() because it does not check for null
+      being passed as the argument.  All equals() methods should return
+      false if passed a null value.
+      </p>
+      
+   </div>
+<div id="tip-NM_SAME_SIMPLE_NAME_AS_SUPERCLASS" class="tip">
+
+  <p> This class has a simple name that is identical to that of its superclass, except
+that its superclass is in a different package (e.g., <code>alpha.Foo</code> extends <code>beta.Foo</code>).
+This can be exceptionally confusing, create lots of situations in which you have to look at import statements
+to resolve references and creates many
+opportunities to accidently define methods that do not override methods in their superclasses.
+</p>
+
+    </div>
+<div id="tip-VO_VOLATILE_INCREMENT" class="tip">
+
+<p>This code increments a volatile field. Increments of volatile fields aren't
+atomic. If more than one thread is incrementing the field at the same time,
+increments could be lost.
+</p>
+
+    </div>
+<div id="tip-DM_NUMBER_CTOR" class="tip">
+      
+      <p>
+      Using <code>new Integer(int)</code> is guaranteed to always result in a new object whereas
+      <code>Integer.valueOf(int)</code> allows caching of values to be done by the compiler, class library, or JVM.
+      Using of cached values avoids object allocation and the code will be faster.
+      </p>
+      <p>
+      Values between -128 and 127 are guaranteed to have corresponding cached instances
+      and using <code>valueOf</code> is approximately 3.5 times faster than using constructor.
+      For values outside the constant range the performance of both styles is the same.
+      </p>
+      <p>
+      Unless the class must be compatible with JVMs predating Java 1.5,
+      use either autoboxing or the <code>valueOf()</code> method when creating instances of
+      <code>Long</code>, <code>Integer</code>, <code>Short</code>, <code>Character</code>, and <code>Byte</code>.
+      </p>
+      
+    </div>
+<div id="tip-SIC_INNER_SHOULD_BE_STATIC" class="tip">
+
+  <p> This class is an inner class, but does not use its embedded reference
+  to the object which created it.&nbsp; This reference makes the instances
+  of the class larger, and may keep the reference to the creator object
+  alive longer than necessary.&nbsp; If possible, the class should be
+   made static.
+</p>
+
+    </div>
+<div style="display:none;" class="bug" id="b-uid-fa42e1e68998a12ac85393cd3a306e45-0">
+<div class="b-r">In class junit.extensions.ActiveTestSuite</div>
+<div class="b-r">In method junit.extensions.ActiveTestSuite.runFinished()</div>
+<div class="b-r">Field junit.extensions.ActiveTestSuite.fActiveTestDeathCount</div>
+<div class="b-r">At ActiveTestSuite.java:[line 67]</div>
+<div class="b-d">Increment of volatile field junit.extensions.ActiveTestSuite.fActiveTestDeathCount in junit.extensions.ActiveTestSuite.runFinished()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-4547949fd91a72d0ad5f1c34e7588bd5-0">
+<div class="b-r">In class junit.framework.Assert</div>
+<div class="b-r">In method junit.framework.Assert.assertEquals(String, byte, byte)</div>
+<div class="b-r">Called method new Byte(byte)</div>
+<div class="b-r">Should call Byte.valueOf(byte) instead</div>
+<div class="b-r">At Assert.java:[line 160]</div>
+<div class="b-d">junit.framework.Assert.assertEquals(String, byte, byte) invokes inefficient new Byte(byte) constructor; use Byte.valueOf(byte) instead</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-499863ce37eabf5a433fd5db208cf0e1-0">
+<div class="b-r">In class junit.framework.Assert</div>
+<div class="b-r">In method junit.framework.Assert.assertEquals(String, char, char)</div>
+<div class="b-r">Called method new Character(char)</div>
+<div class="b-r">Should call Character.valueOf(char) instead</div>
+<div class="b-r">At Assert.java:[line 173]</div>
+<div class="b-d">junit.framework.Assert.assertEquals(String, char, char) invokes inefficient new Character(char) constructor; use Character.valueOf(char) instead</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-83cd0117670ecd9a4e02ec670c239ce6-0">
+<div class="b-r">In class junit.framework.Assert</div>
+<div class="b-r">In method junit.framework.Assert.assertEquals(String, int, int)</div>
+<div class="b-r">Called method new Integer(int)</div>
+<div class="b-r">Should call Integer.valueOf(int) instead</div>
+<div class="b-r">At Assert.java:[line 199]</div>
+<div class="b-d">junit.framework.Assert.assertEquals(String, int, int) invokes inefficient new Integer(int) constructor; use Integer.valueOf(int) instead</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-1d42f9ee1193dad10bf9f6216d2207f2-0">
+<div class="b-r">In class junit.framework.Assert</div>
+<div class="b-r">In method junit.framework.Assert.assertEquals(String, long, long)</div>
+<div class="b-r">Called method new Long(long)</div>
+<div class="b-r">Should call Long.valueOf(long) instead</div>
+<div class="b-r">At Assert.java:[line 134]</div>
+<div class="b-d">junit.framework.Assert.assertEquals(String, long, long) invokes inefficient new Long(long) constructor; use Long.valueOf(long) instead</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-7eb714a4f297514eccd46043df1370e5-0">
+<div class="b-r">In class junit.framework.Assert</div>
+<div class="b-r">In method junit.framework.Assert.assertEquals(String, short, short)</div>
+<div class="b-r">Called method new Short(short)</div>
+<div class="b-r">Should call Short.valueOf(short) instead</div>
+<div class="b-r">At Assert.java:[line 186]</div>
+<div class="b-d">junit.framework.Assert.assertEquals(String, short, short) invokes inefficient new Short(short) constructor; use Short.valueOf(short) instead</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-cc14f934a7467662fab8a293c7430c01-0">
+<div class="b-r">In class junit.runner.BaseTestRunner</div>
+<div class="b-r">In method junit.runner.BaseTestRunner.getPreferences()</div>
+<div class="b-r">On field junit.runner.BaseTestRunner.fPreferences</div>
+<div class="b-r">At BaseTestRunner.java:[lines 47-48]</div>
+<div class="b-d">Incorrect lazy initialization and update of static field junit.runner.BaseTestRunner.fPreferences in junit.runner.BaseTestRunner.getPreferences()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-9118090463a18c7d44c85a7b8968a3eb-0">
+<div class="b-r">In class junit.runner.BaseTestRunner</div>
+<div class="b-r">In method junit.runner.BaseTestRunner.readPreferences()</div>
+<div class="b-r">Reference type java.io.InputStream</div>
+<div class="b-r">1 instances of obligation remaining</div>
+<div class="b-r">Obligation to clean up resource created at BaseTestRunner.java:[line 228] is not discharged</div>
+<div class="b-r">Path continues at BaseTestRunner.java:[line 229]</div>
+<div class="b-r">Path continues at BaseTestRunner.java:[line 230]</div>
+<div class="b-r">Path continues at BaseTestRunner.java:[line 237]</div>
+<div class="b-r">Path continues at BaseTestRunner.java:[line 238]</div>
+<div class="b-r">Remaining obligations: {InputStream x 1}</div>
+<div class="b-d">junit.runner.BaseTestRunner.readPreferences() may fail to clean up java.io.InputStream</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-688ed5ed4e3f300c236083a6c2274e6e-0">
+<div class="b-r">In class junit.runner.BaseTestRunner</div>
+<div class="b-r">In method junit.runner.BaseTestRunner.readPreferences()</div>
+<div class="b-r">Need to close java.io.InputStream </div>
+<div class="b-r">At BaseTestRunner.java:[line 228]</div>
+<div class="b-d">junit.runner.BaseTestRunner.readPreferences() may fail to close stream</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-4615d41d36bf41f07ce2a8db2d0acb87-0">
+<div class="b-r">In class junit.runner.BaseTestRunner</div>
+<div class="b-r">In method junit.runner.BaseTestRunner.processArguments(String[])</div>
+<div class="b-r">Field junit.runner.BaseTestRunner.fgFilterStack</div>
+<div class="b-r">At BaseTestRunner.java:[line 159]</div>
+<div class="b-d">Write to static field junit.runner.BaseTestRunner.fgFilterStack from instance method junit.runner.BaseTestRunner.processArguments(String[])</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-70b5c0489626beb8f2a9068964b192b4-0">
+<div class="b-r">In class junit.textui.TestRunner</div>
+<div class="b-r">In method junit.textui.TestRunner.runFailed(String)</div>
+<div class="b-r">At TestRunner.java:[line 195]</div>
+<div class="b-d">junit.textui.TestRunner.runFailed(String) invokes System.exit(...), which shuts down the entire virtual machine</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-a886094632bbc2853c95c0147a4d9136-0">
+<div class="b-r">In class org.hamcrest.internal.ArrayIterator</div>
+<div class="b-r">In method org.hamcrest.internal.ArrayIterator.next()</div>
+<div class="b-r">At ArrayIterator.java:[line 22]</div>
+<div class="b-d">org.hamcrest.internal.ArrayIterator.next() can't throw NoSuchElementException</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-4a283526269d11428377f2dc4097338b-0">
+<div class="b-r">In class org.junit.experimental.max.MaxHistory</div>
+<div class="b-r">In method org.junit.experimental.max.MaxHistory.forFolder(File)</div>
+<div class="b-r">Called method java.io.File.delete()</div>
+<div class="b-r">At MaxHistory.java:[line 39]</div>
+<div class="b-d">exceptional return value of java.io.File.delete() ignored in org.junit.experimental.max.MaxHistory.forFolder(File)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-46464d2a3a00a964c48f953f60bdc8d6-0">
+<div class="b-r">In class org.junit.experimental.results.PrintableResult</div>
+<div class="b-r">In method org.junit.experimental.results.PrintableResult.toString()</div>
+<div class="b-r">Called method java.io.ByteArrayOutputStream.toString()</div>
+<div class="b-r">At PrintableResult.java:[line 54]</div>
+<div class="b-d">Found reliance on default encoding in org.junit.experimental.results.PrintableResult.toString(): java.io.ByteArrayOutputStream.toString()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-edd0e35819b472c57cb614c89471f3ad-0">
+<div class="b-r">In class org.junit.experimental.results.PrintableResult</div>
+<div class="b-r">In method org.junit.experimental.results.PrintableResult.toString()</div>
+<div class="b-r">Called method new java.io.PrintStream(OutputStream)</div>
+<div class="b-r">At PrintableResult.java:[line 53]</div>
+<div class="b-d">Found reliance on default encoding in org.junit.experimental.results.PrintableResult.toString(): new java.io.PrintStream(OutputStream)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-313525757151e81beebed6ed342a583a-0">
+<div class="b-r">In class org.junit.experimental.theories.Theories$TheoryAnchor$1</div>
+<div class="b-r">In method org.junit.experimental.theories.Theories$TheoryAnchor$1.createTest()</div>
+<div class="b-r">Inherited method org.junit.runners.ParentRunner.getTestClass()</div>
+<div class="b-r">Did you intend to invoke org.junit.experimental.theories.Theories$TheoryAnchor.getTestClass()</div>
+<div class="b-r">At Theories.java:[line 153]</div>
+<div class="b-d">Ambiguous invocation of either an outer or inherited method org.junit.runners.ParentRunner.getTestClass() in org.junit.experimental.theories.Theories$TheoryAnchor$1.createTest()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-e1c0a24ab0800f29491a2eccc3ab3ae2-0">
+<div class="b-r">In class org.junit.experimental.theories.internal.ParameterizedAssertionError</div>
+<div class="b-r">In method org.junit.experimental.theories.internal.ParameterizedAssertionError.equals(Object)</div>
+<div class="b-r">At ParameterizedAssertionError.java:[line 21]</div>
+<div class="b-d">org.junit.experimental.theories.internal.ParameterizedAssertionError defines equals and uses Object.hashCode()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-288175376f09d6bfe736c12c7396f5c8-0">
+<div class="b-r">In class org.junit.experimental.theories.internal.ParameterizedAssertionError</div>
+<div class="b-r">In method org.junit.experimental.theories.internal.ParameterizedAssertionError.equals(Object)</div>
+<div class="b-r">Local variable named obj</div>
+<div class="b-r">At ParameterizedAssertionError.java:[line 21]</div>
+<div class="b-d">org.junit.experimental.theories.internal.ParameterizedAssertionError.equals(Object) does not check for null argument</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-f745d64613aac2d0a988345f74e39e85-0">
+<div class="b-r">In class org.junit.experimental.theories.suppliers.TestedOnSupplier</div>
+<div class="b-r">In method org.junit.experimental.theories.suppliers.TestedOnSupplier.getValueSources(ParameterSignature)</div>
+<div class="b-r">Actual type int[]</div>
+<div class="b-r">Called method java.util.Arrays.asList(Object[])</div>
+<div class="b-r">At TestedOnSupplier.java:[line 19]</div>
+<div class="b-d">int[] passed to varargs method java.util.Arrays.asList(Object[]) in org.junit.experimental.theories.suppliers.TestedOnSupplier.getValueSources(ParameterSignature)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-c5c1d02458755a83fd88c54766991931-0">
+<div class="b-r">In class org.junit.internal.runners.JUnit38ClassRunner$OldTestClassAdaptingListener</div>
+<div class="b-r">At JUnit38ClassRunner.java:[lines 22-65]</div>
+<div class="b-d">Should org.junit.internal.runners.JUnit38ClassRunner$OldTestClassAdaptingListener be a _static_ inner class?</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-eff4ed8c6e75650badd334a463f9ef2a-0">
+<div class="b-r">In class org.junit.internal.runners.model.MultipleFailureException</div>
+<div class="b-r">In class org.junit.runners.model.MultipleFailureException</div>
+<div class="b-r">At MultipleFailureException.java:[lines 10-11]</div>
+<div class="b-d">The class name org.junit.internal.runners.model.MultipleFailureException shadows the simple name of the superclass org.junit.runners.model.MultipleFailureException</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-b768c6ade6b3d9e4569c11ad1e20739e-0">
+<div class="b-r">In class org.junit.internal.runners.statements.ExpectException</div>
+<div class="b-r">At ExpectException.java:[lines 13-37]</div>
+<div class="b-d">Class org.junit.internal.runners.statements.ExpectException is not derived from an Exception, even though it is named as such</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-28cf09d73aac1828cc402faed03ed261-0">
+<div class="b-r">In class org.junit.rules.ExpectedException</div>
+<div class="b-r">At ExpectedException.java:[lines 44-124]</div>
+<div class="b-d">Class org.junit.rules.ExpectedException is not derived from an Exception, even though it is named as such</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-c4317c0f1d0107d5e544d727ef110bf7-0">
+<div class="b-r">In class org.junit.rules.TemporaryFolder</div>
+<div class="b-r">In method org.junit.rules.TemporaryFolder.create()</div>
+<div class="b-r">Called method java.io.File.delete()</div>
+<div class="b-r">At TemporaryFolder.java:[line 46]</div>
+<div class="b-d">exceptional return value of java.io.File.delete() ignored in org.junit.rules.TemporaryFolder.create()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-ea12c0e2caa473701e67bd7644cef9f4-0">
+<div class="b-r">In class org.junit.rules.TemporaryFolder</div>
+<div class="b-r">In method org.junit.rules.TemporaryFolder.create()</div>
+<div class="b-r">Called method java.io.File.mkdir()</div>
+<div class="b-r">At TemporaryFolder.java:[line 47]</div>
+<div class="b-d">exceptional return value of java.io.File.mkdir() ignored in org.junit.rules.TemporaryFolder.create()</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-f256ed437751392c1dec5898780ebe85-0">
+<div class="b-r">In class org.junit.rules.TemporaryFolder</div>
+<div class="b-r">In method org.junit.rules.TemporaryFolder.newFile(String)</div>
+<div class="b-r">Called method java.io.File.createNewFile()</div>
+<div class="b-r">At TemporaryFolder.java:[line 55]</div>
+<div class="b-d">exceptional return value of java.io.File.createNewFile() ignored in org.junit.rules.TemporaryFolder.newFile(String)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-90eb0feb71bae007de3c58000ab43b86-0">
+<div class="b-r">In class org.junit.rules.TemporaryFolder</div>
+<div class="b-r">In method org.junit.rules.TemporaryFolder.newFolder(String)</div>
+<div class="b-r">Called method java.io.File.mkdir()</div>
+<div class="b-r">At TemporaryFolder.java:[line 64]</div>
+<div class="b-d">exceptional return value of java.io.File.mkdir() ignored in org.junit.rules.TemporaryFolder.newFolder(String)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-4f0b869edbf4fcc1b26fdecd6620c619-0">
+<div class="b-r">In class org.junit.rules.TemporaryFolder</div>
+<div class="b-r">In method org.junit.rules.TemporaryFolder.recursiveDelete(File)</div>
+<div class="b-r">Called method java.io.File.delete()</div>
+<div class="b-r">At TemporaryFolder.java:[line 89]</div>
+<div class="b-d">exceptional return value of java.io.File.delete() ignored in org.junit.rules.TemporaryFolder.recursiveDelete(File)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-3b242346506747dc2a2bb9ead3b8a6bd-0">
+<div class="b-r">In class org.junit.runner.manipulation.Filter</div>
+<div class="b-r">Field org.junit.runner.manipulation.Filter.ALL</div>
+<div class="b-r">At Filter.java:[line 19]</div>
+<div class="b-d">org.junit.runner.manipulation.Filter.ALL isn't final but should be</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-46fef3de82fe473c73daef2ab52e6ada-0">
+<div class="b-r">In class org.junit.runner.manipulation.Sorter</div>
+<div class="b-r">Field org.junit.runner.manipulation.Sorter.NULL</div>
+<div class="b-r">At Sorter.java:[line 17]</div>
+<div class="b-d">org.junit.runner.manipulation.Sorter.NULL isn't final but should be</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-6fb67e19dc1634398b7ea9b3681e3e6f-0">
+<div class="b-r">In class org.junit.runners.BlockJUnit4ClassRunner</div>
+<div class="b-r">In method org.junit.runners.BlockJUnit4ClassRunner.withMethodRules(FrameworkMethod, Object, Statement)</div>
+<div class="b-r">Actual type org.junit.rules.MethodRule</div>
+<div class="b-r">Expected org.junit.rules.TestRule</div>
+<div class="b-r">Called method java.util.List.contains(Object)</div>
+<div class="b-r">Invoked on testRules</div>
+<div class="b-r">each passed as argument</div>
+<div class="b-r">Object.equals(Object) used to determine equality</div>
+<div class="b-r">At BlockJUnit4ClassRunner.java:[line 331]</div>
+<div class="b-d">org.junit.rules.MethodRule is incompatible with expected argument type org.junit.rules.TestRule in org.junit.runners.BlockJUnit4ClassRunner.withMethodRules(FrameworkMethod, Object, Statement)</div>
+</div>
+<div style="display:none;" class="bug" id="b-uid-31b3bd36d2e504fb863ef89cb43fd47c-0">
+<div class="b-r">In class org.junit.runners.model.MultipleFailureException</div>
+<div class="b-r">In method org.junit.runners.model.MultipleFailureException.getMessage()</div>
+<div class="b-r">Called method String.format(String, Object[])</div>
+<div class="b-r">Format string "\n  %s(%s)"</div>
+<div class="b-r">At MultipleFailureException.java:[line 30]</div>
+<div class="b-d">Format string should use %n rather than \n in org.junit.runners.model.MultipleFailureException.getMessage()</div>
+</div>
+</div>
+</body>
+</html>

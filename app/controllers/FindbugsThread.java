@@ -12,12 +12,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import models.Artifact;
 import models.Project;
 
 import org.bson.types.ObjectId;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import play.Logger;
 import plugins.FindbugsPlugin;
@@ -105,7 +113,99 @@ public class FindbugsThread implements Runnable {
 					System.out.println(e.getMessage());
 				}
 
-				System.out.println("Analyzing (Running find bugs) : " + a.id);
+				System.out.println("Analyzing (Running find bugs - Run 1) : "
+						+ a.id);
+
+				try {
+
+					String commandName = "findbugs.bat";
+
+					String os = System.getProperty("os.name").toLowerCase();
+
+					System.out.println(os);
+
+					if (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0
+							|| os.indexOf("mac") >= 0) {
+						commandName = "findbugs";
+					}
+
+					Process p = Runtime.getRuntime().exec(
+							"./findbugs-2.0.1/exec/" + commandName
+									+ " -textui -xml " + " -output "
+									+ a.id.toString() + "-" + a.artifactName
+									+ ".xml " + a.id.toString() + "-"
+									+ a.artifactName);
+					p.waitFor();
+					BufferedReader reader = new BufferedReader(
+							new InputStreamReader(p.getInputStream()));
+					String line = reader.readLine();
+					while (line != null) {
+						System.out.println(line);
+						line = reader.readLine();
+					}
+
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				} catch (InterruptedException e2) {
+					e2.printStackTrace();
+				}
+
+				System.out.println("Analyzing (Finding bug counts) : " + a.id);
+
+				try {
+					DocumentBuilderFactory dbf = DocumentBuilderFactory
+							.newInstance();
+					DocumentBuilder db = dbf.newDocumentBuilder();
+					Document dom = db.parse(a.id.toString() + "-"
+							+ a.artifactName + ".xml");
+
+					Element docEle = dom.getDocumentElement();
+
+					NodeList nl = docEle
+							.getElementsByTagName("FindBugsSummary");
+					if (nl != null && nl.getLength() > 0) {
+						Element el = (Element) nl.item(0);
+						String code_size = el.getAttribute("total_size");
+						if (code_size.equals(""))
+							code_size = "0";
+						String total = el.getAttribute("total_bugs");
+						if (total.equals(""))
+							total = "0";
+						String priority_1 = el.getAttribute("priority_1");
+						if (priority_1.equals(""))
+							priority_1 = "0";
+						String priority_2 = el.getAttribute("priority_2");
+						if (priority_2.equals(""))
+							priority_2 = "0";
+						String priority_3 = el.getAttribute("priority_3");
+						if (priority_3.equals(""))
+							priority_3 = "0";
+
+						System.out.println("Code Size : " + code_size);
+						System.out.println("Total bugs : " + total);
+						System.out.println("Priority 1 bugs : " + priority_1);
+						System.out.println("Priority 2 bugs : " + priority_2);
+						System.out.println("Priority 3 bugs : " + priority_3);
+
+						a.report.code_size = Integer.parseInt(code_size);
+						a.report.total = Integer.parseInt(total);
+						a.report.priority_1 = Integer.parseInt(priority_1);
+						a.report.priority_2 = Integer.parseInt(priority_2);
+						a.report.priority_3 = Integer.parseInt(priority_3);
+
+						MongoPlugin.ds.save(a);
+					}
+
+				} catch (ParserConfigurationException pce) {
+					pce.printStackTrace();
+				} catch (SAXException se) {
+					se.printStackTrace();
+				} catch (IOException ioe) {
+					ioe.printStackTrace();
+				}
+
+				System.out.println("Analyzing (Running find bugs - Run 2) : "
+						+ a.id);
 
 				try {
 

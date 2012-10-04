@@ -1,91 +1,147 @@
 function onLoad() {
 
-		$.ajax({
-			url : "/project/users?projectId=" + projectId
-		}).done(function (data) {
-			console.log("User List Response", data);
-			var Json = eval("(" + data + ")");
-			jQuery.each(Json.users, function() {
-				$('#peopleList').append('<p>' + this.emailId + "</p>");	
-			});
+	$.ajax({
+		url : "/project/users?projectId=" + projectId
+	}).done(function(data) {
+		console.log("User List Response", data);
+		var Json = eval("(" + data + ")");
+		jQuery.each(Json.users, function() {
+			$('#peopleList').append('<p>' + this.emailId + "</p>");
 		});
-		
-		$.ajax({
-			url : "/project/artifacts?projectId=" + projectId
-		}).done(function (data) {
-			console.log("Artifacts List Response", data);
-			var Json = eval("(" + data + ")");
-			jQuery.each(Json.artifacts, function() {
-				if(this.findBugsReport)
-				{
-					$('#artifactList').append('<p>'
-											+ this.artifactName
-											+ ' <a href="' + this.findBugsReport + '">' + 'Findbugs Report</a>' 
-											+ '</p>');
-				} else {
-					$('#artifactList').append('<p>'
-											+ this.artifactName
-											+ ' <i>Generating Findbugs Report</i>' 
-											+ '</p>');
-				}	
-			});
-		});
-		
-		$("#addUser").click(function() {
-			$.ajax({
-				url : "/project/users/add?projectId=" + projectId + "&emailId=" + $('#emailId').val() + "&message=test"
-			}).done(function (data) {
-				console.log("User Add Response", data);
-				$('#emailId').val("");
-				$('#peopleList').html("");
+	});
+
+	$.ajax({
+		url : "/project/artifacts?projectId=" + projectId
+	}).done(
+			function(data) {
+				console.log("Artifacts List Response", data);
 				var Json = eval("(" + data + ")");
-				jQuery.each(Json.users, function() {
-					$('#peopleList').append('<p>' + this.emailId + "</p>");	
+				jQuery.each(Json.artifacts, function() {
+					if (this.findBugsReport) {
+
+						risk = 0
+						score = 0
+
+						if (this.bugCounts.total > 0) {
+
+							score = (this.bugCounts.priority_1 * 20)
+									+ (this.bugCounts.priority_2 * 2)
+									+ (this.bugCounts.priority_3 * 1);
+
+							score = score / Math.ceil(this.bugCounts.code_size / 1000);
+
+							if (score < 20) {
+								risk = 1;
+							} else if (score < 100) {
+								risk = 2;
+							} else {
+								risk = 3;
+							}
+						}
+
+						$('#artifactList').append(
+								'<p>' + '<b>' + this.artifactName + '</b>'
+										+ ' Code Size : '
+										+ this.bugCounts.code_size + ' Bugs : '
+										+ this.bugCounts.total + ' ( P1='
+										+ this.bugCounts.priority_1 + ', P2='
+										+ this.bugCounts.priority_2 + ', P3='
+										+ this.bugCounts.priority_3 + ' )'
+										+ ' Risk : ' + risk + ' Score : ' + score
+										+ ' <a href="' + this.findBugsReport
+										+ '">' + 'Complete Findbugs Report</a>'
+										+ '</p>');
+					} else {
+						$('#artifactList').append(
+								'<p>' + this.artifactName
+										+ ' <i>Generating Findbugs Report</i>'
+										+ '</p>');
+					}
 				});
 			});
-		});
-}
 
-function startUpload(){
-    document.getElementById('f1_upload_process').style.visibility = 'visible';
-    return true;
-}
-
-function stopUpload(data){
-      /*var result = '';
-      if (success == 1){
-         document.getElementById('result').innerHTML =
-           '<span class="msg">The file was uploaded successfully!<\/span><br/><br/>';
-      }
-      else {
-         document.getElementById('result').innerHTML = 
-           '<span class="emsg">There was an error during file upload!<\/span><br/><br/>';
-      }*/
-     
-     $.ajax({
-			url : "/project/artifacts?projectId=" + projectId
-		}).done(function (data) {
-			console.log("Artifacts List Response", data);
-			$('#artifactList').html("");
-			document.getElementById('f1_upload_process').style.visibility = 'hidden';
-    		var Json = eval("(" + data + ")");
-			jQuery.each(Json.artifacts, function() {
-				if(this.findBugsReport)
-				{
-					$('#artifactList').append('<p>'
-											+ this.artifactName
-											+ ' <a href="' + this.findBugsReport + '">' + 'Findbugs Report</a>' 
-											+ '</p>');
-				} else {
-					$('#artifactList').append('<p>'
-											+ this.artifactName
-											+ ' <i>Generating Findbugs Report</i>' 
-											+ '</p>');
-				}	
+	$("#addUser").click(
+			function() {
+				$.ajax(
+						{
+							url : "/project/users/add?projectId=" + projectId
+									+ "&emailId=" + $('#emailId').val()
+									+ "&message=test"
+						}).done(function(data) {
+					console.log("User Add Response", data);
+					$('#emailId').val("");
+					$('#peopleList').html("");
+					var Json = eval("(" + data + ")");
+					jQuery.each(Json.users, function() {
+						$('#peopleList').append('<p>' + this.emailId + "</p>");
+					});
+				});
 			});
-		});
-    			
-    return true;   
+}
+
+function startUpload() {
+	document.getElementById('f1_upload_process').style.visibility = 'visible';
+	return true;
+}
+
+function stopUpload(data) {
+	/*
+	 * var result = ''; if (success == 1){
+	 * document.getElementById('result').innerHTML = '<span class="msg">The
+	 * file was uploaded successfully!<\/span><br/><br/>'; } else {
+	 * document.getElementById('result').innerHTML = '<span class="emsg">There
+	 * was an error during file upload!<\/span><br/><br/>'; }
+	 */
+
+	$
+			.ajax({
+				url : "/project/artifacts?projectId=" + projectId
+			})
+			.done(
+					function(data) {
+						console.log("Artifacts List Response", data);
+						$('#artifactList').html("");
+						document.getElementById('f1_upload_process').style.visibility = 'hidden';
+						var Json = eval("(" + data + ")");
+						jQuery
+								.each(
+										Json.artifacts,
+										function() {
+											if (this.findBugsReport) {
+												$('#artifactList')
+														.append(
+																'<p>'
+																		+ '<b>'
+																		+ this.artifactName
+																		+ '</b>'
+																		+ ' Code Size : '
+																		+ this.bugCounts.code_size
+																		+ ' Bugs : '
+																		+ this.bugCounts.total
+																		+ ' ( P1='
+																		+ this.bugCounts.priority_1
+																		+ ', P2='
+																		+ this.bugCounts.priority_2
+																		+ ', P3='
+																		+ this.bugCounts.priority_3
+																		+ ' )'
+																		+ ' <a href="'
+																		+ this.findBugsReport
+																		+ '">'
+																		+ 'Complete Findbugs Report</a>'
+																		+ '</p>');
+											} else {
+												$('#artifactList')
+														.append(
+																'<p>'
+																		+ this.artifactName
+																		+ ' <i>Generating Findbugs Report</i>'
+																		+ '</p>');
+											}
+										});
+					});
+
+	return true;
 }
 
 myPlayerArray = {};
