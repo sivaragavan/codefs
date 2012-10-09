@@ -1,7 +1,6 @@
 package controllers;
 
 import java.io.File;
-import java.util.List;
 
 import models.Artifact;
 import models.Project;
@@ -28,8 +27,6 @@ import views.html.emails.useradded;
 
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.typesafe.plugin.MailerAPI;
-import com.typesafe.plugin.MailerPlugin;
 
 public class Application extends Controller {
 
@@ -62,8 +59,7 @@ public class Application extends Controller {
 		MongoPlugin.ds.save(project);
 
 		Mailer.sendMail(CodeFSConstants.project_created,
-				projectcreated.render(project).toString(), "Project Created",
-				project.users);
+				projectcreated.render(project).toString(), "Project Created", u);
 
 		return ok(project.toString());
 	}
@@ -95,7 +91,7 @@ public class Application extends Controller {
 		MongoPlugin.ds.save(project);
 
 		Mailer.sendMail(CodeFSConstants.user_added, useradded
-				.render(project, u).toString(), "User Added", project.users);
+				.render(project, u).toString(), "User Added", u);
 
 		JSONObject response = new JSONObject();
 		response.put("users", new JSONArray(project.users.toString()));
@@ -150,9 +146,9 @@ public class Application extends Controller {
 
 		System.out.println("Responding to Add Artifact : " + a.id);
 
-		Mailer.sendMail(CodeFSConstants.artifact_added,
-				artifactadded.render(project, a).toString(), "Project Created",
-				project.users);
+		// Mailer.sendMail(CodeFSConstants.artifact_added,
+		// artifactadded.render(project, a).toString(), "Project Created",
+		// project.users);
 
 		return ok(upload.render());
 	}

@@ -6,7 +6,7 @@ function onLoad() {
 		}).done(function (data) {
 			console.log("Create Response", data);
 			var Json = eval("(" + data + ")");
-			window.location.href = "/dashboard?projectId=" + Json.id;
+			window.location.href = "/dashboard?projectId=" + Json.id + "&emailId=" + Json.emailId;
 		});
 	});
 }

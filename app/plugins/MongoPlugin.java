@@ -3,14 +3,12 @@ package plugins;
 import java.net.UnknownHostException;
 
 import models.Project;
-
 import play.Application;
 import play.Logger;
 import play.Plugin;
 
 import com.google.code.morphia.Datastore;
 import com.google.code.morphia.Morphia;
-import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.mongodb.MongoURI;

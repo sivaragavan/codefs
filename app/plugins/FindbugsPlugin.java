@@ -4,10 +4,11 @@ import io.iron.ironmq.Message;
 
 import java.io.IOException;
 
-import org.json.JSONObject;
-
 import models.Artifact;
 import models.Project;
+
+import org.json.JSONObject;
+
 import play.Application;
 import play.Logger;
 import play.Plugin;

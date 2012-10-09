@@ -32,13 +32,16 @@
 		<div id="peopleList"></div>
 		<br>
 		
-		<h3>Artifacts</h3>
+		Upload .jar/.class files to find bugs in them<br>
+		
 		<form action="/project/@project.id/artifacts/add" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
-		Only .jar/.class files allowed.<br>
 		<input type="file" name="file">
-		<input type="submit" value="Add Artifact"/>
+		<input type="submit" value="Find Bugs"/>
 		</form>
+		
 		<p id="f1_upload_process">Uploading File...</p>
+		
+		<h3>Previous Reports</h3>
 		<div id="artifactList"></div>
 		<br>
 

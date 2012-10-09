@@ -5,7 +5,6 @@ import io.iron.ironmq.Queue;
 import play.Application;
 import play.Logger;
 import play.Plugin;
-import controllers.FindbugsThread;
 
 public class IronMQPlugin extends Plugin {
 
@@ -35,8 +34,9 @@ public class IronMQPlugin extends Plugin {
 	public boolean enabled() {
 		return (application.configuration().keys().contains(IRON_MQ_PROJECT_ID));
 	}
-	
+
 	public static final String FINDBUGS_QUEUE_NAME = "findbugs.queue";
+
 	public static Queue getFindbugsQueue() {
 		return client.queue(FINDBUGS_QUEUE_NAME);
 	}

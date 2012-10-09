@@ -28,4 +28,15 @@ public class Mailer {
 		mail.addFrom("CodeFS Notification <codefs.noreply@gmail.com>");
 		mail.send(text, html);
 	}
+	
+	public static void sendMail(String subject, String html, String text,
+			User user) {
+		MailerAPI mail = play.Play.application().plugin(MailerPlugin.class)
+				.email();
+		mail.setSubject(subject);
+		
+		mail.addRecipient(user.emailId);
+		mail.addFrom("CodeFS Notification <codefs.noreply@gmail.com>");
+		mail.send(text, html);
+	}
 }
